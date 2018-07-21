@@ -1,0 +1,58 @@
+{
+    "name": "pip-services-rpc-node",
+    "version": "3.0.0",
+    "author": "Conceptual Vision Consulting LLC",
+    "description": "Remote procedure calls for Pip.Services in Node.js",
+    "contributors": [
+        {
+            "name": "Sergey Seroukhov",
+            "email": "seroukhov@gmail.com"
+        },
+        {
+            "name": "Volodymyr Tkachenko",
+            "email": "vovantigo@gmail.com"
+        }
+    ],
+    "main": "./obj/src/index.js",
+    "typings": "./obj/src/index.d.ts",
+    "keywords": [
+        "pip.services",
+        "microservice",
+        "communication",
+        "rpc",
+        "rest",
+        "library"
+    ],
+    "noAnalyze": true,
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:pip-services-node/pip-services-rpc-node.git"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=0.6.14"
+    },
+    "private": false,
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "test": "mocha -t 10000 -R spec -u tdd --recursive ./obj/test",
+        "retest": "tsc && mocha -t 10000 -R spec -u tdd --recursive ./obj/test",
+        "docgen": "typedoc --out doc/api src --mode file --excludeExternals --target ES6 --ignoreCompilerErrors"
+    },
+    "dependencies": {
+        "pip-services-commons-node": "^3.0.0",
+        "pip-services-components-node": "^3.0.0",
+        "querystring": "^0.2.0",
+        "restify": "^4.3.0"
+    },
+    "devDependencies": {
+        "@types/node": "*",
+        "@types/lodash": "^4.0.0",
+        "@types/async": "^2.0.0",
+        "@types/mocha": "*",
+        "@types/chai": "*",
+        "mocha": "^2.2.0",
+        "chai": "^3.5.0"
+    }
+}

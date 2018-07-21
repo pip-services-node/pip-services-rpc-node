@@ -1,0 +1,38 @@
+import { IOpenable, IUnreferenceable } from 'pip-services-commons-node';
+import { IConfigurable } from 'pip-services-commons-node';
+import { IReferenceable } from 'pip-services-commons-node';
+import { IReferences } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services-commons-node';
+import { DependencyResolver } from 'pip-services-commons-node';
+import { CompositeLogger } from 'pip-services-components-node';
+import { CompositeCounters } from 'pip-services-components-node';
+import { Timing } from 'pip-services-components-node';
+import { Schema } from 'pip-services-commons-node';
+import { HttpEndpoint } from './HttpEndpoint';
+import { IRegisterable } from './IRegisterable';
+export declare abstract class RestService implements IOpenable, IConfigurable, IReferenceable, IUnreferenceable, IRegisterable {
+    private static readonly _defaultConfig;
+    private _config;
+    private _references;
+    private _localEndpoint;
+    private _opened;
+    protected _baseRoute: string;
+    protected _endpoint: HttpEndpoint;
+    protected _dependencyResolver: DependencyResolver;
+    protected _logger: CompositeLogger;
+    protected _counters: CompositeCounters;
+    configure(config: ConfigParams): void;
+    setReferences(references: IReferences): void;
+    unsetReferences(): void;
+    private createEndpoint;
+    protected instrument(correlationId: string, name: string): Timing;
+    isOpened(): boolean;
+    open(correlationId: string, callback?: (err: any) => void): void;
+    close(correlationId: string, callback?: (err: any) => void): void;
+    protected sendResult(req: any, res: any): (err: any, result: any) => void;
+    protected sendCreatedResult(req: any, res: any): (err: any, result: any) => void;
+    protected sendDeletedResult(req: any, res: any): (err: any, result: any) => void;
+    protected sendError(req: any, res: any, error: any): void;
+    protected registerRoute(method: string, route: string, schema: Schema, action: (req: any, res: any) => void): void;
+    register(): void;
+}
