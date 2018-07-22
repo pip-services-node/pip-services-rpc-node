@@ -1,5 +1,4 @@
 export * from './connect';
-export * from './rest';
-export * from './direct';
+export * from './clients';
+export * from './services';
 export * from './build';
-export * from './status';

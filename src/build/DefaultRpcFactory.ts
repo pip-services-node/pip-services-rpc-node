@@ -1,9 +1,9 @@
 import { Factory } from 'pip-services-components-node';
 import { Descriptor } from 'pip-services-commons-node';
 
-import { HttpEndpoint } from '../rest/HttpEndpoint';
-import { HeartbeatRestService } from '../status/HeartbeatRestService';
-import { StatusRestService } from '../status/StatusRestService';
+import { HttpEndpoint } from '../services/HttpEndpoint';
+import { HeartbeatRestService } from '../services/HeartbeatRestService';
+import { StatusRestService } from '../services/StatusRestService';
 
 export class DefaultRpcFactory extends Factory {
 	public static readonly Descriptor: Descriptor = new Descriptor("pip-services", "factory", "net", "default", "1.0");

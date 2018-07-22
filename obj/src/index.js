@@ -4,8 +4,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./connect"));
-__export(require("./rest"));
-__export(require("./direct"));
+__export(require("./clients"));
+__export(require("./services"));
 __export(require("./build"));
-__export(require("./status"));
 //# sourceMappingURL=index.js.map

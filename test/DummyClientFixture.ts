@@ -4,7 +4,6 @@ let async = require('async');
 import { FilterParams } from 'pip-services-commons-node';
 import { PagingParams } from 'pip-services-commons-node';
 
-import { Dummy } from './Dummy';
 import { IDummyClient } from './IDummyClient';
 
 export class DummyClientFixture {

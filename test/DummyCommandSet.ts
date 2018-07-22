@@ -5,8 +5,6 @@ import { Parameters } from 'pip-services-commons-node';
 import { FilterParams } from 'pip-services-commons-node';
 import { PagingParams } from 'pip-services-commons-node';
 import { ObjectSchema } from 'pip-services-commons-node';
-import { Schema} from 'pip-services-commons-node';
-import { MapSchema } from 'pip-services-commons-node';
 import { TypeCode } from 'pip-services-commons-node';
 import { FilterParamsSchema } from 'pip-services-commons-node';
 import { PagingParamsSchema } from 'pip-services-commons-node';

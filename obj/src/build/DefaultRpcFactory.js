@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const pip_services_components_node_1 = require("pip-services-components-node");
 const pip_services_commons_node_1 = require("pip-services-commons-node");
-const HttpEndpoint_1 = require("../rest/HttpEndpoint");
-const HeartbeatRestService_1 = require("../status/HeartbeatRestService");
-const StatusRestService_1 = require("../status/StatusRestService");
+const HttpEndpoint_1 = require("../services/HttpEndpoint");
+const HeartbeatRestService_1 = require("../services/HeartbeatRestService");
+const StatusRestService_1 = require("../services/StatusRestService");
 class DefaultRpcFactory extends pip_services_components_node_1.Factory {
     constructor() {
         super();

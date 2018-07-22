@@ -1,4 +1,4 @@
-# Communication components for Pip.Services in Node.js Changelog
+# Remote Procedure Calls for Pip.Services in Node.js Changelog
 
 ## <a name="2.9.0"></a> 2.9.0 (2018-04-05)
 

@@ -1,4 +1,3 @@
-let async = require('async');
 let url = require('url');
 
 import { IReferenceable } from 'pip-services-commons-node';

@@ -1,0 +1,34 @@
+import { IOpenable } from 'pip-services-commons-node';
+import { IConfigurable } from 'pip-services-commons-node';
+import { IReferenceable } from 'pip-services-commons-node';
+import { IReferences } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services-commons-node';
+import { CompositeLogger } from 'pip-services-components-node';
+import { CompositeCounters } from 'pip-services-components-node';
+import { Timing } from 'pip-services-components-node';
+import { HttpConnectionResolver } from '../connect/HttpConnectionResolver';
+export declare abstract class RestClient implements IOpenable, IConfigurable, IReferenceable {
+    private static readonly _defaultConfig;
+    protected _client: any;
+    protected _connectionResolver: HttpConnectionResolver;
+    protected _logger: CompositeLogger;
+    protected _counters: CompositeCounters;
+    protected _options: ConfigParams;
+    protected _baseRoute: string;
+    protected _retries: number;
+    protected _headers: any;
+    protected _connectTimeout: number;
+    protected _timeout: number;
+    protected _uri: string;
+    setReferences(references: IReferences): void;
+    configure(config: ConfigParams): void;
+    protected instrument(correlationId: string, name: string): Timing;
+    isOpened(): boolean;
+    open(correlationId: string, callback?: (err: any) => void): void;
+    close(correlationId: string, callback?: (err: any) => void): void;
+    protected addCorrelationId(params: any, correlationId: string): any;
+    protected addFilterParams(params: any, filter: any): void;
+    protected addPagingParams(params: any, paging: any): void;
+    private createRequestRoute;
+    protected call(method: string, route: string, correlationId?: string, params?: any, data?: any, callback?: (err: any, result: any) => void): void;
+}

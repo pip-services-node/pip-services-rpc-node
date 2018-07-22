@@ -1,1 +1,0 @@
-export { DirectClient } from './DirectClient';
