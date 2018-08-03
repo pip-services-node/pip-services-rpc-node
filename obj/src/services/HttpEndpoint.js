@@ -23,11 +23,11 @@ class HttpEndpoint {
         this._counters.setReferences(references);
         this._connectionResolver.setReferences(references);
     }
-    isOpened() {
+    isOpen() {
         return this._server != null;
     }
     open(correlationId, callback) {
-        if (this.isOpened()) {
+        if (this.isOpen()) {
             callback(null);
             return;
         }

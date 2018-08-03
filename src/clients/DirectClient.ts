@@ -36,7 +36,7 @@ export abstract class DirectClient<T> implements IConfigurable, IReferenceable, 
 		return this._counters.beginTiming(name + ".call_time");
 	}
 
-	public isOpened(): boolean {
+	public isOpen(): boolean {
         return this._opened;
     }
 	

@@ -15,7 +15,7 @@ export declare class HttpEndpoint implements IOpenable, IConfigurable, IReferenc
     private _registrations;
     configure(config: ConfigParams): void;
     setReferences(references: IReferences): void;
-    isOpened(): boolean;
+    isOpen(): boolean;
     open(correlationId: string, callback?: (err: any) => void): void;
     close(correlationId: string, callback?: (err: any) => void): void;
     register(registration: IRegisterable): void;

@@ -57,7 +57,7 @@ class RestService {
         this._logger.trace(correlationId, "Executing %s method", name);
         return this._counters.beginTiming(name + ".exec_time");
     }
-    isOpened() {
+    isOpen() {
         return this._opened;
     }
     open(correlationId, callback) {

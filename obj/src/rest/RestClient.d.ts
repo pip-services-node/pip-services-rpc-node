@@ -23,7 +23,7 @@ export declare abstract class RestClient implements IOpenable, IConfigurable, IR
     setReferences(references: IReferences): void;
     configure(config: ConfigParams): void;
     protected instrument(correlationId: string, name: string): Timing;
-    isOpened(): boolean;
+    isOpen(): boolean;
     open(correlationId: string, callback?: (err: any) => void): void;
     close(correlationId: string, callback?: (err: any) => void): void;
     protected addCorrelationId(params: any, correlationId: string): any;

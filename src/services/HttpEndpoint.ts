@@ -45,12 +45,12 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 		this._connectionResolver.setReferences(references);
 	}
 
-	public isOpened(): boolean {
+	public isOpen(): boolean {
 		return this._server != null;
 	}
 	
 	public open(correlationId: string, callback?: (err: any) => void): void {
-    	if (this.isOpened()) {
+    	if (this.isOpen()) {
             callback(null);
             return;
         }

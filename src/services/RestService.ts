@@ -88,7 +88,7 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
 		return this._counters.beginTiming(name + ".exec_time");
 	}
 
-	public isOpened(): boolean {
+	public isOpen(): boolean {
 		return this._opened;
 	}
 	

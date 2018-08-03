@@ -26,7 +26,7 @@ export declare abstract class RestService implements IOpenable, IConfigurable, I
     unsetReferences(): void;
     private createEndpoint;
     protected instrument(correlationId: string, name: string): Timing;
-    isOpened(): boolean;
+    isOpen(): boolean;
     open(correlationId: string, callback?: (err: any) => void): void;
     close(correlationId: string, callback?: (err: any) => void): void;
     protected sendResult(req: any, res: any): (err: any, result: any) => void;

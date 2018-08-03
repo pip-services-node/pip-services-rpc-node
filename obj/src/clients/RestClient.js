@@ -38,11 +38,11 @@ class RestClient {
         this._logger.trace(correlationId, "Executing %s method", name);
         return this._counters.beginTiming(name + ".call_time");
     }
-    isOpened() {
+    isOpen() {
         return this._client != null;
     }
     open(correlationId, callback) {
-        if (this.isOpened()) {
+        if (this.isOpen()) {
             if (callback)
                 callback(null);
             return;

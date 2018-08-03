@@ -17,7 +17,7 @@ export declare abstract class DirectClient<T> implements IConfigurable, IReferen
     configure(config: ConfigParams): void;
     setReferences(references: IReferences): void;
     protected instrument(correlationId: string, name: string): Timing;
-    isOpened(): boolean;
+    isOpen(): boolean;
     open(correlationId: string, callback?: (err: any) => void): void;
     close(correlationId: string, callback?: (err: any) => void): void;
 }

@@ -25,7 +25,7 @@ class DirectClient {
         this._logger.trace(correlationId, "Executing %s method", name);
         return this._counters.beginTiming(name + ".call_time");
     }
-    isOpened() {
+    isOpen() {
         return this._opened;
     }
     open(correlationId, callback) {

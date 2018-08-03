@@ -65,12 +65,12 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
 		return this._counters.beginTiming(name + ".call_time");
 	}
 
-	public isOpened(): boolean {
+	public isOpen(): boolean {
 		return this._client != null;
 	}
 	
 	public open(correlationId: string, callback?: (err: any) => void): void {
-        if (this.isOpened()) {
+        if (this.isOpen()) {
             if (callback) callback(null);
             return;
         }
