@@ -1,3 +1,4 @@
+/** @module services */
 import { RestService } from './RestService';
 import { ConfigParams } from 'pip-services-commons-node';
 

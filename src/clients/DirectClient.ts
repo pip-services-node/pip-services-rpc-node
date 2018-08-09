@@ -1,3 +1,4 @@
+/** @module clients */
 import { IOpenable } from 'pip-services-commons-node';
 import { IConfigurable } from 'pip-services-commons-node';
 import { IReferenceable } from 'pip-services-commons-node';

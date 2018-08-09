@@ -1,3 +1,5 @@
+/** @module services */
+/** @hidden */
 let _ = require('lodash');
 
 import { IOpenable, IUnreferenceable, InvalidStateException } from 'pip-services-commons-node';

@@ -1,3 +1,4 @@
+/** @module services */
 import { ContextInfo } from 'pip-services-components-node';
 import { Descriptor } from 'pip-services-commons-node';
 import { IReferences } from 'pip-services-commons-node';

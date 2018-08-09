@@ -1,3 +1,4 @@
+/** @module services */
 export class HttpRequestDetector {
 
     public static detectPlatform(req: any): string {

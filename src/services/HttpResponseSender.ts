@@ -1,3 +1,5 @@
+/** @module services */
+/** @hidden */
 let _ = require('lodash');
 
 import { ApplicationException } from 'pip-services-commons-node';

@@ -1,3 +1,4 @@
+/** @module clients */
 import { RestClient } from './RestClient';
 
 export class CommandableHttpClient extends RestClient {

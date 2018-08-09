@@ -1,4 +1,7 @@
+/** @module clients */
+/** @hidden */
 let _ = require('lodash');
+/** @hidden */
 let querystring = require('querystring');
 
 import { IOpenable } from 'pip-services-commons-node';

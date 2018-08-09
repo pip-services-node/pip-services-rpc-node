@@ -1,3 +1,5 @@
+/** @module connect */
+/** @hidden */
 let url = require('url');
 
 import { IReferenceable } from 'pip-services-commons-node';
