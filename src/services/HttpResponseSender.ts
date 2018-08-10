@@ -4,8 +4,17 @@ let _ = require('lodash');
 
 import { ApplicationException } from 'pip-services-commons-node';
 
+/**
+ * Class that contains static methods for sending various HTTP responses.
+ */
 export class HttpResponseSender {
-    
+    /**
+     * Sends an HTTP error response.
+     * 
+     * @param req       the request.
+     * @param res       the request's result.
+     * @param error     the error that was raised.
+     */
     public static sendError(req: any, res: any, error: any): void {
         error = error || {};
         error = ApplicationException.unwrapError(error);
@@ -17,6 +26,12 @@ export class HttpResponseSender {
         res.json(result);
     }
 
+    /**
+     * Sends the result of the given request.
+     * 
+     * @param req       the request.
+     * @param res       the request's result.
+     */
     public static sendResult(req: any, res: any): (err: any, result: any) => void {
         return function (err, result) {
             if (err) {
@@ -28,6 +43,13 @@ export class HttpResponseSender {
         }
     }
 
+    /**
+     * Sends an empty result (204 no content status) in response to 
+     * the given request.
+     * 
+     * @param req       the request.
+     * @param res       the request's result.
+     */
     public static sendEmptyResult(req: any, res: any): (err: any) => void {
         return function (err) {
             if (err) {
@@ -38,6 +60,13 @@ export class HttpResponseSender {
         }
     }
 
+    //TODO: is this right?
+    /**
+     * Sends a response, indicating that the result was created.
+     * 
+     * @param req       the request.
+     * @param res       the request's result.
+     */
     public static sendCreatedResult(req: any, res: any): (err: any, result: any) => void {
         return function (err, result) {
             if (err) {
@@ -52,6 +81,13 @@ export class HttpResponseSender {
         }
     }
 
+    //TODO: is this right?
+    /**
+     * Sends a response, indicating that the result was deleted.
+     * 
+     * @param req       the request.
+     * @param res       the request's result.
+     */
     public static sendDeletedResult(req: any, res: any): (err: any, result: any) => void {
         return function (err, result) {
             if (err) {

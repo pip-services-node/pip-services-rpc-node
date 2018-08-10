@@ -67,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class for HTTP endpoints.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -115,16 +122,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L121">services/HttpEndpoint.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L159">services/HttpEndpoint.ts:159</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Closes this endpoint and the REST server (service) that was opened earlier.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) the function to call once the closing process is complete.
+										Will be called with an error if one is raised.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -159,13 +178,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L39">services/HttpEndpoint.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L50">services/HttpEndpoint.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Configures this HttpEndpoint by searching for and setting the connection resolver&#39;s
+									connections (&quot;connection(s)&quot; section);</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html" class="external">ConfigParams</a> (in the PipServices &quot;Commons&quot; package)</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <span class="tsd-signature-type">ConfigParams</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>configuration parameters, containing a &quot;connection(s)&quot; section.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -182,10 +215,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L50">services/HttpEndpoint.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L72">services/HttpEndpoint.ts:72</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>whether or not this endpoint is open with an actively listening REST server.</p>
 						</li>
 					</ul>
 				</section>
@@ -199,16 +235,29 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L54">services/HttpEndpoint.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L85">services/HttpEndpoint.ts:85</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Opens a connection using the parameters resolved by the referenced connection
+									resolver and creates a REST server (service) using the set options and parameters.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) the function to call once the opening process is complete.
+										Will be called with an error if one is raised.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -243,13 +292,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L138">services/HttpEndpoint.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L184">services/HttpEndpoint.ts:184</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers a registerable object in this endpoint.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../interfaces/services.iregisterable.html">IRegisterable</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>registration: <a href="../interfaces/services.iregisterable.html" class="tsd-signature-type">IRegisterable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the registration to add.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -266,22 +328,39 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L152">services/HttpEndpoint.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L215">services/HttpEndpoint.ts:215</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers an action in this objects REST server (service) by the given method and route.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>method: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the HTTP method of the route.</p>
+									</div>
 								</li>
 								<li>
 									<h5>route: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the route to register in this object&#39;s REST server (service).</p>
+									</div>
 								</li>
 								<li>
 									<h5>schema: <span class="tsd-signature-type">Schema</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the schema to use for parameter validation.</p>
+									</div>
 								</li>
 								<li>
 									<h5>action: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the action to perform at the given route.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -319,13 +398,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L44">services/HttpEndpoint.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L63">services/HttpEndpoint.ts:63</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets references to this endpoint&#39;s logger, counters and connection resolver.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html" class="external">IReferences</a> (in the PipServices &quot;Commons&quot; package)</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an IReferences object, containing references for a &quot;logger&quot;,
+										&quot;counters&quot;, and a &quot;discovery&quot; service.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -342,13 +435,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HttpEndpoint.ts#L142">services/HttpEndpoint.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L196">services/HttpEndpoint.ts:196</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unregisters a registerable object from this endpoint.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../interfaces/services.iregisterable.html">IRegisterable</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>registration: <a href="../interfaces/services.iregisterable.html" class="tsd-signature-type">IRegisterable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the registration to remove.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

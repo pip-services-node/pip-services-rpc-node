@@ -143,7 +143,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HeartbeatRestService.ts#L6">services/HeartbeatRestService.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HeartbeatRestService.ts#L6">services/HeartbeatRestService.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="services.heartbeatrestservice.html" class="tsd-signature-type">HeartbeatRestService</a></h4>
@@ -160,7 +160,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_baseroute">_baseRoute</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L33">services/RestService.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L36">services/RestService.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,7 +171,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_counters">_counters</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L37">services/RestService.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L40">services/RestService.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -182,7 +182,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_dependencyresolver">_dependencyResolver</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L35">services/RestService.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L38">services/RestService.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +193,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_endpoint">_endpoint</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L34">services/RestService.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L37">services/RestService.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +204,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_logger">_logger</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L36">services/RestService.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L39">services/RestService.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -222,16 +222,28 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L120">services/RestService.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L181">services/RestService.ts:181</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Closes this service by closing its HTTP endpoint (if the endpoint is a local endpoint).</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) the function to call once disconnected from the MongoDB server.
+										Will be called with an error if one is raised.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -267,7 +279,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HeartbeatRestService.ts#L12">services/HeartbeatRestService.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HeartbeatRestService.ts#L12">services/HeartbeatRestService.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -291,16 +303,33 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#instrument">instrument</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L88">services/RestService.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L125">services/RestService.ts:125</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Starts a Timing for the method with the given name. Does not call the method itself and is
+									used only as an instrument to measure execution time.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.timing.html" class="external">Timing</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the method call that is to be timed.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Timing</span></h4>
@@ -318,10 +347,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#isopen">isOpen</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L93">services/RestService.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L133">services/RestService.ts:133</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>whether or not this service is currently open.</p>
 						</li>
 					</ul>
 				</section>
@@ -336,16 +368,41 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#open">open</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L97">services/RestService.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L150">services/RestService.ts:150</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Opens this service by making sure that an HTTP endpoint is set. If one was not referenced earlier,
+										a local endpoint will be created using the configuration parameters and references that were passed
+									to this object&#39;s <a href="services.heartbeatrestservice.html#configure">configure</a> and <a href="services.heartbeatrestservice.html#setreferences">setReferences</a> methods.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="services.httpendpoint.html">HttpEndpoint</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="services.heartbeatrestservice.html#configure">configure</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="services.heartbeatrestservice.html#setreferences">setReferences</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) the function to call once the connection has been opened.
+										Will be called with an error, if one is raised.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -382,7 +439,7 @@
 								<p>Implementation of <a href="../interfaces/services.iregisterable.html">IRegisterable</a>.<a href="../interfaces/services.iregisterable.html#register">register</a></p>
 								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#register">register</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/HeartbeatRestService.ts#L18">services/HeartbeatRestService.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HeartbeatRestService.ts#L18">services/HeartbeatRestService.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -400,22 +457,40 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#registerroute">registerRoute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L158">services/RestService.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L256">services/RestService.ts:256</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers an action in this objects REST server (service) by the given method and route.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>method: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the HTTP method of the route.</p>
+									</div>
 								</li>
 								<li>
 									<h5>route: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the route to register in this object&#39;s REST server (service). If a
+										base</p>
+									</div>
 								</li>
 								<li>
 									<h5>schema: <span class="tsd-signature-type">Schema</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the schema to use for parameter validation.</p>
+									</div>
 								</li>
 								<li>
 									<h5>action: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the action to perform at the given route.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -454,16 +529,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendcreatedresult">sendCreatedResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L146">services/RestService.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L220">services/RestService.ts:220</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a response, indicating that the result was created.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -502,16 +588,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senddeletedresult">sendDeletedResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L150">services/RestService.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L231">services/RestService.ts:231</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a response, indicating that the result was deleted.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -550,19 +647,33 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senderror">sendError</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L154">services/RestService.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L242">services/RestService.ts:242</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends an HTTP error response.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 								<li>
 									<h5>error: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the error that was raised.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -580,16 +691,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendresult">sendResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L142">services/RestService.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L209">services/RestService.ts:209</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends the result of the given request.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -628,13 +750,29 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L48">services/RestService.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L71">services/RestService.ts:71</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets references to this service&#39;s logger, counters, dependency resolver, and HTTP endpoint.
+									Additionally stores the given references to pass them later on to newly created HTTP endpoints.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html" class="external">IReferences</a> (in the PipServices &quot;Commons&quot; package)</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an IReferences object, containing references for a &quot;logger&quot;, &quot;counters&quot;,
+											an &quot;endpoint&quot;, and the references to set for the dependency resolver and
+										newly created endpoints.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -652,9 +790,15 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#unsetreferences">unsetReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/745f81a/src/services/RestService.ts#L68">services/RestService.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/RestService.ts#L96">services/RestService.ts:96</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove the endpoint that this object references and revokes the
+									registration callback from endpoint.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
