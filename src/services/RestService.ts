@@ -88,10 +88,11 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
         this._endpoint.register(this);
     }
     
-    //TODO: registrations...
     /**
-     * Remove the endpoint that this object references and revokes the 
-     * registration callback from endpoint.
+     * Remove the endpoint that this object references and removes 
+     * the registration callback from the endpoint.
+     * 
+     * Needed when using a dynamic endpoint discovery service.
      */
     public unsetReferences(): void {
         // Remove registration callback from endpoint
@@ -170,7 +171,7 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
         }
     }
 
-    //TODO: callback is optional, but error is not thrown...
+    //TODO (note for Sergey): callback is optional, but error is not thrown...
     /**
      * Closes this service by closing its HTTP endpoint (if the endpoint is a local endpoint).
      * 
@@ -210,9 +211,9 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
         return HttpResponseSender.sendResult(req, res);
     }
 
-    //TODO: is this right?
     /**
-     * Sends a response, indicating that the result was created.
+     * Sends a response, indicating that the request has been fulfilled, resulting in 
+     * the creation of a new resource (HTTP result code 201 - Created).
      * 
      * @param req       the request.
      * @param res       the request's result.
@@ -221,9 +222,10 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
         return HttpResponseSender.sendCreatedResult(req, res);
     }
 
-    //TODO: is this right?
+    //TODO (note for Sergey): didn't find any mention of a 2xx HTTP code for deletion...
     /**
-     * Sends a response, indicating that the result was deleted.
+     * Sends a response, indicating that the request has been fulfilled, resulting in 
+     * the deletion of a resource
      * 
      * @param req       the request.
      * @param res       the request's result.
@@ -243,7 +245,6 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
         HttpResponseSender.sendError(req, res, error);
     }
 
-    //TODO: not sure about "action to perform".
     /**
      * Registers an action in this objects REST server (service) by the given method and route.
      * 

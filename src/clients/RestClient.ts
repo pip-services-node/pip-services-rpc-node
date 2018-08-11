@@ -18,7 +18,7 @@ import { UnknownException } from 'pip-services-commons-node';
 
 import { HttpConnectionResolver } from '../connect/HttpConnectionResolver';
 
-//TODO: did I use REST API correctly (above protected methods)?
+//TODO: did I use "REST API" appropriately (above protected methods)?
 /**
  * Abstract class that can be used for creating RESTful clients. REST clients are typically used when 
  * there exists a necessity to call services that are written in various diffent langauges. Since direct 
@@ -28,8 +28,31 @@ import { HttpConnectionResolver } from '../connect/HttpConnectionResolver';
  * Performance counters and a logger can be referenced from a REST client for added functionality. 
  * A "counters" reference must be set to use the [[instrument]] method, which times method execution.
  * 
- * A REST client's references can be set using the [[setReferences]] method, which searchs for and
- * sets references to "logger", "counters", and "discovery" components.
+ * 
+ * ### Configuration parameters ###
+ * 
+ * Parameters to pass to the [[configure]] method for component configuration:
+ * 
+ * - "base_route" - the base route;
+ * - __connection(s)__ - the connection resolver's connections;
+ *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+ *     - "connection.protocol" - the connection's protocol;
+ *     - "connection.host" - the target host;
+ *     - "connection.port" - the target port;
+ *     - "connection.uri" - the target URI.
+ * - __options__
+ *     - "options.retries" - the retry limit (default is 3);
+ *     - "options.connect_timeout" - the connection attempt's timeout (default is 10000);
+ *     - "options.timeout" - the connection's timeout (default is 10000).
+ * 
+ * ### References ###
+ * 
+ * A logger, counters, and a connection resolver can be referenced by passing the 
+ * following references to the object's [[setReferences]] method:
+ * 
+ * - logger: <code>"\*:logger:\*:\*:1.0"</code>
+ * - counters: <code>"\*:counters:\*:\*:1.0"</code>
+ * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
  * 
  * @see [[CommandableHttpService]]
  */
@@ -83,9 +106,15 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
 	protected _uri: string;
 
     /**
-     * Sets references to this REST client's logger, counters, and the connection resolver.
+     * Sets references to this REST client's logger, counters, and connection resolver.
      * 
-     * @param references    an IReferences object, containing references to a "logger", "counters", and a "discovery".
+     * __References:__
+     * - logger: <code>"\*:logger:\*:\*:1.0"</code>
+     * - counters: <code>"\*:counters:\*:\*:1.0"</code>
+     * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
+     * 
+     * @param references    an IReferences object, containing references to a logger, counters, 
+     *                      and a connection resolver.
      * 
      * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
      */
@@ -97,13 +126,20 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
 
     //TODO: did I miss any defaults?
     /**
-     * Configures this REST client by searching for and setting:
-     * - the connection resolver's connections ("connection(s)" section);
-     * - the base route ("base_route" parameter);
-     * - this client's options ("options" section):
-     *     - "retries" (default is 3);
-     *     - "connect_timeout" (default is 10000);
-     *     - "timeout" (default is 10000).
+     * Configures this REST client using the given configuration parameters.
+     * 
+     * __Configuration parameters:__
+     * - "base_route" - the base route;
+     * - __connection(s)__ - the connection resolver's connections;
+     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+     *     - "connection.protocol" - the connection's protocol;
+     *     - "connection.host" - the target host;
+     *     - "connection.port" - the target port;
+     *     - "connection.uri" - the target URI.
+     * - __options__
+     *     - "options.retries" - the retry limit (default is 3);
+     *     - "options.connect_timeout" - the connection attempt's timeout (default is 10000);
+     *     - "options.timeout" - the connection's timeout (default is 10000).
      * 
      * @param config    the configuration parameters to configure this REST client with.
      * 
@@ -232,13 +268,13 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
         return params;
     }
 
-    //TODO: don't seem to be FilterParam objects...
     /**
      * Adds filter parameters to a method call's parameters before sending them to 
      * another service over the REST API.
      * 
      * @param params        the method call parameters to add a correlation id to.
-     * @param filter        unique business transaction id to trace calls across components.
+     * @param filter        the object, whose properties are to be added to the 
+     *                      method call parameters for filtering results.
      * @returns parameters with added filter parameters.
      */
     protected addFilterParams(params: any, filter: any): void {
@@ -254,13 +290,13 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
         return params;
     }
 
-    //TODO: don't seem to be PagingParams objects...
     /**
      * Adds paging parameters to a method call's parameters before sending them to 
      * another service over the REST API.
      * 
      * @param params        the method call parameters to add a correlation id to.
-     * @param filter        unique business transaction id to trace calls across components.
+     * @param paging        paging parameters, containing "total", "skip", and/or 
+     *                      "take" properties.
      * @returns parameters with added paging parameters.
      */
     protected addPagingParams(params: any, paging: any): void {

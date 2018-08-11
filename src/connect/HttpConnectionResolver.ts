@@ -13,10 +13,23 @@ import { ConfigException } from 'pip-services-commons-node';
 /**
  * Helper class that resolves connection parameters for HTTP connections.
  * 
- * HttpConnectionResolvers can be configured using the [[configure]] method, which searches for 
- * and sets the connection resolver's connections ("connection(s)" section).
+ * ### Configuration parameters ###
  * 
- * The connection resolver that is to be used can be set using the [[setReferences]] method.
+ * Parameters to pass to the [[configure]] method for component configuration:
+ * 
+ * - __connection(s)__ - the connection resolver's connections;
+ *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+ *     - "connection.protocol" - the connection's protocol;
+ *     - "connection.host" - the target host;
+ *     - "connection.port" - the target port;
+ *     - "connection.uri" - the target URI.
+ * 
+ * ### References ###
+ * 
+ * A a connection resolver can be referenced by passing the 
+ * following reference to the object's [[setReferences]] method:
+ * 
+ * - discovery: <code>"\*:discovery:\*:\*:1.0"</code>
  * 
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]] (in the PipServices "Components" package)
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionresolver.html ConnectionResolver]] (in the PipServices "Components" package)
@@ -29,9 +42,13 @@ export class HttpConnectionResolver implements IReferenceable, IConfigurable {
     protected _connectionResolver: ConnectionResolver = new ConnectionResolver();
 
     /**
-     * Sets a reference to the connection resolver's discovery service ("discovery").
+     * Sets a reference to the connection resolver's discovery service.
      * 
-     * @param references    an IReferences object, containing the "discovery" reference to set.
+     * __References:__
+     * 
+     * - discovery: <code>"\*:discovery:\*:\*:1.0"</code>
+     * 
+     * @param references    an IReferences object, containing a discovery reference.
      * 
      * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
      */
@@ -40,8 +57,15 @@ export class HttpConnectionResolver implements IReferenceable, IConfigurable {
     }
 
     /**
-     * Configures this HttpConnectionResolver by searching for and setting the connection resolver's 
-     * connections ("connection(s)" section);
+     * Configures this HttpConnectionResolver using the given configuration parameters.
+     * 
+     * __Configuration parameters:__
+     * - __connection(s)__ - the connection resolver's connections;
+     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+     *     - "connection.protocol" - the connection's protocol;
+     *     - "connection.host" - the target host;
+     *     - "connection.port" - the target port;
+     *     - "connection.uri" - the target URI.
      * 
      * @param config    configuration parameters, containing a "connection(s)" section.
      * 

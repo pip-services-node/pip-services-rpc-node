@@ -19,6 +19,26 @@ import { IRegisterable } from './IRegisterable';
 //TODO
 /**
  * Class for HTTP endpoints.
+ * 
+ * ### Configuration parameters ###
+ * 
+ * Parameters to pass to the [[configure]] method for component configuration:
+ * 
+ * - __connection(s)__ - the connection resolver's connections;
+ *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+ *     - "connection.protocol" - the connection's protocol;
+ *     - "connection.host" - the target host;
+ *     - "connection.port" - the target port;
+ *     - "connection.uri" - the target URI.
+ * 
+ * ### References ###
+ * 
+ * A logger, counters, and a connection resolver can be referenced by passing the 
+ * following references to the object's [[setReferences]] method:
+ * 
+ * - logger: <code>"\*:logger:\*:\*:1.0"</code>
+ * - counters: <code>"\*:counters:\*:\*:1.0"</code>
+ * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
  */
 export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 
@@ -40,8 +60,15 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
     private _registrations: IRegisterable[] = [];
     
     /**
-     * Configures this HttpEndpoint by searching for and setting the connection resolver's 
-     * connections ("connection(s)" section);
+     * Configures this HttpEndpoint using the given configuration parameters.
+     * 
+     * __Configuration parameters:__
+     * - __connection(s)__ - the connection resolver's connections;
+     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+     *     - "connection.protocol" - the connection's protocol;
+     *     - "connection.host" - the target host;
+     *     - "connection.port" - the target port;
+     *     - "connection.uri" - the target URI.
      * 
      * @param config    configuration parameters, containing a "connection(s)" section.
      * 
@@ -53,10 +80,15 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 	}
         
     /**
-     * Sets references to this endpoint's logger, counters and connection resolver.
+     * Sets references to this endpoint's logger, counters, and connection resolver.
      * 
-     * @param references    an IReferences object, containing references for a "logger", 
-     *                      "counters", and a "discovery" service.
+     * __References:__
+     * - logger: <code>"\*:logger:\*:\*:1.0"</code>
+     * - counters: <code>"\*:counters:\*:\*:1.0"</code>
+     * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
+     * 
+     * @param references    an IReferences object, containing references to a logger, counters, 
+     *                      and a connection resolver.
      * 
      * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
      */
@@ -173,9 +205,8 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
         callback(null);
     }
 
-    //TODO: what do IRegisterable object's do?
     /**
-     * Registers a registerable object in this endpoint.
+     * Registers a registerable object for dynamic endpoint discovery.
      * 
      * @param registration      the registration to add. 
      * 
@@ -185,9 +216,9 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
         this._registrations.push(registration);
     }
 
-    //TODO: what do IRegisterable object's do?
     /**
-     * Unregisters a registerable object from this endpoint.
+     * Unregisters a registerable object, so that it is no longer used in dynamic 
+     * endpoint discovery.
      * 
      * @param registration      the registration to remove. 
      * 
@@ -203,7 +234,6 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
         }
     }
 
-    //TODO: not sure about "action to perform".
     /**
      * Registers an action in this objects REST server (service) by the given method and route.
      * 

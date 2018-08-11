@@ -1,9 +1,38 @@
 /** @module clients */
 import { RestClient } from './RestClient';
 
-//TODO?
 /**
- * Basic implementation of the abstract RestClient class.
+ * Basic implementation of the abstract [[RestClient]] class.
+ * 
+ * ### Example usage ###
+ *     export class DemoHttpClientV1 extends CommandableHttpClient {
+ *         public constructor() {
+ *             super('v1/demos');
+ *         }
+ * 
+ *         public getDemos(correlationId: string, filter: FilterParams, paging: PagingParams,
+ *             callback: (err: any, page: DataPage<DemoV1>) => void): void {
+ *             this.callCommand(
+ *                 'get_demos',
+ *                 correlationId,
+ *                 { filter: filter, pagin: paging },
+ *                 callback
+ *             );
+ *         }
+ * 
+ *         public calculateResult(correlationId: string, value1: string, value2: string,
+ *             callback: (err: any, result: any) => void): void {
+ *             this.callCommand(
+ *                 'calculate_result',
+ *                 correlationId,
+ *                 {
+ *                     value_1: value1,
+ *                     value_2: value2
+ *                 },
+ *                 callback
+ *             );    
+ *         }
+ *     }
  */
 export class CommandableHttpClient extends RestClient {
     /**

@@ -60,9 +60,9 @@ export class HttpResponseSender {
         }
     }
 
-    //TODO: is this right?
     /**
-     * Sends a response, indicating that the result was created.
+     * Sends a response, indicating that the request has been fulfilled, resulting in 
+     * the creation of a new resource (HTTP result code 201 - Created).
      * 
      * @param req       the request.
      * @param res       the request's result.
@@ -81,9 +81,10 @@ export class HttpResponseSender {
         }
     }
 
-    //TODO: is this right?
+    //TODO (note for Sergey): didn't find any mention of a 2xx HTTP code for deletion...
     /**
-     * Sends a response, indicating that the result was deleted.
+     * Sends a response, indicating that the request has been fulfilled, resulting in 
+     * the deletion of a resource
      * 
      * @param req       the request.
      * @param res       the request's result.

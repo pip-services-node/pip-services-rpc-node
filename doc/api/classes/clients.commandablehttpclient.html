@@ -70,8 +70,38 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Basic implementation of the abstract RestClient class.</p>
+						<p>Basic implementation of the abstract <a href="clients.restclient.html">RestClient</a> class.</p>
 					</div>
+					<h3 id="example-usage">Example usage</h3>
+					<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> DemoHttpClientV1 <span class="hljs-keyword">extends</span> CommandableHttpClient {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-keyword">super</span>(<span class="hljs-string">'v1/demos'</span>);
+    }
+
+    <span class="hljs-keyword">public</span> getDemos(correlationId: <span class="hljs-built_in">string</span>, filter: FilterParams, paging: PagingParams,
+        callback: <span class="hljs-function">(<span class="hljs-params">err: <span class="hljs-built_in">any</span>, page: DataPage&lt;DemoV1&gt;</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+        <span class="hljs-keyword">this</span>.callCommand(
+            <span class="hljs-string">'get_demos'</span>,
+            correlationId,
+            { filter: filter, pagin: paging },
+            callback
+        );
+    }
+
+    <span class="hljs-keyword">public</span> calculateResult(correlationId: <span class="hljs-built_in">string</span>, value1: <span class="hljs-built_in">string</span>, value2: <span class="hljs-built_in">string</span>,
+        callback: <span class="hljs-function">(<span class="hljs-params">err: <span class="hljs-built_in">any</span>, result: <span class="hljs-built_in">any</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+        <span class="hljs-keyword">this</span>.callCommand(
+            <span class="hljs-string">'calculate_result'</span>,
+            correlationId,
+            {
+                value_1: value1,
+                value_2: value2
+            },
+            callback
+        );
+    }
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -152,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/CommandableHttpClient.ts#L8">clients/CommandableHttpClient.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/CommandableHttpClient.ts#L37">clients/CommandableHttpClient.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -188,7 +218,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_baseroute">_baseRoute</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L73">clients/RestClient.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L96">clients/RestClient.ts:96</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -204,7 +234,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_client">_client</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L53">clients/RestClient.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L76">clients/RestClient.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -220,7 +250,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_connecttimeout">_connectTimeout</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L79">clients/RestClient.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L102">clients/RestClient.ts:102</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -236,7 +266,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_connectionresolver">_connectionResolver</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L59">clients/RestClient.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L82">clients/RestClient.ts:82</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -258,7 +288,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_counters">_counters</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L69">clients/RestClient.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L92">clients/RestClient.ts:92</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -279,7 +309,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_headers">_headers</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L77">clients/RestClient.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L100">clients/RestClient.ts:100</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -295,7 +325,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_logger">_logger</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L64">clients/RestClient.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L87">clients/RestClient.ts:87</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -316,7 +346,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_options">_options</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L71">clients/RestClient.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L94">clients/RestClient.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -332,7 +362,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_retries">_retries</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L75">clients/RestClient.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L98">clients/RestClient.ts:98</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -348,7 +378,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_timeout">_timeout</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L81">clients/RestClient.ts:81</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L104">clients/RestClient.ts:104</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -364,7 +394,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#_uri">_uri</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L83">clients/RestClient.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L106">clients/RestClient.ts:106</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -387,7 +417,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#addcorrelationid">addCorrelationId</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L224">clients/RestClient.ts:224</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L260">clients/RestClient.ts:260</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,7 +457,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#addfilterparams">addFilterParams</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L244">clients/RestClient.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L280">clients/RestClient.ts:280</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -447,7 +477,8 @@
 								<li>
 									<h5>filter: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>unique business transaction id to trace calls across components.</p>
+										<p>the object, whose properties are to be added to the
+										method call parameters for filtering results.</p>
 									</div>
 								</li>
 							</ul>
@@ -467,7 +498,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#addpagingparams">addPagingParams</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L266">clients/RestClient.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L302">clients/RestClient.ts:302</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -486,6 +517,10 @@
 								</li>
 								<li>
 									<h5>paging: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>paging parameters, containing &quot;total&quot;, &quot;skip&quot;, and/or
+										&quot;take&quot; properties.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -504,7 +539,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#call">call</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L325">clients/RestClient.ts:325</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L361">clients/RestClient.ts:361</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -598,7 +633,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/CommandableHttpClient.ts#L38">clients/CommandableHttpClient.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/CommandableHttpClient.ts#L67">clients/CommandableHttpClient.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -681,7 +716,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L200">clients/RestClient.ts:200</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L236">clients/RestClient.ts:236</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -738,23 +773,31 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L112">clients/RestClient.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L148">clients/RestClient.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Configures this REST client by searching for and setting:</p>
-									<ul>
-										<li>the connection resolver&#39;s connections (&quot;connection(s)&quot; section);</li>
-										<li>the base route (&quot;base_route&quot; parameter);</li>
-										<li>this client&#39;s options (&quot;options&quot; section):<ul>
-												<li>&quot;retries&quot; (default is 3);</li>
-												<li>&quot;connect_timeout&quot; (default is 10000);</li>
-												<li>&quot;timeout&quot; (default is 10000).</li>
-											</ul>
-										</li>
-									</ul>
+									<p>Configures this REST client using the given configuration parameters.</p>
 								</div>
+								<p><strong>Configuration parameters:</strong></p>
+								<ul>
+									<li>&quot;base_route&quot; - the base route;</li>
+									<li><strong>connection(s)</strong> - the connection resolver&#39;s connections;<ul>
+											<li>&quot;connection.discovery_key&quot; - the key to use for connection resolving in a discovery service;</li>
+											<li>&quot;connection.protocol&quot; - the connection&#39;s protocol;</li>
+											<li>&quot;connection.host&quot; - the target host;</li>
+											<li>&quot;connection.port&quot; - the target port;</li>
+											<li>&quot;connection.uri&quot; - the target URI.</li>
+										</ul>
+									</li>
+									<li><strong>options</strong><ul>
+											<li>&quot;options.retries&quot; - the retry limit (default is 3);</li>
+											<li>&quot;options.connect_timeout&quot; - the connection attempt&#39;s timeout (default is 10000);</li>
+											<li>&quot;options.timeout&quot; - the connection&#39;s timeout (default is 10000).</li>
+										</ul>
+									</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html" class="external">ConfigParams</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -785,7 +828,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#instrument">instrument</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L133">clients/RestClient.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L169">clients/RestClient.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -829,7 +872,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#isopen">isOpen</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L142">clients/RestClient.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L178">clients/RestClient.ts:178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -851,7 +894,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#open">open</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L154">clients/RestClient.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L190">clients/RestClient.ts:190</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -909,13 +952,19 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="clients.restclient.html">RestClient</a>.<a href="clients.restclient.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/clients/RestClient.ts#L92">clients/RestClient.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/RestClient.ts#L121">clients/RestClient.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets references to this REST client&#39;s logger, counters, and the connection resolver.</p>
+									<p>Sets references to this REST client&#39;s logger, counters, and connection resolver.</p>
 								</div>
+								<p><strong>References:</strong></p>
+								<ul>
+									<li>logger: <code>&quot;*:logger:*:*:1.0&quot;</code></li>
+									<li>counters: <code>&quot;*:counters:*:*:1.0&quot;</code></li>
+									<li>discovery: <code>&quot;*:discovery:*:*:1.0&quot;</code> (for the connection resolver)</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html" class="external">IReferences</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -927,7 +976,8 @@
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>an IReferences object, containing references to a &quot;logger&quot;, &quot;counters&quot;, and a &quot;discovery&quot;.</p>
+										<p>an IReferences object, containing references to a logger, counters,
+										and a connection resolver.</p>
 									</div>
 								</li>
 							</ul>

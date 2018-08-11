@@ -72,6 +72,26 @@
 					<div class="lead">
 						<p>Class for HTTP endpoints.</p>
 					</div>
+					<h3 id="configuration-parameters">Configuration parameters</h3>
+					<p>Parameters to pass to the <a href="services.httpendpoint.html#configure">configure</a> method for component configuration:</p>
+					<ul>
+						<li><strong>connection(s)</strong> - the connection resolver&#39;s connections;<ul>
+								<li>&quot;connection.discovery_key&quot; - the key to use for connection resolving in a discovery service;</li>
+								<li>&quot;connection.protocol&quot; - the connection&#39;s protocol;</li>
+								<li>&quot;connection.host&quot; - the target host;</li>
+								<li>&quot;connection.port&quot; - the target port;</li>
+								<li>&quot;connection.uri&quot; - the target URI.</li>
+							</ul>
+						</li>
+					</ul>
+					<h3 id="references">References</h3>
+					<p>A logger, counters, and a connection resolver can be referenced by passing the
+					following references to the object&#39;s <a href="services.httpendpoint.html#setreferences">setReferences</a> method:</p>
+					<ul>
+						<li>logger: <code>&quot;*:logger:*:*:1.0&quot;</code></li>
+						<li>counters: <code>&quot;*:counters:*:*:1.0&quot;</code></li>
+						<li>discovery: <code>&quot;*:discovery:*:*:1.0&quot;</code> (for the connection resolver)</li>
+					</ul>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -122,7 +142,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L159">services/HttpEndpoint.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L191">services/HttpEndpoint.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -178,14 +198,24 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L50">services/HttpEndpoint.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L77">services/HttpEndpoint.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Configures this HttpEndpoint by searching for and setting the connection resolver&#39;s
-									connections (&quot;connection(s)&quot; section);</p>
+									<p>Configures this HttpEndpoint using the given configuration parameters.</p>
 								</div>
+								<p><strong>Configuration parameters:</strong></p>
+								<ul>
+									<li><strong>connection(s)</strong> - the connection resolver&#39;s connections;<ul>
+											<li>&quot;connection.discovery_key&quot; - the key to use for connection resolving in a discovery service;</li>
+											<li>&quot;connection.protocol&quot; - the connection&#39;s protocol;</li>
+											<li>&quot;connection.host&quot; - the target host;</li>
+											<li>&quot;connection.port&quot; - the target port;</li>
+											<li>&quot;connection.uri&quot; - the target URI.</li>
+										</ul>
+									</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html" class="external">ConfigParams</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -215,7 +245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L72">services/HttpEndpoint.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L104">services/HttpEndpoint.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,7 +265,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L85">services/HttpEndpoint.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L117">services/HttpEndpoint.ts:117</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -292,12 +322,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L184">services/HttpEndpoint.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L215">services/HttpEndpoint.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Registers a registerable object in this endpoint.</p>
+									<p>Registers a registerable object for dynamic endpoint discovery.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -328,7 +358,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L215">services/HttpEndpoint.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L245">services/HttpEndpoint.ts:245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -398,13 +428,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L63">services/HttpEndpoint.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L95">services/HttpEndpoint.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets references to this endpoint&#39;s logger, counters and connection resolver.</p>
+									<p>Sets references to this endpoint&#39;s logger, counters, and connection resolver.</p>
 								</div>
+								<p><strong>References:</strong></p>
+								<ul>
+									<li>logger: <code>&quot;*:logger:*:*:1.0&quot;</code></li>
+									<li>counters: <code>&quot;*:counters:*:*:1.0&quot;</code></li>
+									<li>discovery: <code>&quot;*:discovery:*:*:1.0&quot;</code> (for the connection resolver)</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html" class="external">IReferences</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -416,8 +452,8 @@
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>an IReferences object, containing references for a &quot;logger&quot;,
-										&quot;counters&quot;, and a &quot;discovery&quot; service.</p>
+										<p>an IReferences object, containing references to a logger, counters,
+										and a connection resolver.</p>
 									</div>
 								</li>
 							</ul>
@@ -435,12 +471,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/services/HttpEndpoint.ts#L196">services/HttpEndpoint.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpEndpoint.ts#L227">services/HttpEndpoint.ts:227</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Unregisters a registerable object from this endpoint.</p>
+									<p>Unregisters a registerable object, so that it is no longer used in dynamic
+									endpoint discovery.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>

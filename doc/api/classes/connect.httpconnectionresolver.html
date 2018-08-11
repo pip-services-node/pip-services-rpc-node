@@ -72,9 +72,24 @@
 					<div class="lead">
 						<p>Helper class that resolves connection parameters for HTTP connections.</p>
 					</div>
-					<p>HttpConnectionResolvers can be configured using the <a href="connect.httpconnectionresolver.html#configure">configure</a> method, which searches for
-					and sets the connection resolver&#39;s connections (&quot;connection(s)&quot; section).</p>
-					<p>The connection resolver that is to be used can be set using the <a href="connect.httpconnectionresolver.html#setreferences">setReferences</a> method.</p>
+					<h3 id="configuration-parameters">Configuration parameters</h3>
+					<p>Parameters to pass to the <a href="connect.httpconnectionresolver.html#configure">configure</a> method for component configuration:</p>
+					<ul>
+						<li><strong>connection(s)</strong> - the connection resolver&#39;s connections;<ul>
+								<li>&quot;connection.discovery_key&quot; - the key to use for connection resolving in a discovery service;</li>
+								<li>&quot;connection.protocol&quot; - the connection&#39;s protocol;</li>
+								<li>&quot;connection.host&quot; - the target host;</li>
+								<li>&quot;connection.port&quot; - the target port;</li>
+								<li>&quot;connection.uri&quot; - the target URI.</li>
+							</ul>
+						</li>
+					</ul>
+					<h3 id="references">References</h3>
+					<p>A a connection resolver can be referenced by passing the
+					following reference to the object&#39;s <a href="connect.httpconnectionresolver.html#setreferences">setReferences</a> method:</p>
+					<ul>
+						<li>discovery: <code>&quot;*:discovery:*:*:1.0&quot;</code></li>
+					</ul>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html" class="external">ConnectionParams</a> (in the PipServices &quot;Components&quot; package)</p>
@@ -131,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">_connection<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConnectionResolver</span><span class="tsd-signature-symbol"> =&nbsp;new ConnectionResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/connect/HttpConnectionResolver.ts#L29">connect/HttpConnectionResolver.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/connect/HttpConnectionResolver.ts#L42">connect/HttpConnectionResolver.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -154,14 +169,24 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/connect/HttpConnectionResolver.ts#L50">connect/HttpConnectionResolver.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/connect/HttpConnectionResolver.ts#L74">connect/HttpConnectionResolver.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Configures this HttpConnectionResolver by searching for and setting the connection resolver&#39;s
-									connections (&quot;connection(s)&quot; section);</p>
+									<p>Configures this HttpConnectionResolver using the given configuration parameters.</p>
 								</div>
+								<p><strong>Configuration parameters:</strong></p>
+								<ul>
+									<li><strong>connection(s)</strong> - the connection resolver&#39;s connections;<ul>
+											<li>&quot;connection.discovery_key&quot; - the key to use for connection resolving in a discovery service;</li>
+											<li>&quot;connection.protocol&quot; - the connection&#39;s protocol;</li>
+											<li>&quot;connection.host&quot; - the target host;</li>
+											<li>&quot;connection.port&quot; - the target port;</li>
+											<li>&quot;connection.uri&quot; - the target URI.</li>
+										</ul>
+									</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html" class="external">ConfigParams</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -191,7 +216,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/connect/HttpConnectionResolver.ts#L158">connect/HttpConnectionResolver.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/connect/HttpConnectionResolver.ts#L182">connect/HttpConnectionResolver.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -248,7 +273,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/connect/HttpConnectionResolver.ts#L112">connect/HttpConnectionResolver.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/connect/HttpConnectionResolver.ts#L136">connect/HttpConnectionResolver.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -312,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/connect/HttpConnectionResolver.ts#L133">connect/HttpConnectionResolver.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/connect/HttpConnectionResolver.ts#L157">connect/HttpConnectionResolver.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -376,13 +401,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/176680e/src/connect/HttpConnectionResolver.ts#L38">connect/HttpConnectionResolver.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/connect/HttpConnectionResolver.ts#L55">connect/HttpConnectionResolver.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets a reference to the connection resolver&#39;s discovery service (&quot;discovery&quot;).</p>
+									<p>Sets a reference to the connection resolver&#39;s discovery service.</p>
 								</div>
+								<p><strong>References:</strong></p>
+								<ul>
+									<li>discovery: <code>&quot;*:discovery:*:*:1.0&quot;</code></li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html" class="external">IReferences</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -394,7 +423,7 @@
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>an IReferences object, containing the &quot;discovery&quot; reference to set.</p>
+										<p>an IReferences object, containing a discovery reference.</p>
 									</div>
 								</li>
 							</ul>
