@@ -6,7 +6,7 @@ import {
 } from 'pip-services-commons-node';
 
 import { DirectClient } from '../../src/clients/DirectClient';
-import { IDummyClient } from '../IDummyClient';
+import { IDummyClient } from './IDummyClient';
 import { IDummyController } from '../IDummyController';
 import { Dummy } from '../Dummy';
 

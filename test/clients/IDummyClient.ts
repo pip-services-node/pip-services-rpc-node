@@ -2,7 +2,7 @@ import { DataPage } from 'pip-services-commons-node';
 import { FilterParams } from 'pip-services-commons-node';
 import { PagingParams } from 'pip-services-commons-node';
 
-import { Dummy } from './Dummy';
+import { Dummy } from '../Dummy';
 
 export interface IDummyClient {
     getDummies(correlationId: string, filter: FilterParams, paging: PagingParams, callback: (err: any, result: DataPage<Dummy>) => void): void;
