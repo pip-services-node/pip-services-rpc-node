@@ -1,5 +1,17 @@
+/** @module services */
+/**
+ * Class that contains static methods for detecting HTTP requests.
+ */
 export class HttpRequestDetector {
 
+    /**
+     * Detects the platform (using "user-agent") from which the given HTTP request was made.
+     * 
+     * @param req   the HTTP request to process.
+     * @returns the detected platform and version. Detectable platforms: "mobile", "iphone", 
+     * "ipad",  "macosx", "android",  "webos", "mac", "windows". Otherwise - "unknown" will 
+     * be returned.
+     */
     public static detectPlatform(req: any): string {
         let ua = req.headers['user-agent'];
         let version;
@@ -37,6 +49,13 @@ export class HttpRequestDetector {
         return 'unknown';
     }
 
+    /**
+     * Detects the browser (using "user-agent") from which the given HTTP request was made.
+     * 
+     * @param req   the HTTP request to process.
+     * @returns the detected browser. Detectable browsers: "chrome", "msie", "firefox", 
+     *          "safari". Otherwise - "unknown" will be returned.
+     */
     public static detectBrowser(req: any): string {
         let ua = req.headers['user-agent'];
 
@@ -52,6 +71,13 @@ export class HttpRequestDetector {
         return ua || 'unknown';
     }
 
+    /**
+     * Detects the IP address from which the given HTTP request was received.
+     * 
+     * @param req   the HTTP request to process.
+     * @returns the detected IP address (without a port). If no IP is detected - 
+     * <code>null</code> will be returned.
+     */
     public static detectAddress(req: any): string {
         let ip = null;
 
@@ -86,10 +112,22 @@ export class HttpRequestDetector {
         return ip;
     }
 
+    /**
+     * Detects the host name of the request's destination server.
+     * 
+     * @param req   the HTTP request to process.
+     * @returns the destination server's host name.
+     */
     public static detectServerHost(req: any): string {
         return req.host;
     }
 
+    /**
+     * Detects the request's destination port number.
+     * 
+     * @param req   the HTTP request to process.
+     * @returns the detected port number or <code>80</code> (if none are detected).
+     */
     public static detectServerPort(req) {
         var
             host = req.get('host'),

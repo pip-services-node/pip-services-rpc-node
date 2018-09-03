@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RestService | pip-services-rpc-node</title>
+	<title>HeartbeatRestService | pip-services-rpc-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="restservice.html">RestService</a>
+					<a href="../modules/services.html">services</a>
+				</li>
+				<li>
+					<a href="services.heartbeatrestservice.html">HeartbeatRestService</a>
 				</li>
 			</ul>
-			<h1>Class RestService</h1>
+			<h1>Class HeartbeatRestService</h1>
 		</div>
 	</div>
 </header>
@@ -68,16 +71,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RestService</span>
+						<a href="services.restservice.html" class="tsd-signature-type">RestService</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="heartbeatrestservice.html" class="tsd-signature-type">HeartbeatRestService</a>
-							</li>
-							<li>
-								<a href="statusrestservice.html" class="tsd-signature-type">StatusRestService</a>
-							</li>
-							<li>
-								<a href="commandablehttpservice.html" class="tsd-signature-type">CommandableHttpService</a>
+								<span class="target">HeartbeatRestService</span>
 							</li>
 						</ul>
 					</li>
@@ -90,175 +87,163 @@
 					<li><span class="tsd-signature-type">IConfigurable</span></li>
 					<li><span class="tsd-signature-type">IReferenceable</span></li>
 					<li><span class="tsd-signature-type">IUnreferenceable</span></li>
-					<li><a href="../interfaces/iregisterable.html" class="tsd-signature-type">IRegisterable</a></li>
+					<li><a href="../interfaces/services.iregisterable.html" class="tsd-signature-type">IRegisterable</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-private-protected">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="services.heartbeatrestservice.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#_baseroute" class="tsd-kind-icon">_base<wbr>Route</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="restservice.html#_config" class="tsd-kind-icon">_config</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#_counters" class="tsd-kind-icon">_counters</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#_dependencyresolver" class="tsd-kind-icon">_dependency<wbr>Resolver</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#_endpoint" class="tsd-kind-icon">_endpoint</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="restservice.html#_localendpoint" class="tsd-kind-icon">_local<wbr>Endpoint</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#_logger" class="tsd-kind-icon">_logger</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="restservice.html#_opened" class="tsd-kind-icon">_opened</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="restservice.html#_references" class="tsd-kind-icon">_references</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="restservice.html#_defaultconfig" class="tsd-kind-icon">_default<wbr>Config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#_baseroute" class="tsd-kind-icon">_base<wbr>Route</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#_counters" class="tsd-kind-icon">_counters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#_dependencyresolver" class="tsd-kind-icon">_dependency<wbr>Resolver</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#_endpoint" class="tsd-kind-icon">_endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#_logger" class="tsd-kind-icon">_logger</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="restservice.html#close" class="tsd-kind-icon">close</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="restservice.html#configure" class="tsd-kind-icon">configure</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="restservice.html#createendpoint" class="tsd-kind-icon">create<wbr>Endpoint</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#instrument" class="tsd-kind-icon">instrument</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="restservice.html#isopened" class="tsd-kind-icon">is<wbr>Opened</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="restservice.html#open" class="tsd-kind-icon">open</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="restservice.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#registerroute" class="tsd-kind-icon">register<wbr>Route</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#senderror" class="tsd-kind-icon">send<wbr>Error</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="restservice.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="restservice.html#setreferences" class="tsd-kind-icon">set<wbr>References</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="restservice.html#unsetreferences" class="tsd-kind-icon">unset<wbr>References</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.heartbeatrestservice.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="services.heartbeatrestservice.html#configure" class="tsd-kind-icon">configure</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#instrument" class="tsd-kind-icon">instrument</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.heartbeatrestservice.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.heartbeatrestservice.html#open" class="tsd-kind-icon">open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="services.heartbeatrestservice.html#register" class="tsd-kind-icon">register</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#registerroute" class="tsd-kind-icon">register<wbr>Route</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#senderror" class="tsd-kind-icon">send<wbr>Error</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="services.heartbeatrestservice.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.heartbeatrestservice.html#setreferences" class="tsd-kind-icon">set<wbr>References</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="services.heartbeatrestservice.html#unsetreferences" class="tsd-kind-icon">unset<wbr>References</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Heartbeat<wbr>Rest<wbr>Service<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="services.heartbeatrestservice.html" class="tsd-signature-type">HeartbeatRestService</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HeartbeatRestService.ts#L6">services/HeartbeatRestService.ts:6</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="services.heartbeatrestservice.html" class="tsd-signature-type">HeartbeatRestService</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_baseroute" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _base<wbr>Route</h3>
 					<div class="tsd-signature tsd-kind-icon">_base<wbr>Route<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_baseroute">_baseRoute</a></p>
 						<ul>
-							<li>Defined in services/RestService.ts:31</li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L36">services/RestService.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_config" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _config</h3>
-					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConfigParams</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in services/RestService.ts:26</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_counters" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _counters</h3>
 					<div class="tsd-signature tsd-kind-icon">_counters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeCounters</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeCounters()</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_counters">_counters</a></p>
 						<ul>
-							<li>Defined in services/RestService.ts:35</li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L40">services/RestService.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_dependencyresolver" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _dependency<wbr>Resolver</h3>
 					<div class="tsd-signature tsd-kind-icon">_dependency<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DependencyResolver</span><span class="tsd-signature-symbol"> =&nbsp;new DependencyResolver(RestService._defaultConfig)</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_dependencyresolver">_dependencyResolver</a></p>
 						<ul>
-							<li>Defined in services/RestService.ts:33</li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L38">services/RestService.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_endpoint" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _endpoint</h3>
-					<div class="tsd-signature tsd-kind-icon">_endpoint<span class="tsd-signature-symbol">:</span> <a href="httpendpoint.html" class="tsd-signature-type">HttpEndpoint</a></div>
+					<div class="tsd-signature tsd-kind-icon">_endpoint<span class="tsd-signature-symbol">:</span> <a href="services.httpendpoint.html" class="tsd-signature-type">HttpEndpoint</a></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_endpoint">_endpoint</a></p>
 						<ul>
-							<li>Defined in services/RestService.ts:32</li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L37">services/RestService.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_localendpoint" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _local<wbr>Endpoint</h3>
-					<div class="tsd-signature tsd-kind-icon">_local<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in services/RestService.ts:28</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_logger" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _logger</h3>
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeLogger</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeLogger()</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_logger">_logger</a></p>
 						<ul>
-							<li>Defined in services/RestService.ts:34</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_opened" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _opened</h3>
-					<div class="tsd-signature tsd-kind-icon">_opened<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in services/RestService.ts:29</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_references" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _references</h3>
-					<div class="tsd-signature tsd-kind-icon">_references<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IReferences</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in services/RestService.ts:27</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
-					<a name="_defaultconfig" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> _default<wbr>Config</h3>
-					<div class="tsd-signature tsd-kind-icon">_default<wbr>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConfigParams</span><span class="tsd-signature-symbol"> =&nbsp;ConfigParams.fromTuples(&quot;base_route&quot;, &quot;&quot;,&quot;dependencies.endpoint&quot;, &quot;pip-services:endpoint:http:*:1.0&quot;)</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in services/RestService.ts:21</li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L39">services/RestService.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#close">close</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:118</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L182">services/RestService.ts:182</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Closes this service by closing its HTTP endpoint (if the endpoint is a local endpoint).</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) the function to call once disconnected from the MongoDB server.
+										Will be called with an error if one is raised.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -283,17 +268,18 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="configure" class="tsd-anchor"></a>
 					<h3>configure</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">configure<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:37</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HeartbeatRestService.ts#L12">services/HeartbeatRestService.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -306,86 +292,117 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="createendpoint" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Endpoint</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Endpoint<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="httpendpoint.html" class="tsd-signature-type">HttpEndpoint</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in services/RestService.ts:74</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="httpendpoint.html" class="tsd-signature-type">HttpEndpoint</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="instrument" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> instrument</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">instrument<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Timing</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#instrument">instrument</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:86</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L126">services/RestService.ts:126</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Starts a Timing for the method with the given name. Does not call the method itself and is
+									used only as an instrument to measure execution time.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.timing.html" class="external">Timing</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the method call that is to be timed.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Timing</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="isopened" class="tsd-anchor"></a>
-					<h3>is<wbr>Opened</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Opened<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="isopen" class="tsd-anchor"></a>
+					<h3>is<wbr>Open</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Open<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#isopen">isOpen</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:91</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L134">services/RestService.ts:134</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>whether or not this service is currently open.</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="open" class="tsd-anchor"></a>
 					<h3>open</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">open<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#open">open</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:95</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L151">services/RestService.ts:151</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Opens this service by making sure that an HTTP endpoint is set. If one was not referenced earlier,
+										a local endpoint will be created using the configuration parameters and references that were passed
+									to this object&#39;s <a href="services.heartbeatrestservice.html#configure">configure</a> and <a href="services.heartbeatrestservice.html#setreferences">setReferences</a> methods.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="services.httpendpoint.html">HttpEndpoint</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="services.heartbeatrestservice.html#configure">configure</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="services.heartbeatrestservice.html#setreferences">setReferences</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) the function to call once the connection has been opened.
+										Will be called with an error, if one is raised.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -410,50 +427,70 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="register" class="tsd-anchor"></a>
 					<h3>register</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/iregisterable.html">IRegisterable</a>.<a href="../interfaces/iregisterable.html#register">register</a></p>
+								<p>Implementation of <a href="../interfaces/services.iregisterable.html">IRegisterable</a>.<a href="../interfaces/services.iregisterable.html#register">register</a></p>
+								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#register">register</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:174</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HeartbeatRestService.ts#L18">services/HeartbeatRestService.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="registerroute" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> register<wbr>Route</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">register<wbr>Route<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, route<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, schema<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Schema</span>, action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#registerroute">registerRoute</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:156</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L257">services/RestService.ts:257</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers an action in this objects REST server (service) by the given method and route.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>method: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the HTTP method of the route.</p>
+									</div>
 								</li>
 								<li>
 									<h5>route: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the route to register in this object&#39;s REST server (service). If a
+										base</p>
+									</div>
 								</li>
 								<li>
 									<h5>schema: <span class="tsd-signature-type">Schema</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the schema to use for parameter validation.</p>
+									</div>
 								</li>
 								<li>
 									<h5>action: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the action to perform at the given route.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -481,26 +518,39 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="sendcreatedresult" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> send<wbr>Created<wbr>Result</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">send<wbr>Created<wbr>Result<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendcreatedresult">sendCreatedResult</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:144</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L221">services/RestService.ts:221</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a response, indicating that the request has been fulfilled, resulting in
+									the creation of a new resource (HTTP result code 201 - Created).</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -528,26 +578,39 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="senddeletedresult" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> send<wbr>Deleted<wbr>Result</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">send<wbr>Deleted<wbr>Result<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senddeletedresult">sendDeletedResult</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:148</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L233">services/RestService.ts:233</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a response, indicating that the request has been fulfilled, resulting in
+									the deletion of a resource</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -575,55 +638,82 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="senderror" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> send<wbr>Error</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">send<wbr>Error<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senderror">sendError</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:152</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L244">services/RestService.ts:244</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends an HTTP error response.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 								<li>
 									<h5>error: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the error that was raised.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="sendresult" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> send<wbr>Result</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">send<wbr>Result<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendresult">sendResult</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:140</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L210">services/RestService.ts:210</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends the result of the given request.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -651,42 +741,67 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="setreferences" class="tsd-anchor"></a>
 					<h3>set<wbr>References</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">set<wbr>References<span class="tsd-signature-symbol">(</span>references<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IReferences</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:46</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L71">services/RestService.ts:71</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets references to this service&#39;s logger, counters, dependency resolver, and HTTP endpoint.
+									Additionally stores the given references to pass them later on to newly created HTTP endpoints.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html" class="external">IReferences</a> (in the PipServices &quot;Commons&quot; package)</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an IReferences object, containing references for a &quot;logger&quot;, &quot;counters&quot;,
+											an &quot;endpoint&quot;, and the references to set for the dependency resolver and
+										newly created endpoints.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="unsetreferences" class="tsd-anchor"></a>
 					<h3>unset<wbr>References</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">unset<wbr>References<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#unsetreferences">unsetReferences</a></p>
 								<ul>
-									<li>Defined in services/RestService.ts:66</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/RestService.ts#L97">services/RestService.ts:97</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove the endpoint that this object references and removes
+									the registration callback from the endpoint.</p>
+								</div>
+								<p>Needed when using a dynamic endpoint discovery service.</p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -699,135 +814,111 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/build.html">build</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/clients.html">clients</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/connect.html">connect</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/services.html">services</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="commandablehttpclient.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="commandablehttpservice.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="defaultrpcfactory.html" class="tsd-kind-icon">Default<wbr>Rpc<wbr>Factory</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="directclient.html" class="tsd-kind-icon">Direct<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="heartbeatrestservice.html" class="tsd-kind-icon">Heartbeat<wbr>Rest<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpconnectionresolver.html" class="tsd-kind-icon">Http<wbr>Connection<wbr>Resolver</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpendpoint.html" class="tsd-kind-icon">Http<wbr>Endpoint</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httprequestdetector.html" class="tsd-kind-icon">Http<wbr>Request<wbr>Detector</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpresponsesender.html" class="tsd-kind-icon">Http<wbr>Response<wbr>Sender</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="restclient.html" class="tsd-kind-icon">Rest<wbr>Client</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.commandablehttpservice.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Service</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="restservice.html" class="tsd-kind-icon">Rest<wbr>Service</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.heartbeatrestservice.html" class="tsd-kind-icon">Heartbeat<wbr>Rest<wbr>Service</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#_baseroute" class="tsd-kind-icon">_base<wbr>Route</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="services.heartbeatrestservice.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="restservice.html#_config" class="tsd-kind-icon">_config</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#_baseroute" class="tsd-kind-icon">_base<wbr>Route</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#_counters" class="tsd-kind-icon">_counters</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#_counters" class="tsd-kind-icon">_counters</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#_dependencyresolver" class="tsd-kind-icon">_dependency<wbr>Resolver</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#_dependencyresolver" class="tsd-kind-icon">_dependency<wbr>Resolver</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#_endpoint" class="tsd-kind-icon">_endpoint</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#_endpoint" class="tsd-kind-icon">_endpoint</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="restservice.html#_localendpoint" class="tsd-kind-icon">_local<wbr>Endpoint</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#_logger" class="tsd-kind-icon">_logger</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#_logger" class="tsd-kind-icon">_logger</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="services.heartbeatrestservice.html#close" class="tsd-kind-icon">close</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="restservice.html#_opened" class="tsd-kind-icon">_opened</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="services.heartbeatrestservice.html#configure" class="tsd-kind-icon">configure</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="restservice.html#_references" class="tsd-kind-icon">_references</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#instrument" class="tsd-kind-icon">instrument</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
-								<a href="restservice.html#_defaultconfig" class="tsd-kind-icon">_default<wbr>Config</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="services.heartbeatrestservice.html#isopen" class="tsd-kind-icon">is<wbr>Open</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="restservice.html#close" class="tsd-kind-icon">close</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="services.heartbeatrestservice.html#open" class="tsd-kind-icon">open</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="restservice.html#configure" class="tsd-kind-icon">configure</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="services.heartbeatrestservice.html#register" class="tsd-kind-icon">register</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="restservice.html#createendpoint" class="tsd-kind-icon">create<wbr>Endpoint</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#registerroute" class="tsd-kind-icon">register<wbr>Route</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#instrument" class="tsd-kind-icon">instrument</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="restservice.html#isopened" class="tsd-kind-icon">is<wbr>Opened</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="restservice.html#open" class="tsd-kind-icon">open</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#senderror" class="tsd-kind-icon">send<wbr>Error</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="restservice.html#register" class="tsd-kind-icon">register</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="services.heartbeatrestservice.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#registerroute" class="tsd-kind-icon">register<wbr>Route</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="services.heartbeatrestservice.html#setreferences" class="tsd-kind-icon">set<wbr>References</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#senderror" class="tsd-kind-icon">send<wbr>Error</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="restservice.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="restservice.html#setreferences" class="tsd-kind-icon">set<wbr>References</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="restservice.html#unsetreferences" class="tsd-kind-icon">unset<wbr>References</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="services.heartbeatrestservice.html#unsetreferences" class="tsd-kind-icon">unset<wbr>References</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="statusrestservice.html" class="tsd-kind-icon">Status<wbr>Rest<wbr>Service</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.httpendpoint.html" class="tsd-kind-icon">Http<wbr>Endpoint</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iregisterable.html" class="tsd-kind-icon">IRegisterable</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.httprequestdetector.html" class="tsd-kind-icon">Http<wbr>Request<wbr>Detector</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#_" class="tsd-kind-icon">_</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.httpresponsesender.html" class="tsd-kind-icon">Http<wbr>Response<wbr>Sender</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#querystring" class="tsd-kind-icon">querystring</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.restservice.html" class="tsd-kind-icon">Rest<wbr>Service</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#url" class="tsd-kind-icon">url</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.statusrestservice.html" class="tsd-kind-icon">Status<wbr>Rest<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/services.iregisterable.html" class="tsd-kind-icon">IRegisterable</a>
 					</li>
 				</ul>
 			</nav>

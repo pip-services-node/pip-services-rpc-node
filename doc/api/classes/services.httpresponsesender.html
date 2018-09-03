@@ -54,7 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="httpresponsesender.html">HttpResponseSender</a>
+					<a href="../modules/services.html">services</a>
+				</li>
+				<li>
+					<a href="services.httpresponsesender.html">HttpResponseSender</a>
 				</li>
 			</ul>
 			<h1>Class HttpResponseSender</h1>
@@ -64,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class that contains static methods for sending various HTTP responses.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -79,11 +89,11 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="httpresponsesender.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="httpresponsesender.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="httpresponsesender.html#sendemptyresult" class="tsd-kind-icon">send<wbr>Empty<wbr>Result</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="httpresponsesender.html#senderror" class="tsd-kind-icon">send<wbr>Error</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="httpresponsesender.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="services.httpresponsesender.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="services.httpresponsesender.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="services.httpresponsesender.html#sendemptyresult" class="tsd-kind-icon">send<wbr>Empty<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="services.httpresponsesender.html#senderror" class="tsd-kind-icon">send<wbr>Error</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="services.httpresponsesender.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,16 +111,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/HttpResponseSender.ts:39</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpResponseSender.ts#L70">services/HttpResponseSender.ts:70</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a response, indicating that the request has been fulfilled, resulting in
+									the creation of a new resource (HTTP result code 201 - Created).</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -148,16 +170,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/HttpResponseSender.ts:53</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpResponseSender.ts#L92">services/HttpResponseSender.ts:92</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a response, indicating that the request has been fulfilled, resulting in
+									the deletion of a resource</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -195,16 +229,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/HttpResponseSender.ts:29</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpResponseSender.ts#L53">services/HttpResponseSender.ts:53</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends an empty result (204 no content status) in response to
+									the given request.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -239,19 +285,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/HttpResponseSender.ts:7</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpResponseSender.ts#L18">services/HttpResponseSender.ts:18</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends an HTTP error response.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 								<li>
 									<h5>error: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the error that was raised.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -268,16 +328,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/HttpResponseSender.ts:18</li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/HttpResponseSender.ts#L35">services/HttpResponseSender.ts:35</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends the result of the given request.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request.</p>
+									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the request&#39;s result.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -313,78 +384,69 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/build.html">build</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/clients.html">clients</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/connect.html">connect</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/services.html">services</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="commandablehttpclient.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Client</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.commandablehttpservice.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Service</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="commandablehttpservice.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Service</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.heartbeatrestservice.html" class="tsd-kind-icon">Heartbeat<wbr>Rest<wbr>Service</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="defaultrpcfactory.html" class="tsd-kind-icon">Default<wbr>Rpc<wbr>Factory</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.httpendpoint.html" class="tsd-kind-icon">Http<wbr>Endpoint</a>
 					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="directclient.html" class="tsd-kind-icon">Direct<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="heartbeatrestservice.html" class="tsd-kind-icon">Heartbeat<wbr>Rest<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpconnectionresolver.html" class="tsd-kind-icon">Http<wbr>Connection<wbr>Resolver</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpendpoint.html" class="tsd-kind-icon">Http<wbr>Endpoint</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httprequestdetector.html" class="tsd-kind-icon">Http<wbr>Request<wbr>Detector</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.httprequestdetector.html" class="tsd-kind-icon">Http<wbr>Request<wbr>Detector</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="httpresponsesender.html" class="tsd-kind-icon">Http<wbr>Response<wbr>Sender</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.httpresponsesender.html" class="tsd-kind-icon">Http<wbr>Response<wbr>Sender</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="httpresponsesender.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a>
+								<a href="services.httpresponsesender.html#sendcreatedresult" class="tsd-kind-icon">send<wbr>Created<wbr>Result</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="httpresponsesender.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a>
+								<a href="services.httpresponsesender.html#senddeletedresult" class="tsd-kind-icon">send<wbr>Deleted<wbr>Result</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="httpresponsesender.html#sendemptyresult" class="tsd-kind-icon">send<wbr>Empty<wbr>Result</a>
+								<a href="services.httpresponsesender.html#sendemptyresult" class="tsd-kind-icon">send<wbr>Empty<wbr>Result</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="httpresponsesender.html#senderror" class="tsd-kind-icon">send<wbr>Error</a>
+								<a href="services.httpresponsesender.html#senderror" class="tsd-kind-icon">send<wbr>Error</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="httpresponsesender.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a>
+								<a href="services.httpresponsesender.html#sendresult" class="tsd-kind-icon">send<wbr>Result</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="restclient.html" class="tsd-kind-icon">Rest<wbr>Client</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.restservice.html" class="tsd-kind-icon">Rest<wbr>Service</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="restservice.html" class="tsd-kind-icon">Rest<wbr>Service</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="services.statusrestservice.html" class="tsd-kind-icon">Status<wbr>Rest<wbr>Service</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="statusrestservice.html" class="tsd-kind-icon">Status<wbr>Rest<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iregisterable.html" class="tsd-kind-icon">IRegisterable</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#_" class="tsd-kind-icon">_</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#querystring" class="tsd-kind-icon">querystring</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#url" class="tsd-kind-icon">url</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/services.iregisterable.html" class="tsd-kind-icon">IRegisterable</a>
 					</li>
 				</ul>
 			</nav>

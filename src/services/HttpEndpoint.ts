@@ -1,3 +1,5 @@
+/** @module services */
+/** @hidden */
 let _ = require('lodash');
 
 import { IOpenable } from 'pip-services-commons-node';
@@ -14,6 +16,30 @@ import { HttpResponseSender } from './HttpResponseSender';
 import { HttpConnectionResolver } from '../connect/HttpConnectionResolver';
 import { IRegisterable } from './IRegisterable';
 
+//TODO
+/**
+ * Class for HTTP endpoints.
+ * 
+ * ### Configuration parameters ###
+ * 
+ * Parameters to pass to the [[configure]] method for component configuration:
+ * 
+ * - __connection(s)__ - the connection resolver's connections;
+ *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+ *     - "connection.protocol" - the connection's protocol;
+ *     - "connection.host" - the target host;
+ *     - "connection.port" - the target port;
+ *     - "connection.uri" - the target URI.
+ * 
+ * ### References ###
+ * 
+ * A logger, counters, and a connection resolver can be referenced by passing the 
+ * following references to the object's [[setReferences]] method:
+ * 
+ * - logger: <code>"\*:logger:\*:\*:1.0"</code>
+ * - counters: <code>"\*:counters:\*:\*:1.0"</code>
+ * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
+ */
 export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 
     private static readonly _defaultConfig: ConfigParams = ConfigParams.fromTuples(
@@ -33,22 +59,61 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
     private _uri: string;
     private _registrations: IRegisterable[] = [];
     
-
+    /**
+     * Configures this HttpEndpoint using the given configuration parameters.
+     * 
+     * __Configuration parameters:__
+     * - __connection(s)__ - the connection resolver's connections;
+     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+     *     - "connection.protocol" - the connection's protocol;
+     *     - "connection.host" - the target host;
+     *     - "connection.port" - the target port;
+     *     - "connection.uri" - the target URI.
+     * 
+     * @param config    configuration parameters, containing a "connection(s)" section.
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
+     */
 	public configure(config: ConfigParams): void {
 		config = config.setDefaults(HttpEndpoint._defaultConfig);
 		this._connectionResolver.configure(config);
 	}
-		
+        
+    /**
+     * Sets references to this endpoint's logger, counters, and connection resolver.
+     * 
+     * __References:__
+     * - logger: <code>"\*:logger:\*:\*:1.0"</code>
+     * - counters: <code>"\*:counters:\*:\*:1.0"</code>
+     * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
+     * 
+     * @param references    an IReferences object, containing references to a logger, counters, 
+     *                      and a connection resolver.
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
+     */
 	public setReferences(references: IReferences): void {
 		this._logger.setReferences(references);
 		this._counters.setReferences(references);
 		this._connectionResolver.setReferences(references);
 	}
 
+    /**
+     * @returns whether or not this endpoint is open with an actively listening REST server.
+     */
 	public isOpen(): boolean {
 		return this._server != null;
 	}
-	
+    
+    //TODO: check
+    /**
+     * Opens a connection using the parameters resolved by the referenced connection
+     * resolver and creates a REST server (service) using the set options and parameters.
+     * 
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param callback          (optional) the function to call once the opening process is complete.
+     *                          Will be called with an error if one is raised.
+     */
 	public open(correlationId: string, callback?: (err: any) => void): void {
     	if (this.isOpen()) {
             callback(null);
@@ -116,6 +181,13 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 		
     }
 
+    /**
+     * Closes this endpoint and the REST server (service) that was opened earlier.
+     * 
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param callback          (optional) the function to call once the closing process is complete.
+     *                          Will be called with an error if one is raised.
+     */
     public close(correlationId: string, callback?: (err: any) => void): void {
         if (this._server != null) {
             // Eat exceptions
@@ -133,10 +205,25 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
         callback(null);
     }
 
+    /**
+     * Registers a registerable object for dynamic endpoint discovery.
+     * 
+     * @param registration      the registration to add. 
+     * 
+     * @see [[IRegisterable]]
+     */
     public register(registration: IRegisterable): void {
         this._registrations.push(registration);
     }
 
+    /**
+     * Unregisters a registerable object, so that it is no longer used in dynamic 
+     * endpoint discovery.
+     * 
+     * @param registration      the registration to remove. 
+     * 
+     * @see [[IRegisterable]]
+     */
     public unregister(registration: IRegisterable): void {
         this._registrations = _.remove(this._registrations, r => r == registration);
     }
@@ -147,6 +234,14 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
         }
     }
 
+    /**
+     * Registers an action in this objects REST server (service) by the given method and route.
+     * 
+     * @param method        the HTTP method of the route.
+     * @param route         the route to register in this object's REST server (service).
+     * @param schema        the schema to use for parameter validation.
+     * @param action        the action to perform at the given route.
+     */
     public registerRoute(method: string, route: string, schema: Schema,
         action: (req: any, res: any) => void): void {
         method = method.toLowerCase();

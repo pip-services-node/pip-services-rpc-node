@@ -1,3 +1,5 @@
+/** @module connect */
+/** @hidden */
 let url = require('url');
 
 import { IReferenceable } from 'pip-services-commons-node';
@@ -8,13 +10,67 @@ import { ConnectionResolver } from 'pip-services-components-node';
 import { ConnectionParams } from 'pip-services-components-node';
 import { ConfigException } from 'pip-services-commons-node';
 
+/**
+ * Helper class that resolves connection parameters for HTTP connections.
+ * 
+ * ### Configuration parameters ###
+ * 
+ * Parameters to pass to the [[configure]] method for component configuration:
+ * 
+ * - __connection(s)__ - the connection resolver's connections;
+ *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+ *     - "connection.protocol" - the connection's protocol;
+ *     - "connection.host" - the target host;
+ *     - "connection.port" - the target port;
+ *     - "connection.uri" - the target URI.
+ * 
+ * ### References ###
+ * 
+ * A a connection resolver can be referenced by passing the 
+ * following reference to the object's [[setReferences]] method:
+ * 
+ * - discovery: <code>"\*:discovery:\*:\*:1.0"</code>
+ * 
+ * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]] (in the PipServices "Components" package)
+ * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionresolver.html ConnectionResolver]] (in the PipServices "Components" package)
+ */
 export class HttpConnectionResolver implements IReferenceable, IConfigurable {
+    /** 
+     * The [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionresolver.html ConnectionResolver]] 
+     * to use for resolving connection parameters.
+     */
     protected _connectionResolver: ConnectionResolver = new ConnectionResolver();
 
+    /**
+     * Sets a reference to the connection resolver's discovery service.
+     * 
+     * __References:__
+     * 
+     * - discovery: <code>"\*:discovery:\*:\*:1.0"</code>
+     * 
+     * @param references    an IReferences object, containing a discovery reference.
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
+     */
     public setReferences(references: IReferences): void {
         this._connectionResolver.setReferences(references);
     }
 
+    /**
+     * Configures this HttpConnectionResolver using the given configuration parameters.
+     * 
+     * __Configuration parameters:__
+     * - __connection(s)__ - the connection resolver's connections;
+     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+     *     - "connection.protocol" - the connection's protocol;
+     *     - "connection.host" - the target host;
+     *     - "connection.port" - the target port;
+     *     - "connection.uri" - the target URI.
+     * 
+     * @param config    configuration parameters, containing a "connection(s)" section.
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
+     */
     public configure(config: ConfigParams): void {
         this._connectionResolver.configure(config);
     }
@@ -68,6 +124,15 @@ export class HttpConnectionResolver implements IReferenceable, IConfigurable {
         }
     }
 
+    /**
+     * Resolves connection parameters for an HTTP connection using the referenced connection resolver.
+     * 
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param callback          the function to call with the resolved ConnectionParams 
+     *                          (or with an error, if one is raised).
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]] (in the PipServices "Components" package)
+     */
     public resolve(correlationId: string, callback: (err: any, connection: ConnectionParams) => void): void {
         this._connectionResolver.resolve(correlationId, (err: any, connection: ConnectionParams) => {
             if (err == null)
@@ -80,6 +145,15 @@ export class HttpConnectionResolver implements IReferenceable, IConfigurable {
         });
     }
 
+    /**
+     * Resolves all existing connection parameters for an HTTP connection using the referenced connection resolver.
+     * 
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param callback          the function to call with the resolved list of ConnectionParams 
+     *                          (or with an error, if one is raised).
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]] (in the PipServices "Components" package)
+     */
     public resolveAll(correlationId: string, callback: (err: any, connections: ConnectionParams[]) => void): void {
         this._connectionResolver.resolveAll(correlationId, (err: any, connections: ConnectionParams[]) => {
             connections = connections || [];
@@ -96,6 +170,15 @@ export class HttpConnectionResolver implements IReferenceable, IConfigurable {
         });
     }
     
+    //TODO: didn't quite get the point of this...
+    /**
+     * Resolves a connection, checks that it is valid, and, if it is, registers it in the 
+     * referenced connection resolver.
+     * 
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param callback          the function to call once the connection has been validated and 
+     *                          registered. Will be called with an error if one is raised.
+     */
     public register(correlationId: string, callback: (err: any) => void): void {
         this._connectionResolver.resolve(correlationId, (err: any, connection: ConnectionParams) => {
             // Validate connection

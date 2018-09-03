@@ -54,7 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="defaultrpcfactory.html">DefaultRpcFactory</a>
+					<a href="../modules/build.html">build</a>
+				</li>
+				<li>
+					<a href="build.defaultrpcfactory.html">DefaultRpcFactory</a>
 				</li>
 			</ul>
 			<h1>Class DefaultRpcFactory</h1>
@@ -64,6 +67,19 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Contains static read-only descriptors for <a href="services.httpendpoint.html">HttpEndpoint</a>, <a href="services.heartbeatrestservice.html">HeartbeatRestService</a>, and <a href="services.statusrestservice.html">StatusRestService</a>
+						(as well as a default &quot;net&quot; factory descriptor).</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/build.factory.html" class="external">Factory</a></p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -90,25 +106,25 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="defaultrpcfactory.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="build.defaultrpcfactory.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="defaultrpcfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="defaultrpcfactory.html#heartbeatservicedescriptor" class="tsd-kind-icon">Heartbeat<wbr>Service<wbr>Descriptor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="defaultrpcfactory.html#httpendpointdescriptor" class="tsd-kind-icon">Http<wbr>Endpoint<wbr>Descriptor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="defaultrpcfactory.html#statusservicedescriptor" class="tsd-kind-icon">Status<wbr>Service<wbr>Descriptor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="build.defaultrpcfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="build.defaultrpcfactory.html#heartbeatservicedescriptor" class="tsd-kind-icon">Heartbeat<wbr>Service<wbr>Descriptor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="build.defaultrpcfactory.html#httpendpointdescriptor" class="tsd-kind-icon">Http<wbr>Endpoint<wbr>Descriptor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="build.defaultrpcfactory.html#statusservicedescriptor" class="tsd-kind-icon">Status<wbr>Service<wbr>Descriptor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultrpcfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultrpcfactory.html#create" class="tsd-kind-icon">create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultrpcfactory.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultrpcfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultrpcfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultrpcfactory.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultrpcfactory.html#register" class="tsd-kind-icon">register</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultrpcfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,16 +136,33 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Default<wbr>Rpc<wbr>Factory<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="defaultrpcfactory.html" class="tsd-signature-type">DefaultRpcFactory</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Default<wbr>Rpc<wbr>Factory<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="build.defaultrpcfactory.html" class="tsd-signature-type">DefaultRpcFactory</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/9279413/src/build/DefaultRpcFactory.ts#L12">build/DefaultRpcFactory.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/build/DefaultRpcFactory.ts#L19">build/DefaultRpcFactory.ts:19</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="defaultrpcfactory.html" class="tsd-signature-type">DefaultRpcFactory</a></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a new DefaultRpcFactory object, containing <a href="services.httpendpoint.html">HttpEndpoint</a>, <a href="services.heartbeatrestservice.html">HeartbeatRestService</a>, and <a href="services.statusrestservice.html">StatusRestService</a>
+									object factories.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="services.httpendpoint.html">HttpEndpoint</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="services.heartbeatrestservice.html">HeartbeatRestService</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="services.statusrestservice.html">StatusRestService</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="build.defaultrpcfactory.html" class="tsd-signature-type">DefaultRpcFactory</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -142,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;factory&quot;, &quot;net&quot;, &quot;default&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/9279413/src/build/DefaultRpcFactory.ts#L9">build/DefaultRpcFactory.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/build/DefaultRpcFactory.ts#L16">build/DefaultRpcFactory.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -152,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">Heartbeat<wbr>Service<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;heartbeat-service&quot;, &quot;http&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/9279413/src/build/DefaultRpcFactory.ts#L12">build/DefaultRpcFactory.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/build/DefaultRpcFactory.ts#L19">build/DefaultRpcFactory.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -162,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">Http<wbr>Endpoint<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;endpoint&quot;, &quot;http&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/9279413/src/build/DefaultRpcFactory.ts#L10">build/DefaultRpcFactory.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/build/DefaultRpcFactory.ts#L17">build/DefaultRpcFactory.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">Status<wbr>Service<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;status-service&quot;, &quot;http&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/9279413/src/build/DefaultRpcFactory.ts#L11">build/DefaultRpcFactory.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/build/DefaultRpcFactory.ts#L18">build/DefaultRpcFactory.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +223,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.canCreate</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:50</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:51</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +256,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.create</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:59</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:60</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -232,7 +265,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a CreateException, if it fails to create an object using the given locator.</p>
+									<dd><p>a CreateException if it fails to create an object using the given locator.</p>
 									</dd>
 								</dl>
 							</div>
@@ -261,7 +294,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.register</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:34</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:35</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -325,7 +358,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.registerAsType</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:43</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-rpc-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:44</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,91 +398,61 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/build.html">build</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/clients.html">clients</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/connect.html">connect</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/services.html">services</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="commandablehttpclient.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="commandablehttpservice.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Service</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="defaultrpcfactory.html" class="tsd-kind-icon">Default<wbr>Rpc<wbr>Factory</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="build.defaultrpcfactory.html" class="tsd-kind-icon">Default<wbr>Rpc<wbr>Factory</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="defaultrpcfactory.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="build.defaultrpcfactory.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="defaultrpcfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a>
+								<a href="build.defaultrpcfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="defaultrpcfactory.html#heartbeatservicedescriptor" class="tsd-kind-icon">Heartbeat<wbr>Service<wbr>Descriptor</a>
+								<a href="build.defaultrpcfactory.html#heartbeatservicedescriptor" class="tsd-kind-icon">Heartbeat<wbr>Service<wbr>Descriptor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="defaultrpcfactory.html#httpendpointdescriptor" class="tsd-kind-icon">Http<wbr>Endpoint<wbr>Descriptor</a>
+								<a href="build.defaultrpcfactory.html#httpendpointdescriptor" class="tsd-kind-icon">Http<wbr>Endpoint<wbr>Descriptor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="defaultrpcfactory.html#statusservicedescriptor" class="tsd-kind-icon">Status<wbr>Service<wbr>Descriptor</a>
+								<a href="build.defaultrpcfactory.html#statusservicedescriptor" class="tsd-kind-icon">Status<wbr>Service<wbr>Descriptor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultrpcfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a>
+								<a href="build.defaultrpcfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultrpcfactory.html#create" class="tsd-kind-icon">create</a>
+								<a href="build.defaultrpcfactory.html#create" class="tsd-kind-icon">create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultrpcfactory.html#register" class="tsd-kind-icon">register</a>
+								<a href="build.defaultrpcfactory.html#register" class="tsd-kind-icon">register</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultrpcfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a>
+								<a href="build.defaultrpcfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="directclient.html" class="tsd-kind-icon">Direct<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="heartbeatrestservice.html" class="tsd-kind-icon">Heartbeat<wbr>Rest<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpconnectionresolver.html" class="tsd-kind-icon">Http<wbr>Connection<wbr>Resolver</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpendpoint.html" class="tsd-kind-icon">Http<wbr>Endpoint</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httprequestdetector.html" class="tsd-kind-icon">Http<wbr>Request<wbr>Detector</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="httpresponsesender.html" class="tsd-kind-icon">Http<wbr>Response<wbr>Sender</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="restclient.html" class="tsd-kind-icon">Rest<wbr>Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="restservice.html" class="tsd-kind-icon">Rest<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="statusrestservice.html" class="tsd-kind-icon">Status<wbr>Rest<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iregisterable.html" class="tsd-kind-icon">IRegisterable</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#_" class="tsd-kind-icon">_</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#querystring" class="tsd-kind-icon">querystring</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#url" class="tsd-kind-icon">url</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

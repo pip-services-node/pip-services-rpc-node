@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>pip-services-rpc-node</title>
+	<title>IRegisterable | pip-services-rpc-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">pip-services-rpc-node</a>
+					<a href="../index.html" class="title">pip-services-rpc-node</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -51,70 +51,149 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/services.html">services</a>
+				</li>
+				<li>
+					<a href="services.iregisterable.html">IRegisterable</a>
 				</li>
 			</ul>
-			<h1> pip-services-rpc-node</h1>
+			<h1>Interface IRegisterable</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<h1 id="-img-src-https-github-com-pip-services-pip-services-raw-master-design-logo-png-alt-pip-services-logo-style-max-width-30-br-remote-procedure-calls-for-node-js"><img src="https://github.com/pip-services/pip-services/raw/master/design/Logo.png" alt="Pip.Services Logo" style="max-width:30%"> <br/> Remote Procedure Calls for Node.js</h1>
-				<p>This framework is a part of the <a href="https://github.com/pip-services/pip-services">Pip.Services</a> project.
-				It provides the following synchronous communication components:</p>
-				<ul>
-					<li><a href="https://rawgit.com/pip-services-node/pip-services-rpc-node/master/doc/api/classes/clients.directclient.html"><strong>Direct</strong></a> - Direct client</li>
-					<li><strong>Rest</strong> - RESTful <a href="https://rawgit.com/pip-services-node/pip-services-rpc-node/master/doc/api/classes/services.restservice.html">services</a> and <a href="https://rawgit.com/pip-services-node/pip-services-rpc-node/master/doc/api/classes/clients.restclient.html">clients</a></li>
-					<li><strong>Status</strong> - <a href="https://rawgit.com/pip-services-node/pip-services-rpc-node/master/doc/api/classes/services.heartbeatrestservice.html">Heartbeat</a> and <a href="https://rawgit.com/pip-services-node/pip-services-rpc-node/master/doc/api/classes/services.statusrestservice.html">status</a> services</li>
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Interface for registering <a href="../classes/services.httpendpoint.html">HTTP endpoints</a> in a dynamic discovery service.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../classes/services.httpendpoint.html">HttpEndpoint</a></p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IRegisterable</span>
+					</li>
 				</ul>
-				<p>Quick Links:</p>
-				<ul>
-					<li><a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/master/doc/Downloads.md">Downloads</a></li>
-					<li><a href="https://rawgit.com/pip-services-node/pip-services-rpc-node/master/doc/api/globals.html">API Reference</a></li>
-					<li><a href="https://github.com/pip-services/pip-services-rpc-node/blob/master/doc/Development.md">Building and Testing</a></li>
-					<li><a href="https://github.com/pip-services/pip-services-rpc-node/blob/master/doc/Development.md/#contrib">Contributing</a></li>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/services.commandablehttpservice.html" class="tsd-signature-type">CommandableHttpService</a></li>
+					<li><a href="../classes/services.heartbeatrestservice.html" class="tsd-signature-type">HeartbeatRestService</a></li>
+					<li><a href="../classes/services.restservice.html" class="tsd-signature-type">RestService</a></li>
+					<li><a href="../classes/services.statusrestservice.html" class="tsd-signature-type">StatusRestService</a></li>
 				</ul>
-				<h2 id="acknowledgements">Acknowledgements</h2>
-				<p>The Node.js version of Pip.Services is created and maintained by:</p>
-				<ul>
-					<li><strong>Volodymyr Tkachenko</strong></li>
-					<li><strong>Sergey Seroukhov</strong></li>
-					<li><strong>Mark Zontak</strong></li>
-				</ul>
-				<p>The documentation is written by:</p>
-				<ul>
-					<li><strong>Mark Makarychev</strong></li>
-				</ul>
-			</div>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="services.iregisterable.html#register" class="tsd-kind-icon">register</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="register" class="tsd-anchor"></a>
+					<h3>register</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/services/IRegisterable.ts#L12">services/IRegisterable.ts:12</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Abstract method that will contain the logic for registering the current component in a
+									dynamic discovery service.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/build.html">build</a>
+						<a href="../modules/build.html">build</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/clients.html">clients</a>
+						<a href="../modules/clients.html">clients</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/connect.html">connect</a>
+						<a href="../modules/connect.html">connect</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/index.html">index</a>
+						<a href="../modules/index.html">index</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/services.html">services</a>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/services.html">services</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/services.commandablehttpservice.html" class="tsd-kind-icon">Commandable<wbr>Http<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/services.heartbeatrestservice.html" class="tsd-kind-icon">Heartbeat<wbr>Rest<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/services.httpendpoint.html" class="tsd-kind-icon">Http<wbr>Endpoint</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/services.httprequestdetector.html" class="tsd-kind-icon">Http<wbr>Request<wbr>Detector</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/services.httpresponsesender.html" class="tsd-kind-icon">Http<wbr>Response<wbr>Sender</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/services.restservice.html" class="tsd-kind-icon">Rest<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/services.statusrestservice.html" class="tsd-kind-icon">Status<wbr>Rest<wbr>Service</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="services.iregisterable.html" class="tsd-kind-icon">IRegisterable</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="services.iregisterable.html#register" class="tsd-kind-icon">register</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
@@ -183,7 +262,7 @@
 	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
