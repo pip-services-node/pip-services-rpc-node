@@ -76,12 +76,10 @@
 					</div>
 					<p>Performance counters and a logger can be referenced from a DirectClient for added functionality.
 					A &quot;counters&quot; reference must be set to use the <a href="clients.directclient.html#instrument">instrument</a> method, which times method execution.</p>
-					<p>Configuration of a Direct clients boils down to the configuration of its dependency resolver, which can
-					be done by passing configuration parameters with a &quot;dependencies&quot; section to the <a href="clients.directclient.html#configure">configure</a> method.</p>
 					<h3 id="configuration-parameters">Configuration parameters</h3>
 					<ul>
-						<li>&quot;dependencies&quot; (section - should contain locators to dependencies) - used to configure this DirectClient&#39;s
-						dependency resolver.</li>
+						<li>&quot;dependencies&quot; - section that is used to configure this service&#39;s dependency resolver. Should contain
+						locators to dependencies.</li>
 					</ul>
 					<h3 id="references">References</h3>
 					<p>A logger, counters, and a controller can be referenced by passing the
@@ -172,7 +170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L66">clients/DirectClient.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L63">clients/DirectClient.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -194,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">_controller<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L47">clients/DirectClient.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L44">clients/DirectClient.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">_counters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeCounters</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeCounters()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L61">clients/DirectClient.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L58">clients/DirectClient.ts:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -229,7 +227,7 @@
 					<div class="tsd-signature tsd-kind-icon">_dependency<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DependencyResolver</span><span class="tsd-signature-symbol"> =&nbsp;new DependencyResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L66">clients/DirectClient.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L63">clients/DirectClient.ts:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -249,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeLogger</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeLogger()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L56">clients/DirectClient.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L53">clients/DirectClient.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -269,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">_opened<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L51">clients/DirectClient.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L48">clients/DirectClient.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -291,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L171">clients/DirectClient.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L171">clients/DirectClient.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -347,14 +345,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L84">clients/DirectClient.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L84">clients/DirectClient.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Configures this DirectClient by searching for a &quot;dependencies&quot; section (which should contain
-									locators to dependencies) and setting dependencies.</p>
+									<p>Configures this DirectClient using the given configuration parameters.</p>
 								</div>
+								<p><strong>Configuration parameters:</strong></p>
+								<ul>
+									<li>&quot;dependencies&quot; - section that is used to configure this DirectClient&#39;s
+									dependency resolver. Should contain locators to dependencies.</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html" class="external">ConfigParams</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -366,7 +368,7 @@
 								<li>
 									<h5>config: <span class="tsd-signature-type">ConfigParams</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>configuration parameters, containing a &quot;dependencies&quot; section.</p>
+										<p>the configuration parameters to configure this DirectClient with.</p>
 									</div>
 								</li>
 							</ul>
@@ -384,7 +386,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L120">clients/DirectClient.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L120">clients/DirectClient.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,7 +429,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L128">clients/DirectClient.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L128">clients/DirectClient.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -447,7 +449,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L142">clients/DirectClient.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L142">clients/DirectClient.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -509,7 +511,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L104">clients/DirectClient.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L104">clients/DirectClient.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

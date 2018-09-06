@@ -31,16 +31,18 @@ import { HttpResponseSender } from './HttpResponseSender';
  *     - "connection.port" - the target port;
  *     - "connection.uri" - the target URI.
  * - "base_route" - this service's base route;
- * - the dependency resolver's configuration parameters.
+ * - "dependencies" - section that is used to configure this service's dependency resolver. Should contain 
+ * locators to dependencies.
  * 
  * ### References ###
  * 
- * A logger, counters, HTTP endpoint, and dependency resolver can be referenced by passing the 
+ * A logger, counters, and HTTP endpoint can be referenced by passing the 
  * following references to the object's [[setReferences]] method:
  * 
  * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
  * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
- * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>.
+ * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
+ * - other references that should be set in this object's dependency resolver.
  */
 export abstract class RestService implements IOpenable, IConfigurable, IReferenceable,
     IUnreferenceable, IRegisterable {
@@ -87,7 +89,8 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
      *     - "connection.port" - the target port;
      *     - "connection.uri" - the target URI.
      * - "base_route" - this service's base route;
-     * - the dependency resolver's configuration parameters.
+     * - "dependencies" - section that is used to configure this service's
+     * dependency resolver. Should contain locators to dependencies.
      * 
      * @param config    the configuration parameters to configure this service with.
      * 
@@ -103,16 +106,20 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
 	}
 
     /**
-     * Sets references to this service's logger, counters, HTTP endpoint, and dependency resolver. 
+     * Sets references to this service's logger, counters, and HTTP endpoint and adds references 
+     * to this object's dependency resolver.
+     * 
      * Additionally stores the given references to pass them later on to newly created HTTP endpoints.
      * 
      * __References:__
      * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
      * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
-     * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>.
+     * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
+     * - other references that should be set in this object's dependency resolver.
      * 
-     * @param references    an IReferences object, containing references to a logger, counters, an http endpoint, and 
-     *                      and the references to set for the dependency resolver and for newly created endpoints.
+     * @param references    an IReferences object, containing references to a logger, counters, an HTTP endpoint, 
+     *                      the references to set in the dependency resolver, and the references to use for endpoint 
+     *                      creation.
      * 
      * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
      */

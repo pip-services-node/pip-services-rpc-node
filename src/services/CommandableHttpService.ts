@@ -22,23 +22,25 @@ import { RestService } from './RestService';
  *     - "connection.port" - the target port;
  *     - "connection.uri" - the target URI.
  * - "base_route" - this service's base route;
- * - the dependency resolver's configuration parameters.
+ * - "dependencies" - section that is used to configure this service's dependency resolver. Should contain 
+ * locators to dependencies.
  * 
  * ### References ###
  * 
- * A logger, counters, HTTP endpoint, and dependency resolver can be referenced by passing the 
+ * A logger, counters, and HTTP endpoint can be referenced by passing the 
  * following references to the object's [[setReferences]] method:
  * 
  * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
  * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
- * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>.
+ * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
+ * - other references that should be set in this object's dependency resolver.
  */
 export abstract class CommandableHttpService extends RestService {
     private _commandSet: CommandSet;
 
     /**
      * Creates a new CommandableHttpService object, which will use the given <code>baseRoute</code>
-     * to register the "controller" that is set in this object's dependency resolver.
+     * for registering the "controller" that is set in this object's dependency resolver.
      * 
      * @param baseRoute the service's base route.
      */

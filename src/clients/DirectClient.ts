@@ -18,13 +18,10 @@ import { ConnectionException } from 'pip-services-commons-node';
  * Performance counters and a logger can be referenced from a DirectClient for added functionality. 
  * A "counters" reference must be set to use the [[instrument]] method, which times method execution.
  * 
- * Configuration of a Direct clients boils down to the configuration of its dependency resolver, which can 
- * be done by passing configuration parameters with a "dependencies" section to the [[configure]] method.
- * 
  * ### Configuration parameters ###
  * 
- * - "dependencies" (section - should contain locators to dependencies) - used to configure this DirectClient's 
- * dependency resolver.
+ * - "dependencies" - section that is used to configure this service's dependency resolver. Should contain 
+ * locators to dependencies.
  * 
  * 
  * ### References ###
@@ -73,14 +70,17 @@ export abstract class DirectClient<T> implements IConfigurable, IReferenceable, 
         this._dependencyResolver.put('controller', 'none');
     }
 
-	/**
-	 * Configures this DirectClient by searching for a "dependencies" section (which should contain 
-     * locators to dependencies) and setting dependencies.
-	 * 
-	 * @param config 	configuration parameters, containing a "dependencies" section.
-	 * 
-	 * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
-	 */
+    /**
+     * Configures this DirectClient using the given configuration parameters.
+     * 
+     * __Configuration parameters:__
+     * - "dependencies" - section that is used to configure this DirectClient's
+     * dependency resolver. Should contain locators to dependencies.
+     * 
+     * @param config    the configuration parameters to configure this DirectClient with.
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
+     */
     public configure(config: ConfigParams): void {
         this._dependencyResolver.configure(config);
     }
