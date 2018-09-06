@@ -124,7 +124,7 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
 		this._connectionResolver.setReferences(references);
 	}
 
-    //TODO: did I miss any defaults?
+    //TODO: check - did I miss any defaults?
     /**
      * Configures this REST client using the given configuration parameters.
      * 
@@ -338,7 +338,7 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
         return builder;
     }
 
-    //TODO: didn't quite get the "callback.call" with 3x parameters
+    //TODO: I didn't quite understand what the "callback.call" with 3x parameters does.
     /**
      * Calls a remote service's method using the given method, the resolved URI, 
      * the set base path, the given route, and the parameters and/or data that was 

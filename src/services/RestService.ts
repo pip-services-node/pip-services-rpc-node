@@ -19,6 +19,28 @@ import { HttpResponseSender } from './HttpResponseSender';
 
 /**
  * Abstract class for implementing RESTful services.
+ * 
+ * ### Configuration parameters ###
+ * 
+ * Parameters to pass to the [[configure]] method for component configuration:
+ * 
+ * - __connection(s)__ - the configuration parameters to use when creating HTTP endpoints;
+ *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+ *     - "connection.protocol" - the connection's protocol;
+ *     - "connection.host" - the target host;
+ *     - "connection.port" - the target port;
+ *     - "connection.uri" - the target URI.
+ * - "base_route" - this service's base route;
+ * - the dependency resolver's configuration parameters.
+ * 
+ * ### References ###
+ * 
+ * A logger, counters, HTTP endpoint, and dependency resolver can be referenced by passing the 
+ * following references to the object's [[setReferences]] method:
+ * 
+ * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
+ * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
+ * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>.
  */
 export abstract class RestService implements IOpenable, IConfigurable, IReferenceable,
     IUnreferenceable, IRegisterable {
@@ -33,19 +55,41 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
     private _localEndpoint: boolean;
     private _opened: boolean;
 
+    /**
+     * The REST service's base route. For example: "v1/demos".
+     */
     protected _baseRoute: string;
+    /**
+     * The REST service's HTTP endpoint.
+     */
     protected _endpoint: HttpEndpoint;    
+    /**
+     * The dependency resolver to use for finding component references.
+     */
     protected _dependencyResolver: DependencyResolver = new DependencyResolver(RestService._defaultConfig);
-	protected _logger: CompositeLogger = new CompositeLogger();
+    /**
+     * The logger to use for outputting helpful information, regarding this service.
+     */
+    protected _logger: CompositeLogger = new CompositeLogger();
+    /**
+     * The service's performance counters.
+     */
 	protected _counters: CompositeCounters = new CompositeCounters();
 
     /**
-     * Configures this service by searching for and setting:
-     * - the configuration parameters to use when creating HTTP endpoints; 
-     * - the dependency resolver's configuration parameters;
-     * - this service's base route ("base_route" parameter).
+     * Configures this service using the given configuration parameters.
      * 
-     * @param config    the configuration parameters to configure this queue with.
+     * __Configuration parameters:__
+     * - __connection(s)__ - the configuration parameters to use when creating HTTP endpoints;
+     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+     *     - "connection.protocol" - the connection's protocol;
+     *     - "connection.host" - the target host;
+     *     - "connection.port" - the target port;
+     *     - "connection.uri" - the target URI.
+     * - "base_route" - this service's base route;
+     * - the dependency resolver's configuration parameters.
+     * 
+     * @param config    the configuration parameters to configure this service with.
      * 
      * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
      */
@@ -57,14 +101,18 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
 
         this._baseRoute = config.getAsStringWithDefault("base_route", this._baseRoute);
 	}
-        
+
     /**
-     * Sets references to this service's logger, counters, dependency resolver, and HTTP endpoint. 
+     * Sets references to this service's logger, counters, HTTP endpoint, and dependency resolver. 
      * Additionally stores the given references to pass them later on to newly created HTTP endpoints.
      * 
-     * @param references    an IReferences object, containing references for a "logger", "counters", 
-     *                      an "endpoint", and the references to set for the dependency resolver and 
-     *                      newly created endpoints.
+     * __References:__
+     * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
+     * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
+     * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>.
+     * 
+     * @param references    an IReferences object, containing references to a logger, counters, an http endpoint, and 
+     *                      and the references to set for the dependency resolver and for newly created endpoints.
      * 
      * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
      */

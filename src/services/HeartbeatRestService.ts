@@ -2,19 +2,71 @@
 import { RestService } from './RestService';
 import { ConfigParams } from 'pip-services-commons-node';
 
+/**
+ * REST service that can be used for checking whether or not a service is still up and running.
+ * 
+ * ### Configuration parameters ###
+ * 
+ * Parameters to pass to the [[configure]] method for component configuration:
+ * 
+ * - __connection(s)__ - the configuration parameters to use when creating HTTP endpoints;
+ *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+ *     - "connection.protocol" - the connection's protocol;
+ *     - "connection.host" - the target host;
+ *     - "connection.port" - the target port;
+ *     - "connection.uri" - the target URI.
+ * - "base_route" - this service's base route;
+ * - "route" - the service-specific route;
+ * - the dependency resolver's configuration parameters.
+ * 
+ * ### References ###
+ * 
+ * A logger, counters, HTTP endpoint, and dependency resolver can be referenced by passing the 
+ * following references to the object's [[setReferences]] method:
+ * 
+ * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
+ * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
+ * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>.
+ */
 export class HeartbeatRestService extends RestService {
     private _route: string = "heartbeat";
 
+    /**
+     * Creates a new HeartbeatRestService object, which can be used for checking whether or not a 
+     * service is still up and running.
+     */
     public constructor() {
         super();
     }
 
+    /**
+     * Configures this service using the given configuration parameters.
+     * 
+     * __Configuration parameters:__
+     * - __connection(s)__ - the configuration parameters to use when creating HTTP endpoints;
+     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
+     *     - "connection.protocol" - the connection's protocol;
+     *     - "connection.host" - the target host;
+     *     - "connection.port" - the target port;
+     *     - "connection.uri" - the target URI.
+     * - "base_route" - this service's base route;
+     * - "route" - the service-specific route;
+     * - the dependency resolver's configuration parameters.
+     * 
+     * @param config    the configuration parameters to configure this service with.
+     * 
+     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
+     */
     public configure(config: ConfigParams): void {
         super.configure(config);
 
         this._route = config.getAsStringWithDefault("route", this._route);
     }
 
+    /**
+     * Registers the "get" route, which can be used for querying whether or not this service is still 
+     * up and running.
+     */
     public register(): void {
         this.registerRoute("get", this._route, null, (req, res) => { this.heartbeat(req, res); });
     }

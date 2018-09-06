@@ -18,12 +18,24 @@ import { ConnectionException } from 'pip-services-commons-node';
  * Performance counters and a logger can be referenced from a DirectClient for added functionality. 
  * A "counters" reference must be set to use the [[instrument]] method, which times method execution.
  * 
- * A Direct client's references can be set using the [[setReferences]] method, which searchs for and
- * sets references to "logger", "counters", and "controller" components, and sets the dependency resolver's
- * references as well.
- * 
  * Configuration of a Direct clients boils down to the configuration of its dependency resolver, which can 
  * be done by passing configuration parameters with a "dependencies" section to the [[configure]] method.
+ * 
+ * ### Configuration parameters ###
+ * 
+ * - "dependencies" (section - should contain locators to dependencies) - used to configure this DirectClient's 
+ * dependency resolver.
+ * 
+ * 
+ * ### References ###
+ * 
+ * A logger, counters, and a controller can be referenced by passing the 
+ * following references to the object's [[setReferences]] method:
+ * 
+ * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
+ * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
+ * - controller: <code>"\*:controller:\*:\*:1.0"</code>;
+ * - other references that should be set in this object's dependency resolver.
  * 
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/log.compositelogger.html CompositeLogger]] (in the PipServices "Components" package)
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.compositecounters.html CompositeCounters]] (in the PipServices "Components" package)
@@ -74,10 +86,18 @@ export abstract class DirectClient<T> implements IConfigurable, IReferenceable, 
     }
 
     /**
-     * Sets references to this Direct client's logger, counters, dependency resolver, and controller.
+     * Sets references to this Direct client's logger, counters, and controller and adds references 
+     * to this object's dependency resolver.
      * 
-     * @param references    an IReferences object, containing "logger", "counters", and "controller" references, 
-     *                      as well as the references to set for the dependency resolver.
+     * __References:__
+     * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
+     * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
+     * - controller: <code>"\*:controller:\*:\*:1.0"</code>;
+     * - other references that should be set in this object's dependency resolver.
+     * 
+     * @param references    an IReferences object, containing references to a logger, counters, 
+     *                      a controller, and the references that should be set in this object's 
+     *                      dependency resolver.
      * 
      * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
      */

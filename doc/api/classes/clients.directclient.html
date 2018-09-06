@@ -76,11 +76,22 @@
 					</div>
 					<p>Performance counters and a logger can be referenced from a DirectClient for added functionality.
 					A &quot;counters&quot; reference must be set to use the <a href="clients.directclient.html#instrument">instrument</a> method, which times method execution.</p>
-					<p>A Direct client&#39;s references can be set using the <a href="clients.directclient.html#setreferences">setReferences</a> method, which searchs for and
-						sets references to &quot;logger&quot;, &quot;counters&quot;, and &quot;controller&quot; components, and sets the dependency resolver&#39;s
-					references as well.</p>
 					<p>Configuration of a Direct clients boils down to the configuration of its dependency resolver, which can
 					be done by passing configuration parameters with a &quot;dependencies&quot; section to the <a href="clients.directclient.html#configure">configure</a> method.</p>
+					<h3 id="configuration-parameters">Configuration parameters</h3>
+					<ul>
+						<li>&quot;dependencies&quot; (section - should contain locators to dependencies) - used to configure this DirectClient&#39;s
+						dependency resolver.</li>
+					</ul>
+					<h3 id="references">References</h3>
+					<p>A logger, counters, and a controller can be referenced by passing the
+					following references to the object&#39;s <a href="clients.directclient.html#setreferences">setReferences</a> method:</p>
+					<ul>
+						<li>logger: <code>&quot;*:logger:*:*:1.0&quot;</code>;</li>
+						<li>counters: <code>&quot;*:counters:*:*:1.0&quot;</code>;</li>
+						<li>controller: <code>&quot;*:controller:*:*:1.0&quot;</code>;</li>
+						<li>other references that should be set in this object&#39;s dependency resolver.</li>
+					</ul>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/log.compositelogger.html" class="external">CompositeLogger</a> (in the PipServices &quot;Components&quot; package)</p>
@@ -161,7 +172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L54">clients/DirectClient.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L66">clients/DirectClient.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -183,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">_controller<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L35">clients/DirectClient.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L47">clients/DirectClient.ts:47</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -198,7 +209,7 @@
 					<div class="tsd-signature tsd-kind-icon">_counters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeCounters</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeCounters()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L49">clients/DirectClient.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L61">clients/DirectClient.ts:61</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -218,7 +229,7 @@
 					<div class="tsd-signature tsd-kind-icon">_dependency<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DependencyResolver</span><span class="tsd-signature-symbol"> =&nbsp;new DependencyResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L54">clients/DirectClient.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L66">clients/DirectClient.ts:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -238,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeLogger</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeLogger()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L44">clients/DirectClient.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L56">clients/DirectClient.ts:56</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -258,7 +269,7 @@
 					<div class="tsd-signature tsd-kind-icon">_opened<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L39">clients/DirectClient.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L51">clients/DirectClient.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -280,7 +291,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L151">clients/DirectClient.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L171">clients/DirectClient.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -336,7 +347,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L72">clients/DirectClient.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L84">clients/DirectClient.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L100">clients/DirectClient.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L120">clients/DirectClient.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -416,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L108">clients/DirectClient.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L128">clients/DirectClient.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,7 +447,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L122">clients/DirectClient.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L142">clients/DirectClient.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -498,13 +509,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/411ce51/src/clients/DirectClient.ts#L84">clients/DirectClient.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/e8ad4d1/src/clients/DirectClient.ts#L104">clients/DirectClient.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets references to this Direct client&#39;s logger, counters, dependency resolver, and controller.</p>
+									<p>Sets references to this Direct client&#39;s logger, counters, and controller and adds references
+									to this object&#39;s dependency resolver.</p>
 								</div>
+								<p><strong>References:</strong></p>
+								<ul>
+									<li>logger: <code>&quot;*:logger:*:*:1.0&quot;</code>;</li>
+									<li>counters: <code>&quot;*:counters:*:*:1.0&quot;</code>;</li>
+									<li>controller: <code>&quot;*:controller:*:*:1.0&quot;</code>;</li>
+									<li>other references that should be set in this object&#39;s dependency resolver.</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html" class="external">IReferences</a> (in the PipServices &quot;Commons&quot; package)</p>
@@ -516,8 +535,9 @@
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>an IReferences object, containing &quot;logger&quot;, &quot;counters&quot;, and &quot;controller&quot; references,
-										as well as the references to set for the dependency resolver.</p>
+										<p>an IReferences object, containing references to a logger, counters,
+											a controller, and the references that should be set in this object&#39;s
+										dependency resolver.</p>
 									</div>
 								</li>
 							</ul>

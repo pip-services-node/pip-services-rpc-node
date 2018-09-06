@@ -170,7 +170,7 @@ export class HttpConnectionResolver implements IReferenceable, IConfigurable {
         });
     }
     
-    //TODO: didn't quite get the point of this...
+    //TODO: I didn't quite understand what this method does.
     /**
      * Resolves a connection, checks that it is valid, and, if it is, registers it in the 
      * referenced connection resolver.

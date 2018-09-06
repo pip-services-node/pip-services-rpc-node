@@ -4,7 +4,7 @@ import { RestClient } from './RestClient';
 /**
  * Basic implementation of the abstract [[RestClient]] class.
  * 
- * ### Example usage ###
+ * ### Examples ###
  *     export class DemoHttpClientV1 extends CommandableHttpClient {
  *         public constructor() {
  *             super('v1/demos');

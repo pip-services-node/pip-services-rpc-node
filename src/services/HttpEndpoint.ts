@@ -16,9 +16,8 @@ import { HttpResponseSender } from './HttpResponseSender';
 import { HttpConnectionResolver } from '../connect/HttpConnectionResolver';
 import { IRegisterable } from './IRegisterable';
 
-//TODO
 /**
- * Class for HTTP endpoints.
+ * Used for creating HTTP endpoints. An endpoint is a URL, at which a given service can be accessed by a client. 
  * 
  * ### Configuration parameters ###
  * 
@@ -36,9 +35,9 @@ import { IRegisterable } from './IRegisterable';
  * A logger, counters, and a connection resolver can be referenced by passing the 
  * following references to the object's [[setReferences]] method:
  * 
- * - logger: <code>"\*:logger:\*:\*:1.0"</code>
- * - counters: <code>"\*:counters:\*:\*:1.0"</code>
- * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
+ * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
+ * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
+ * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver).
  */
 export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 
@@ -105,7 +104,7 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 		return this._server != null;
 	}
     
-    //TODO: check
+    //TODO: check for correct understanding.
     /**
      * Opens a connection using the parameters resolved by the referenced connection
      * resolver and creates a REST server (service) using the set options and parameters.
