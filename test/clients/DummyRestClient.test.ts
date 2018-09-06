@@ -5,7 +5,7 @@ import { References } from 'pip-services-commons-node';
 import { DummyController } from '../DummyController';
 import { DummyRestService } from '../services/DummyRestService';
 import { DummyRestClient } from './DummyRestClient';
-import { DummyClientFixture } from '../DummyClientFixture';
+import { DummyClientFixture } from './DummyClientFixture';
 
 var restConfig = ConfigParams.fromTuples(
     "connection.protocol", "http",

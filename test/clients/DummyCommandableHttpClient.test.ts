@@ -12,7 +12,7 @@ import { Dummy } from '../Dummy';
 import { DummyController } from '../DummyController';
 import { DummyCommandableHttpService } from '../services/DummyCommandableHttpService';
 import { DummyCommandableHttpClient } from './DummyCommandableHttpClient';
-import { DummyClientFixture } from '../DummyClientFixture';
+import { DummyClientFixture } from './DummyClientFixture';
 
 var restConfig = ConfigParams.fromTuples(
     "connection.protocol", "http",

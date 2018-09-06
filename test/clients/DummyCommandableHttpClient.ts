@@ -5,7 +5,7 @@ import {
 } from 'pip-services-commons-node';
 
 import { CommandableHttpClient } from '../../src/clients/CommandableHttpClient';
-import { IDummyClient } from '../IDummyClient';
+import { IDummyClient } from './IDummyClient';
 import { Dummy } from '../Dummy';
 
 export class DummyCommandableHttpClient extends CommandableHttpClient implements IDummyClient {

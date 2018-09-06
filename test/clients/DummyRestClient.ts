@@ -3,7 +3,7 @@ import { PagingParams } from 'pip-services-commons-node';
 import { DataPage } from 'pip-services-commons-node';
 
 import { RestClient } from '../../src/clients/RestClient';
-import { IDummyClient } from '../IDummyClient';
+import { IDummyClient } from './IDummyClient';
 import { Dummy } from '../Dummy';
 
 export class DummyRestClient extends RestClient implements IDummyClient {
