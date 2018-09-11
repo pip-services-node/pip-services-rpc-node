@@ -92,6 +92,22 @@
 						<li>counters: <code>&quot;*:counters:*:*:1.0&quot;</code>;</li>
 						<li>discovery: <code>&quot;*:discovery:*:*:1.0&quot;</code> (for the connection resolver).</li>
 					</ul>
+					<h3 id="examples">Examples</h3>
+					<pre><code><span class="hljs-keyword">public</span> MyMethod(_config: ConfigParams, _references: IReferences) {
+    let endpoint = new HttpEndpoint();
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._config)
+        endpoint.configure(<span class="hljs-keyword">this</span>._config);
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._references)
+        endpoint.setReferences(<span class="hljs-keyword">this</span>._references);
+    ...
+
+    <span class="hljs-keyword">this</span>._endpoint.<span class="hljs-keyword">open</span>(correlationId, (err) =&gt; {
+            <span class="hljs-keyword">this</span>._opened = err == <span class="hljs-literal">null</span>;
+            callback(err);
+        });
+    ...
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -142,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L190">services/HttpEndpoint.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L207">services/HttpEndpoint.ts:207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -198,7 +214,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L76">services/HttpEndpoint.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L93">services/HttpEndpoint.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,7 +261,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L103">services/HttpEndpoint.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L120">services/HttpEndpoint.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -265,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L116">services/HttpEndpoint.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L133">services/HttpEndpoint.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -322,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L214">services/HttpEndpoint.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L231">services/HttpEndpoint.ts:231</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,7 +374,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L244">services/HttpEndpoint.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L261">services/HttpEndpoint.ts:261</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -428,7 +444,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L94">services/HttpEndpoint.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L111">services/HttpEndpoint.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -471,7 +487,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/HttpEndpoint.ts#L226">services/HttpEndpoint.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpEndpoint.ts#L243">services/HttpEndpoint.ts:243</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

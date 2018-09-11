@@ -14,7 +14,7 @@ import { StatusRestService } from '../services/StatusRestService';
  * 
  * ### Examples ###
  * 
- *     export class MyDataProcess extends ProcessContainer { @see [[ProcessContainer]]
+ *     export class MyDataProcess extends ProcessContainer { 
  *         public constructor(){
  *             super('mydata', 'MyData microservice');
  *
@@ -22,6 +22,7 @@ import { StatusRestService } from '../services/StatusRestService';
  *             this._factories.add(new DefaultRpcFactory());
  *         }
  *      }
+ * @see [[ProcessContainer]]
  */
 export class DefaultRpcFactory extends Factory {
 	public static readonly Descriptor: Descriptor = new Descriptor("pip-services", "factory", "net", "default", "1.0");

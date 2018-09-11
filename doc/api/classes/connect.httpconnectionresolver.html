@@ -96,7 +96,31 @@
 						</dd>
 						<dt>see</dt>
 						<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionresolver.html" class="external">ConnectionResolver</a> (in the PipServices &quot;Components&quot; package)</p>
-						</dd>
+							<h3 id="examples">Examples</h3>
+							<pre><code><span class="hljs-keyword">public</span> MyMethod(config: ConfigParams, references: IReferences) {
+    <span class="hljs-keyword">let</span> _connectionResolver = <span class="hljs-literal">new</span> HttpConnectionResolver();
+    <span class="hljs-params">...</span>
+
+    _connectionResolver.configure(config);
+    <span class="hljs-params">...</span>
+
+    _connectionResolver.setReferences(references);
+    <span class="hljs-params">...</span>
+
+    _connectionResolver.resolve(correlationId, (err, connection) =&gt; {
+        <span class="hljs-keyword">if</span> (err != <span class="hljs-built_in">null</span>) {
+            callback(err);
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-params">...</span>
+
+        _connectionResolver.register(correlationId, (err) =&gt; {
+            <span class="hljs-params">...</span>
+            <span class="hljs-keyword">if</span> (callback) callback(err);
+        });
+    }
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -146,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">_connection<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConnectionResolver</span><span class="tsd-signature-symbol"> =&nbsp;new ConnectionResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/connect/HttpConnectionResolver.ts#L42">connect/HttpConnectionResolver.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/connect/HttpConnectionResolver.ts#L68">connect/HttpConnectionResolver.ts:68</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,7 +193,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/connect/HttpConnectionResolver.ts#L74">connect/HttpConnectionResolver.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/connect/HttpConnectionResolver.ts#L100">connect/HttpConnectionResolver.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -216,7 +240,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/connect/HttpConnectionResolver.ts#L182">connect/HttpConnectionResolver.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/connect/HttpConnectionResolver.ts#L208">connect/HttpConnectionResolver.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,7 +297,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/connect/HttpConnectionResolver.ts#L136">connect/HttpConnectionResolver.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/connect/HttpConnectionResolver.ts#L162">connect/HttpConnectionResolver.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/connect/HttpConnectionResolver.ts#L157">connect/HttpConnectionResolver.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/connect/HttpConnectionResolver.ts#L183">connect/HttpConnectionResolver.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -401,7 +425,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/connect/HttpConnectionResolver.ts#L55">connect/HttpConnectionResolver.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/connect/HttpConnectionResolver.ts#L81">connect/HttpConnectionResolver.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

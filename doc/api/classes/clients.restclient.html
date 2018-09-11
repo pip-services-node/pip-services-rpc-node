@@ -107,7 +107,23 @@
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="services.commandablehttpservice.html">CommandableHttpService</a></p>
-						</dd>
+							<h3 id="examples">Examples</h3>
+							<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyHttpClient <span class="hljs-keyword">extends</span> RestClient {
+    ...
+
+    <span class="hljs-keyword">public</span> callCommand(name: <span class="hljs-built_in">string</span>, correlationId: <span class="hljs-built_in">string</span>, params: <span class="hljs-built_in">any</span>,
+            callback: <span class="hljs-function">(<span class="hljs-params">err: <span class="hljs-built_in">any</span>, result: <span class="hljs-built_in">any</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+        <span class="hljs-keyword">let</span> timing = <span class="hljs-keyword">this</span>.instrument(correlationId, <span class="hljs-keyword">this</span>._baseRoute + <span class="hljs-string">'.'</span> + name);
+        <span class="hljs-keyword">this</span>.call(<span class="hljs-string">'post'</span>, name, correlationId,
+            {}, params || {},
+            <span class="hljs-function">(<span class="hljs-params">err, result</span>) =&gt;</span> {
+                timing.endTiming();
+                <span class="hljs-keyword">if</span> (callback) callback(err, result);
+            });
+    }
+    ...
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -178,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">_base<wbr>Route<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L96">clients/RestClient.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L114">clients/RestClient.ts:114</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -193,7 +209,7 @@
 					<div class="tsd-signature tsd-kind-icon">_client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L76">clients/RestClient.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L94">clients/RestClient.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -208,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">_connect<wbr>Timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L102">clients/RestClient.ts:102</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L120">clients/RestClient.ts:120</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -223,7 +239,7 @@
 					<div class="tsd-signature tsd-kind-icon">_connection<wbr>Resolver<span class="tsd-signature-symbol">:</span> <a href="connect.httpconnectionresolver.html" class="tsd-signature-type">HttpConnectionResolver</a><span class="tsd-signature-symbol"> =&nbsp;new HttpConnectionResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L82">clients/RestClient.ts:82</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L100">clients/RestClient.ts:100</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -244,7 +260,7 @@
 					<div class="tsd-signature tsd-kind-icon">_counters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeCounters</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeCounters()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L92">clients/RestClient.ts:92</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L110">clients/RestClient.ts:110</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -264,7 +280,7 @@
 					<div class="tsd-signature tsd-kind-icon">_headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L100">clients/RestClient.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L118">clients/RestClient.ts:118</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -279,7 +295,7 @@
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeLogger</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeLogger()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L87">clients/RestClient.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L105">clients/RestClient.ts:105</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -299,7 +315,7 @@
 					<div class="tsd-signature tsd-kind-icon">_options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConfigParams</span><span class="tsd-signature-symbol"> =&nbsp;new ConfigParams()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L94">clients/RestClient.ts:94</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L112">clients/RestClient.ts:112</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -314,7 +330,7 @@
 					<div class="tsd-signature tsd-kind-icon">_retries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L98">clients/RestClient.ts:98</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L116">clients/RestClient.ts:116</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -329,7 +345,7 @@
 					<div class="tsd-signature tsd-kind-icon">_timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L104">clients/RestClient.ts:104</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L122">clients/RestClient.ts:122</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -344,7 +360,7 @@
 					<div class="tsd-signature tsd-kind-icon">_uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L106">clients/RestClient.ts:106</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L124">clients/RestClient.ts:124</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -366,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L260">clients/RestClient.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L278">clients/RestClient.ts:278</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -405,7 +421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L280">clients/RestClient.ts:280</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L298">clients/RestClient.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -445,7 +461,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L302">clients/RestClient.ts:302</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L320">clients/RestClient.ts:320</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -485,7 +501,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L361">clients/RestClient.ts:361</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L379">clients/RestClient.ts:379</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -579,7 +595,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L236">clients/RestClient.ts:236</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L254">clients/RestClient.ts:254</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -635,7 +651,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L148">clients/RestClient.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L166">clients/RestClient.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -689,7 +705,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L169">clients/RestClient.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L187">clients/RestClient.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -732,7 +748,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L178">clients/RestClient.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L196">clients/RestClient.ts:196</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -753,7 +769,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L190">clients/RestClient.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L208">clients/RestClient.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -810,7 +826,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/RestClient.ts#L121">clients/RestClient.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/RestClient.ts#L139">clients/RestClient.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -76,6 +76,18 @@
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/build.factory.html" class="external">Factory</a></p>
+							<h3 id="examples">Examples</h3>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDataProcess</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ProcessContainer</span> </span>{
+    public constructor(){
+        <span class="hljs-keyword">super</span>(<span class="hljs-symbol">'mydat</span>a', <span class="hljs-symbol">'MyData</span> microservice');
+
+        <span class="hljs-keyword">this</span>._factories.add(<span class="hljs-keyword">new</span> <span class="hljs-type">MyDataServiceFactory</span>());
+        <span class="hljs-keyword">this</span>._factories.add(<span class="hljs-keyword">new</span> <span class="hljs-type">DefaultRpcFactory</span>());
+    }
+ }
+</code></pre></dd>
+						<dt>see</dt>
+						<dd><p>[[ProcessContainer]]</p>
 						</dd>
 					</dl>
 				</div>
@@ -142,7 +154,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/build/DefaultRpcFactory.ts#L19">build/DefaultRpcFactory.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/build/DefaultRpcFactory.ts#L31">build/DefaultRpcFactory.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -175,7 +187,7 @@
 					<div class="tsd-signature tsd-kind-icon">Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;factory&quot;, &quot;net&quot;, &quot;default&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/build/DefaultRpcFactory.ts#L16">build/DefaultRpcFactory.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/build/DefaultRpcFactory.ts#L28">build/DefaultRpcFactory.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">Heartbeat<wbr>Service<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;heartbeat-service&quot;, &quot;http&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/build/DefaultRpcFactory.ts#L19">build/DefaultRpcFactory.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/build/DefaultRpcFactory.ts#L31">build/DefaultRpcFactory.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -195,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">Http<wbr>Endpoint<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;endpoint&quot;, &quot;http&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/build/DefaultRpcFactory.ts#L17">build/DefaultRpcFactory.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/build/DefaultRpcFactory.ts#L29">build/DefaultRpcFactory.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -205,7 +217,7 @@
 					<div class="tsd-signature tsd-kind-icon">Status<wbr>Service<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;status-service&quot;, &quot;http&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/build/DefaultRpcFactory.ts#L18">build/DefaultRpcFactory.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/build/DefaultRpcFactory.ts#L30">build/DefaultRpcFactory.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -363,7 +375,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Registers a factory that can create instance of &#39;objectFactory&#39; classes.</p>
+									<p>Registers a factory that can create instances of &#39;objectFactory&#39; classes.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>

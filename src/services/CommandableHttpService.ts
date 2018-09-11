@@ -40,7 +40,8 @@ import { RestService } from './RestService';
  *     export class MyDataHttpServiceV1 extends CommandableHttpService {
  *         public constructor() {
  *             super('v1/mydata');
- *             this._dependencyResolver.put('controller', new Descriptor('mydata', 'controller', '*', '*', '1.0'));
+ *             this._dependencyResolver.put('controller', new Descriptor(
+ *                 'mydata', 'controller', '*', '*', '1.0'));
  *         }
  *         ...
  *     }

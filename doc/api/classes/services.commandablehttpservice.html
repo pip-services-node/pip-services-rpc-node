@@ -98,6 +98,15 @@
 						<li>endpoint: <code>&quot;*:endpoint:*:*:1.0&quot;</code>;</li>
 						<li>other references that should be set in this object&#39;s dependency resolver.</li>
 					</ul>
+					<h3 id="examples">Examples</h3>
+					<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDataHttpServiceV1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CommandableHttpService</span> </span>{
+    public constructor() {
+        <span class="hljs-keyword">super</span>(<span class="hljs-symbol">'v1</span>/mydata');
+        <span class="hljs-keyword">this</span>._dependencyResolver.put(<span class="hljs-symbol">'controlle</span>r', <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-symbol">'mydat</span>a', <span class="hljs-symbol">'controlle</span>r', '*', '*', <span class="hljs-symbol">'1</span><span class="hljs-number">.0</span>'));
+    }
+    ...
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -176,7 +185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/CommandableHttpService.ts#L39">services/CommandableHttpService.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/CommandableHttpService.ts#L49">services/CommandableHttpService.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,7 +219,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_baseroute">_baseRoute</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L63">services/RestService.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L77">services/RestService.ts:77</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -226,7 +235,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_counters">_counters</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L79">services/RestService.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L93">services/RestService.ts:93</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -242,7 +251,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_dependencyresolver">_dependencyResolver</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L71">services/RestService.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L85">services/RestService.ts:85</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -258,7 +267,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_endpoint">_endpoint</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L67">services/RestService.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L81">services/RestService.ts:81</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -274,7 +283,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_logger">_logger</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L75">services/RestService.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L89">services/RestService.ts:89</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -297,7 +306,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L237">services/RestService.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L251">services/RestService.ts:251</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -354,7 +363,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L99">services/RestService.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L113">services/RestService.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -405,7 +414,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#instrument">instrument</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L181">services/RestService.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L195">services/RestService.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,7 +458,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#isopen">isOpen</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L189">services/RestService.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L203">services/RestService.ts:203</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -470,7 +479,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#open">open</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L206">services/RestService.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L220">services/RestService.ts:220</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -541,7 +550,7 @@
 								<p>Implementation of <a href="../interfaces/services.iregisterable.html">IRegisterable</a>.<a href="../interfaces/services.iregisterable.html#register">register</a></p>
 								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#register">register</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/CommandableHttpService.ts#L59">services/CommandableHttpService.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/CommandableHttpService.ts#L69">services/CommandableHttpService.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -570,7 +579,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#registerroute">registerRoute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L312">services/RestService.ts:312</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L326">services/RestService.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -642,7 +651,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendcreatedresult">sendCreatedResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L276">services/RestService.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L290">services/RestService.ts:290</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -702,7 +711,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senddeletedresult">sendDeletedResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L288">services/RestService.ts:288</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L302">services/RestService.ts:302</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -762,7 +771,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senderror">sendError</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L299">services/RestService.ts:299</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L313">services/RestService.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -806,7 +815,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendresult">sendResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L265">services/RestService.ts:265</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L279">services/RestService.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -865,7 +874,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L126">services/RestService.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L140">services/RestService.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -913,7 +922,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#unsetreferences">unsetReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/services/RestService.ts#L152">services/RestService.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/RestService.ts#L166">services/RestService.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

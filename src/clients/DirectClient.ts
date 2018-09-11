@@ -40,13 +40,16 @@ import { ConnectionException } from 'pip-services-commons-node';
  * ### Examples ###
  * 
  *     export class MyDataDirectClient extends DirectClient<IMyDataController> implements IMyDataClient{
+ * 
  *         public constructor() {
  *             super();
- *             this._dependencyResolver.put('controller', new Descriptor("pip-services-mydata", "controller", "*", "*", "*"))
+ *             this._dependencyResolver.put('controller', new Descriptor(
+ *                 "pip-services-mydata", "controller", "*", "*", "*"));
  *         }
  *         ...
  * 
- *         public getDummyById(correlationId: string, myDataId: string, callback: (err: any, result: MyData) => void): void {
+ *         public getDummyById(correlationId: string, myDataId: string, 
+ *                 callback: (err: any, result: MyData) => void): void {
  *             let timing = this.instrument(correlationId, 'mydata.get_one_by_id');
  *             this._controller.getOneById(
  *                 correlationId,

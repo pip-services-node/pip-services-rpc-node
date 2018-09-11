@@ -11,7 +11,7 @@ import { RestClient } from './RestClient';
  *         }
  * 
  *         public getMyData(correlationId: string, filter: FilterParams, paging: PagingParams,
- *             callback: (err: any, page: DataPage<MyData>) => void): void {
+ *                 callback: (err: any, page: DataPage<MyData>) => void): void {
  *             this.callCommand(
  *                 'get_mydata',
  *                 correlationId,
@@ -21,7 +21,7 @@ import { RestClient } from './RestClient';
  *         }
  * 
  *         public calculateResult(correlationId: string, value1: string, value2: string,
- *             callback: (err: any, result: any) => void): void {
+ *                 callback: (err: any, result: any) => void): void {
  *             this.callCommand(
  *                 'calculate_result',
  *                 correlationId,

@@ -96,7 +96,31 @@
 						</dd>
 						<dt>see</dt>
 						<dd><p><a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.compositecounters.html" class="external">CompositeCounters</a> (in the PipServices &quot;Components&quot; package)</p>
-						</dd>
+							<h3 id="examples">Examples</h3>
+							<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyDataDirectClient <span class="hljs-keyword">extends</span> DirectClient&lt;IMyDataController&gt; <span class="hljs-keyword">implements</span> IMyDataClient{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-keyword">this</span>._dependencyResolver.put(<span class="hljs-string">'controller'</span>, <span class="hljs-keyword">new</span> Descriptor(
+            <span class="hljs-string">"pip-services-mydata"</span>, <span class="hljs-string">"controller"</span>, <span class="hljs-string">"*"</span>, <span class="hljs-string">"*"</span>, <span class="hljs-string">"*"</span>));
+    }
+    ...
+
+    <span class="hljs-keyword">public</span> getDummyById(correlationId: <span class="hljs-built_in">string</span>, myDataId: <span class="hljs-built_in">string</span>,
+            callback: <span class="hljs-function">(<span class="hljs-params">err: <span class="hljs-built_in">any</span>, result: MyData</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+        <span class="hljs-keyword">let</span> timing = <span class="hljs-keyword">this</span>.instrument(correlationId, <span class="hljs-string">'mydata.get_one_by_id'</span>);
+        <span class="hljs-keyword">this</span>._controller.getOneById(
+            correlationId,
+            myDataId,
+            <span class="hljs-function">(<span class="hljs-params">err, result</span>) =&gt;</span> {
+                timing.endTiming();
+                callback(err, result);
+            }
+        );
+    }
+    ...
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -170,7 +194,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L63">clients/DirectClient.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L89">clients/DirectClient.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,7 +216,7 @@
 					<div class="tsd-signature tsd-kind-icon">_controller<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L44">clients/DirectClient.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L70">clients/DirectClient.ts:70</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -207,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">_counters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeCounters</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeCounters()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L58">clients/DirectClient.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L84">clients/DirectClient.ts:84</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -227,7 +251,7 @@
 					<div class="tsd-signature tsd-kind-icon">_dependency<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DependencyResolver</span><span class="tsd-signature-symbol"> =&nbsp;new DependencyResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L63">clients/DirectClient.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L89">clients/DirectClient.ts:89</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,7 +271,7 @@
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CompositeLogger</span><span class="tsd-signature-symbol"> =&nbsp;new CompositeLogger()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L53">clients/DirectClient.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L79">clients/DirectClient.ts:79</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -267,7 +291,7 @@
 					<div class="tsd-signature tsd-kind-icon">_opened<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L48">clients/DirectClient.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L74">clients/DirectClient.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -289,7 +313,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L171">clients/DirectClient.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L197">clients/DirectClient.ts:197</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,7 +369,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L84">clients/DirectClient.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L110">clients/DirectClient.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -386,7 +410,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L120">clients/DirectClient.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L146">clients/DirectClient.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -429,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L128">clients/DirectClient.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L154">clients/DirectClient.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,7 +473,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L142">clients/DirectClient.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L168">clients/DirectClient.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -511,7 +535,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/70d283f/src/clients/DirectClient.ts#L104">clients/DirectClient.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/clients/DirectClient.ts#L130">clients/DirectClient.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
