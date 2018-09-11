@@ -55,6 +55,24 @@ import { HttpConnectionResolver } from '../connect/HttpConnectionResolver';
  * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
  * 
  * @see [[CommandableHttpService]]
+ * 
+ * ### Examples ###
+ * 
+ *     export class MyHttpClient extends RestClient {
+ *         ...
+ * 
+ *         public callCommand(name: string, correlationId: string, params: any, 
+ *                            callback: (err: any, result: any) => void): void {
+ *             let timing = this.instrument(correlationId, this._baseRoute + '.' + name);
+ *             this.call('post', name, correlationId, 
+ *             {}, params || {},
+ *             (err, result) => {
+ *                 timing.endTiming();
+ *                 if (callback) callback(err, result);
+ *             });
+ *         }
+ *         ...
+ *     }
  */
 export abstract class RestClient implements IOpenable, IConfigurable, IReferenceable {
 

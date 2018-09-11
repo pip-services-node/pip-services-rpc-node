@@ -38,6 +38,23 @@ import { IRegisterable } from './IRegisterable';
  * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
  * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
  * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver).
+ * 
+ * ### Examples ###
+ * 
+ *     public MyMethod(_config: ConfigParams, _references: IReferences) {
+ *         let endpoint = new HttpEndpoint();
+ *         if (this._config)
+ *             endpoint.configure(this._config);
+ *         if (this._references)
+ *             endpoint.setReferences(this._references);
+ *         ...
+ * 
+ *         this._endpoint.open(correlationId, (err) => {
+ *                 this._opened = err == null;
+ *                 callback(err);
+ *             });
+ *         ...
+ *     }
  */
 export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
 

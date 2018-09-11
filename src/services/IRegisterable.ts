@@ -3,6 +3,13 @@
  * Interface for registering [[HttpEndpoint HTTP endpoints]] in a dynamic discovery service. 
  * 
  * @see [[HttpEndpoint]]
+ * 
+ * ### Examples ###
+ * 
+ *     export class MyDataRegisterable implements IRegisterable {
+ *         public register(): void {...}
+ *         ...
+ *     }
  */
 export interface IRegisterable {
     /**

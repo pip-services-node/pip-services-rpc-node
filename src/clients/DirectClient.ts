@@ -36,6 +36,29 @@ import { ConnectionException } from 'pip-services-commons-node';
  * 
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/log.compositelogger.html CompositeLogger]] (in the PipServices "Components" package)
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.compositecounters.html CompositeCounters]] (in the PipServices "Components" package)
+ * 
+ * ### Examples ###
+ * 
+ *     export class MyDataDirectClient extends DirectClient<IMyDataController> implements IMyDataClient{
+ *         public constructor() {
+ *             super();
+ *             this._dependencyResolver.put('controller', new Descriptor("pip-services-mydata", "controller", "*", "*", "*"))
+ *         }
+ *         ...
+ * 
+ *         public getDummyById(correlationId: string, myDataId: string, callback: (err: any, result: MyData) => void): void {
+ *             let timing = this.instrument(correlationId, 'mydata.get_one_by_id');
+ *             this._controller.getOneById(
+ *                 correlationId,
+ *                 myDataId, 
+ *                 (err, result) => {
+ *                     timing.endTiming();
+ *                     callback(err, result);
+ *                 }
+ *             );        
+ *         }
+ *         ...
+ *     }
  */
 export abstract class DirectClient<T> implements IConfigurable, IReferenceable, IOpenable {
     /** 

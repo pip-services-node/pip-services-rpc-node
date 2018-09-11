@@ -33,6 +33,32 @@ import { ConfigException } from 'pip-services-commons-node';
  * 
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]] (in the PipServices "Components" package)
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionresolver.html ConnectionResolver]] (in the PipServices "Components" package)
+ * 
+ * ### Examples ###
+ * 
+ *     public MyMethod(config: ConfigParams, references: IReferences) {
+ *         let _connectionResolver = new HttpConnectionResolver();
+ *         ...
+ * 
+ *         _connectionResolver.configure(config);
+ *         ...
+ * 
+ *         _connectionResolver.setReferences(references);
+ *         ...
+ * 
+ *         _connectionResolver.resolve(correlationId, (err, connection) => {
+ *             if (err != null) {
+ *                 callback(err);
+ *                 return;
+ *             }
+ *             ...
+ * 
+ *             _connectionResolver.register(correlationId, (err) => {
+ *                 ...
+ *                 if (callback) callback(err);
+ *             });
+ *         }
+ *     }
  */
 export class HttpConnectionResolver implements IReferenceable, IConfigurable {
     /** 

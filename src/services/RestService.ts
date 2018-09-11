@@ -43,6 +43,20 @@ import { HttpResponseSender } from './HttpResponseSender';
  * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
  * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
  * - other references that should be set in this object's dependency resolver.
+ * 
+ * ### Examples ###
+ * 
+ *     export class MyDataHttpService extends RestService {
+ *         public constructor(baseRoute: string) {
+ *             super();
+ *             this._baseRoute = baseRoute;
+ *             this._dependencyResolver.put('controller', 'none');
+ *         }
+ *         ...
+ * 
+ *         public register(): void {...}
+ *         ...
+ *     }
  */
 export abstract class RestService implements IOpenable, IConfigurable, IReferenceable,
     IUnreferenceable, IRegisterable {

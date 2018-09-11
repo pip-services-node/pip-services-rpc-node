@@ -6,6 +6,20 @@ import { ApplicationException } from 'pip-services-commons-node';
 
 /**
  * Class that contains static methods for sending various HTTP responses.
+ * 
+ * ### Examples ###
+ * 
+ *     public MyMethod() {
+ *         let req: any;
+ *         let res: any;
+ *         let error: any;
+ *         ...
+ * 
+ *         HttpResponseSender.sendError(req, res, error);
+ *         ...
+ * 
+ *         HttpResponseSender.sendResult(req, res);
+ *     }
  */
 export class HttpResponseSender {
     /**

@@ -5,15 +5,15 @@ import { RestClient } from './RestClient';
  * Basic implementation of the abstract [[RestClient]] class.
  * 
  * ### Examples ###
- *     export class DemoHttpClientV1 extends CommandableHttpClient {
+ *     export class MyDataHttpClientV1 extends CommandableHttpClient {
  *         public constructor() {
- *             super('v1/demos');
+ *             super('v1/mydata');
  *         }
  * 
- *         public getDemos(correlationId: string, filter: FilterParams, paging: PagingParams,
- *             callback: (err: any, page: DataPage<DemoV1>) => void): void {
+ *         public getMyData(correlationId: string, filter: FilterParams, paging: PagingParams,
+ *             callback: (err: any, page: DataPage<MyData>) => void): void {
  *             this.callCommand(
- *                 'get_demos',
+ *                 'get_mydata',
  *                 correlationId,
  *                 { filter: filter, pagin: paging },
  *                 callback

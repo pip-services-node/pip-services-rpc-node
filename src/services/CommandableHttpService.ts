@@ -34,6 +34,16 @@ import { RestService } from './RestService';
  * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
  * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
  * - other references that should be set in this object's dependency resolver.
+ * 
+ * ### Examples ###
+ * 
+ *     export class MyDataHttpServiceV1 extends CommandableHttpService {
+ *         public constructor() {
+ *             super('v1/mydata');
+ *             this._dependencyResolver.put('controller', new Descriptor('mydata', 'controller', '*', '*', '1.0'));
+ *         }
+ *         ...
+ *     }
  */
 export abstract class CommandableHttpService extends RestService {
     private _commandSet: CommandSet;
