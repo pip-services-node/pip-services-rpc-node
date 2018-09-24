@@ -1,5 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @module services
+ * @preferred
+ *
+ */
 var HttpEndpoint_1 = require("./HttpEndpoint");
 exports.HttpEndpoint = HttpEndpoint_1.HttpEndpoint;
 var RestService_1 = require("./RestService");

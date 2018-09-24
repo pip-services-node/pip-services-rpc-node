@@ -2,46 +2,68 @@
 import { RestClient } from './RestClient';
 
 /**
- * Basic implementation of the abstract [[RestClient]] class.
+ * Abstract client that calls commandable HTTP service.
  * 
- * ### Examples ###
- *     export class MyDataHttpClientV1 extends CommandableHttpClient {
- *         public constructor() {
- *             super('v1/mydata');
- *         }
+ * Commandable services are generated automatically for ICommandable objects.
+ * Each command is exposed as POST operation that receives all parameters
+ * in body object.
  * 
- *         public getMyData(correlationId: string, filter: FilterParams, paging: PagingParams,
- *                 callback: (err: any, page: DataPage<MyData>) => void): void {
- *             this.callCommand(
- *                 'get_mydata',
- *                 correlationId,
- *                 { filter: filter, pagin: paging },
- *                 callback
- *             );
- *         }
+ * ### Configuration parameters ###
  * 
- *         public calculateResult(correlationId: string, value1: string, value2: string,
- *                 callback: (err: any, result: any) => void): void {
- *             this.callCommand(
- *                 'calculate_result',
- *                 correlationId,
- *                 {
- *                     value_1: value1,
- *                     value_2: value2
- *                 },
- *                 callback
- *             );    
- *         }
- *     }
+ * base_route:              base route for remote URI
+ * connection(s):           
+ *   discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
+ *   protocol:              connection protocol: http or https
+ *   host:                  host name or IP address
+ *   port:                  port number
+ *   uri:                   resource URI or connection string with all parameters in it
+ * options:
+ *   retries:               number of retries (default: 3)
+ *   connect_timeout:       connection timeout in milliseconds (default: 10 sec)
+ *   timeout:               invocation timeout in milliseconds (default: 10 sec)
+ * 
+ * ### References ###
+ * 
+ * - *:logger:*:*:1.0         (optional) [[ILogger]] components to pass log messages
+ * - *:counters:*:*:1.0         (optional) [[ICounters]] components to pass collected measurements
+ * - *:discovery:*:*:1.0        (optional) IDiscovery services to resolve connection
+ * 
+ * ### Example ###
+ * 
+ * class MyCommandableHttpClient extends CommandableHttpClient implements IMyClient {
+ *    ...
+ * 
+ *    public getData(correlationId: string, id: string, 
+ *        callback: (err: any, result: MyData) => void): void {
+ *        
+ *        this.callCommand(
+ *            "get_data",
+ *            correlationId,
+ *            { id: id },
+ *            (err, result) => {
+ *                callback(err, result);
+ *            }
+ *         );        
+ *    }
+ *    ...
+ * }
+ * 
+ * let client = new MyCommandableHttpClient();
+ * client.configure(ConfigParams.fromTuples(
+ *     "connection.protocol", "http",
+ *     "connection.host", "localhost",
+ *     "connection.port", 8080
+ * ));
+ * 
+ * client.getData("123", "1", (err, result) => {
+ *   ...
+ * });
  */
 export class CommandableHttpClient extends RestClient {
     /**
-     * Creates a new CommandableHttpClient, which can call a 
-     * [[CommandableHttpService CommandableHttpService's]] methods
-     * over the REST API, using the given base route.
+     * Creates a new instance of the client.
      * 
-     * @param baseRoute     the base route to use for calling methods. 
-     *                      For example "/quotes".
+     * @param baseRoute     a base route for remote service. 
      */
     public constructor(baseRoute: string) {
         super();
@@ -49,20 +71,14 @@ export class CommandableHttpClient extends RestClient {
     }
 
     /**
-     * Calls the command, whose name is given name, with the parameters passed using the POST 
-     * HTTP method.
+     * Calls a remote method via HTTP commadable protocol.
+     * The call is made via POST operation and all parameters are sent in body object.
+     * The complete route to remote method is defined as baseRoute + "/" + name.
      * 
-     * Additionally sets a timing by calling this the inherited [[instrument]] method, which 
-     * times method execution.
-     * 
-     * @param name              the name of the command to call.
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param params            the parameters to pass to the called method.
-     * @param callback          the function to call with the result of the execution 
-     *                          (or with an error, if one is raised).
-     * 
-     * @see [[call]]
-     * @see [[instrument]]
+     * @param name              a name of the command to call. 
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
+     * @param params            command parameters.
+     * @param callback          callback function that receives result or error.
      */
     public callCommand(name: string, correlationId: string, params: any, callback: (err: any, result: any) => void): void {
         let timing = this.instrument(correlationId, this._baseRoute + '.' + name);

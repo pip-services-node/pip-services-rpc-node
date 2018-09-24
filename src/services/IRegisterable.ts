@@ -1,20 +1,11 @@
 /** @module services */
+
 /**
- * Interface for registering [[HttpEndpoint HTTP endpoints]] in a dynamic discovery service. 
- * 
- * @see [[HttpEndpoint]]
- * 
- * ### Examples ###
- * 
- *     export class MyDataRegisterable implements IRegisterable {
- *         public register(): void {...}
- *         ...
- *     }
+ * Interface to perform on-demand registrations. 
  */
 export interface IRegisterable {
     /**
-     * Abstract method that will contain the logic for registering the current component in a 
-     * dynamic discovery service.
+     * Perform required registration steps.
      */
     register(): void;
 }

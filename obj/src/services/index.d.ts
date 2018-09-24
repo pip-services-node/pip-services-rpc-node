@@ -1,3 +1,8 @@
+/**
+ * @module services
+ * @preferred
+ *
+ */
 export { HttpEndpoint } from './HttpEndpoint';
 export { RestService } from './RestService';
 export { HttpResponseSender } from './HttpResponseSender';

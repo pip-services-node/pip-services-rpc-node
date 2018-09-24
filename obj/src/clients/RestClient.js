@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module clients */
+/** @hidden */
 let _ = require('lodash');
+/** @hidden */
 let querystring = require('querystring');
 const pip_services_commons_node_1 = require("pip-services-commons-node");
 const pip_services_components_node_1 = require("pip-services-components-node");
@@ -9,22 +12,100 @@ const pip_services_commons_node_2 = require("pip-services-commons-node");
 const pip_services_commons_node_3 = require("pip-services-commons-node");
 const pip_services_commons_node_4 = require("pip-services-commons-node");
 const HttpConnectionResolver_1 = require("../connect/HttpConnectionResolver");
+/**
+ * Abstract client that calls remove endpoints using HTTP/REST protocol.
+ *
+ * ### Configuration parameters ###
+ *
+ * base_route:              base route for remote URI
+ * connection(s):
+ *   discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
+ *   protocol:              connection protocol: http or https
+ *   host:                  host name or IP address
+ *   port:                  port number
+ *   uri:                   resource URI or connection string with all parameters in it
+ * options:
+ *   retries:               number of retries (default: 3)
+ *   connect_timeout:       connection timeout in milliseconds (default: 10 sec)
+ *   timeout:               invocation timeout in milliseconds (default: 10 sec)
+ *
+ * ### References ###
+ *
+ * - *:logger:*:*:1.0         (optional) ILogger components to pass log messages
+ * - *:counters:*:*:1.0         (optional) ICounters components to pass collected measurements
+ * - *:discovery:*:*:1.0        (optional) IDiscovery services to resolve connection
+ *
+ * @see [[RestService]]
+ * @see [[CommandableHttpService]]
+ *
+ * ### Example ###
+ *
+ * class MyRestClient extends RestClient implements IMyClient {
+ *    ...
+ *
+ *    public getData(correlationId: string, id: string,
+ *        callback: (err: any, result: MyData) => void): void {
+ *
+ *        let timing = this.instrument(correlationId, 'myclient.get_data');
+ *        this.call("get", "/get_data" correlationId, { id: id }, null, (err, result) => {
+ *            timing.endTiming();
+ *            callback(err, result);
+ *        });
+ *    }
+ *    ...
+ * }
+ *
+ * let client = new MyRestClient();
+ * client.configure(ConfigParams.fromTuples(
+ *     "connection.protocol", "http",
+ *     "connection.host", "localhost",
+ *     "connection.port", 8080
+ * ));
+ *
+ * client.getData("123", "1", (err, result) => {
+ *   ...
+ * });
+ */
 class RestClient {
     constructor() {
+        /**
+         * The connection resolver.
+         */
         this._connectionResolver = new HttpConnectionResolver_1.HttpConnectionResolver();
+        /**
+         * The logger.
+         */
         this._logger = new pip_services_components_node_1.CompositeLogger();
+        /**
+         * The performance counters.
+         */
         this._counters = new pip_services_components_node_2.CompositeCounters();
+        /**
+         * The configuration options.
+         */
         this._options = new pip_services_commons_node_1.ConfigParams();
+        /**
+         * The number of retries.
+         */
         this._retries = 1;
+        /**
+         * The default headers to be added to every request.
+         */
         this._headers = {};
+        /**
+         * The connection timeout in milliseconds.
+         */
         this._connectTimeout = 10000;
+        /**
+         * The invocation timeout in milliseconds.
+         */
         this._timeout = 10000;
     }
-    setReferences(references) {
-        this._logger.setReferences(references);
-        this._counters.setReferences(references);
-        this._connectionResolver.setReferences(references);
-    }
+    /**
+     * Configures component by passing configuration parameters.
+     *
+     * @param config    configuration parameters to be set.
+     */
     configure(config) {
         config = config.setDefaults(RestClient._defaultConfig);
         this._connectionResolver.configure(config);
@@ -34,13 +115,42 @@ class RestClient {
         this._timeout = config.getAsIntegerWithDefault("options.timeout", this._timeout);
         this._baseRoute = config.getAsStringWithDefault("base_route", this._baseRoute);
     }
+    /**
+     * Sets references to dependent components.
+     *
+     * @param references 	references to locate the component dependencies.
+     */
+    setReferences(references) {
+        this._logger.setReferences(references);
+        this._counters.setReferences(references);
+        this._connectionResolver.setReferences(references);
+    }
+    /**
+     * Adds instrumentation to log calls and measure call time.
+     * It returns a Timing object that is used to end the time measurement.
+     *
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
+     * @param name              a method name.
+     * @returns Timing object to end the time measurement.
+     */
     instrument(correlationId, name) {
         this._logger.trace(correlationId, "Executing %s method", name);
         return this._counters.beginTiming(name + ".call_time");
     }
+    /**
+     * Checks if the component is opened.
+     *
+     * @returns true if the component has been opened and false otherwise.
+     */
     isOpen() {
         return this._client != null;
     }
+    /**
+     * Opens the component.
+     *
+     * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
+     */
     open(correlationId, callback) {
         if (this.isOpen()) {
             if (callback)
@@ -80,6 +190,12 @@ class RestClient {
             }
         });
     }
+    /**
+     * Closes component and frees used resources.
+     *
+     * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
+     */
     close(correlationId, callback) {
         if (this._client != null) {
             // Eat exceptions
@@ -95,6 +211,13 @@ class RestClient {
         if (callback)
             callback(null);
     }
+    /**
+     * Adds a correlation id (correlation_id) to invocation parameter map.
+     *
+     * @param params            invocation parameters.
+     * @param correlationId     (optional) a correlation id to be added.
+     * @returns invocation parameters with added correlation id.
+     */
     addCorrelationId(params, correlationId) {
         // Automatically generate short ids for now
         if (correlationId == null)
@@ -104,6 +227,14 @@ class RestClient {
         params.correlation_id = correlationId;
         return params;
     }
+    /**
+     * Adds filter parameters (with the same name as they defined)
+     * to invocation parameter map.
+     *
+     * @param params        invocation parameters.
+     * @param filter        (optional) filter parameters
+     * @returns invocation parameters with added filter parameters.
+     */
     addFilterParams(params, filter) {
         params = params || {};
         if (filter) {
@@ -114,6 +245,13 @@ class RestClient {
         }
         return params;
     }
+    /**
+     * Adds paging parameters (skip, take, total) to invocation parameter map.
+     *
+     * @param params        invocation parameters.
+     * @param paging        (optional) paging parameters
+     * @returns invocation parameters with added paging parameters.
+     */
     addPagingParams(params, paging) {
         params = params || {};
         if (paging) {
@@ -138,6 +276,16 @@ class RestClient {
         builder += route;
         return builder;
     }
+    /**
+     * Calls a remote method via HTTP/REST protocol.
+     *
+     * @param method            HTTP method: "get", "head", "post", "put", "delete"
+     * @param route             a command route. Base route will be added to this route
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
+     * @param params            (optional) query parameters.
+     * @param data              (optional) body object.
+     * @param callback          (optional) callback function that receives result object or error.
+     */
     call(method, route, correlationId, params = {}, data, callback) {
         method = method.toLowerCase();
         if (_.isFunction(data)) {

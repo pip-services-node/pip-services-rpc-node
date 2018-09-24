@@ -18,52 +18,78 @@ import { IRegisterable } from './IRegisterable';
 import { HttpResponseSender } from './HttpResponseSender';
 
 /**
- * Abstract class for implementing RESTful services.
+ * Abstract service that receives remove calls via HTTP/REST protocol.
  * 
  * ### Configuration parameters ###
  * 
- * Parameters to pass to the [[configure]] method for component configuration:
- * 
- * - __connection(s)__ - the configuration parameters to use when creating HTTP endpoints;
- *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
- *     - "connection.protocol" - the connection's protocol;
- *     - "connection.host" - the target host;
- *     - "connection.port" - the target port;
- *     - "connection.uri" - the target URI.
- * - "base_route" - this service's base route;
- * - "dependencies" - section that is used to configure this service's dependency resolver. Should contain 
- * locators to dependencies.
+ * base_route:              base route for remote URI
+ * dependencies:
+ *   endpoint:              override for HTTP Endpoint dependency
+ *   controller:            override for Controller dependency
+ * connection(s):           
+ *   discovery_key:         (optional) a key to retrieve the connection from IDiscovery
+ *   protocol:              connection protocol: http or https
+ *   host:                  host name or IP address
+ *   port:                  port number
+ *   uri:                   resource URI or connection string with all parameters in it
  * 
  * ### References ###
  * 
- * A logger, counters, and HTTP endpoint can be referenced by passing the 
- * following references to the object's [[setReferences]] method:
+ * - *:logger:*:*:1.0               (optional) ILogger components to pass log messages
+ * - *:counters:*:*:1.0             (optional) ICounters components to pass collected measurements
+ * - *:discovery:*:*:1.0            (optional) IDiscovery services to resolve connection
+ * - *:endpoint:http:*:1.0          (optional) [[HttpEndpoint]] reference
  * 
- * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
- * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
- * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
- * - other references that should be set in this object's dependency resolver.
+ * @see [[RestClient]]
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- *     export class MyDataHttpService extends RestService {
- *         public constructor(baseRoute: string) {
- *             super();
- *             this._baseRoute = baseRoute;
- *             this._dependencyResolver.put('controller', 'none');
- *         }
- *         ...
+ * class MyRestService extends RestService {
+ *    private _controller: IMyController;
+ *    ...
+ *    public constructor() {
+ *       base();
+ *       this._dependencyResolver.put(
+ *           "controller",
+ *           new Descriptor("mygroup","controller","*","*","1.0")
+ *       );
+ *    }
  * 
- *         public register(): void {...}
- *         ...
- *     }
+ *    public setReferences(references: IReferences): void {
+ *       base.setReferences(references);
+ *       this._controller = this._dependencyResolver.getRequired<IMyController>("controller");
+ *    }
+ * 
+ *    public register(): void {
+ *        registerRoute("get", "get_mydata", null, (req, res) => {
+ *            let correlationId = req.param("correlation_id");
+ *            let id = req.param("id");
+ *            this._controller.getMyData(correlationId, id, this.sendResult(req, res));
+ *        });
+ *        ...
+ *    }
+ * }
+ * 
+ * let service = new MyRestService();
+ * service.configure(ConfigParams.fromTuples(
+ *     "connection.protocol", "http",
+ *     "connection.host", "localhost",
+ *     "connection.port", 8080
+ * ));
+ * service.setReferences(References.fromTuples(
+ *    new Descriptor("mygroup","controller","default","default","1.0"), controller
+ * ));
+ * 
+ * service.open("123", (err) => {
+ *    console.log("The REST service is running on port 8080");
+ * });
  */
 export abstract class RestService implements IOpenable, IConfigurable, IReferenceable,
     IUnreferenceable, IRegisterable {
 
     private static readonly _defaultConfig: ConfigParams = ConfigParams.fromTuples(
         "base_route", "",
-        "dependencies.endpoint", "pip-services:endpoint:http:*:1.0"
+        "dependencies.endpoint", "*:endpoint:http:*:1.0"
     );
 
     private _config: ConfigParams;
@@ -72,43 +98,30 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
     private _opened: boolean;
 
     /**
-     * The REST service's base route. For example: "v1/demos".
+     * The base route.
      */
     protected _baseRoute: string;
     /**
-     * The REST service's HTTP endpoint.
+     * The HTTP endpoint that exposes this service.
      */
     protected _endpoint: HttpEndpoint;    
     /**
-     * The dependency resolver to use for finding component references.
+     * The dependency resolver.
      */
     protected _dependencyResolver: DependencyResolver = new DependencyResolver(RestService._defaultConfig);
     /**
-     * The logger to use for outputting helpful information, regarding this service.
+     * The logger.
      */
     protected _logger: CompositeLogger = new CompositeLogger();
     /**
-     * The service's performance counters.
+     * The performance counters.
      */
 	protected _counters: CompositeCounters = new CompositeCounters();
 
     /**
-     * Configures this service using the given configuration parameters.
+     * Configures component by passing configuration parameters.
      * 
-     * __Configuration parameters:__
-     * - __connection(s)__ - the configuration parameters to use when creating HTTP endpoints;
-     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
-     *     - "connection.protocol" - the connection's protocol;
-     *     - "connection.host" - the target host;
-     *     - "connection.port" - the target port;
-     *     - "connection.uri" - the target URI.
-     * - "base_route" - this service's base route;
-     * - "dependencies" - section that is used to configure this service's
-     * dependency resolver. Should contain locators to dependencies.
-     * 
-     * @param config    the configuration parameters to configure this service with.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
+     * @param config    configuration parameters to be set.
      */
 	public configure(config: ConfigParams): void {
         config = config.setDefaults(RestService._defaultConfig);
@@ -120,22 +133,9 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
 	}
 
     /**
-     * Sets references to this service's logger, counters, and HTTP endpoint and adds references 
-     * to this object's dependency resolver.
-     * 
-     * Additionally stores the given references to pass them later on to newly created HTTP endpoints.
-     * 
-     * __References:__
-     * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
-     * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
-     * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
-     * - other references that should be set in this object's dependency resolver.
-     * 
-     * @param references    an IReferences object, containing references to a logger, counters, an HTTP endpoint, 
-     *                      the references to set in the dependency resolver, and the references to use for endpoint 
-     *                      creation.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
+	 * Sets references to dependent components.
+	 * 
+	 * @param references 	references to locate the component dependencies. 
      */
 	public setReferences(references: IReferences): void {
         this._references = references;
@@ -158,10 +158,7 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
     }
     
     /**
-     * Remove the endpoint that this object references and removes 
-     * the registration callback from the endpoint.
-     * 
-     * Needed when using a dynamic endpoint discovery service.
+	 * Unsets (clears) previously set references to dependent components. 
      */
     public unsetReferences(): void {
         // Remove registration callback from endpoint
@@ -184,13 +181,12 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
     }
 
     /**
-     * Starts a Timing for the method with the given name. Does not call the method itself and is 
-     * used only as an instrument to measure execution time.
+     * Adds instrumentation to log calls and measure call time.
+     * It returns a Timing object that is used to end the time measurement.
      * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param name              the name of the method call that is to be timed.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.timing.html Timing]]
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
+     * @param name              a method name.
+     * @returns Timing object to end the time measurement.
      */
 	protected instrument(correlationId: string, name: string): Timing {
 		this._logger.trace(correlationId, "Executing %s method", name);
@@ -198,24 +194,19 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
 	}
 
     /**
-     * @returns whether or not this service is currently open.
+	 * Checks if the component is opened.
+	 * 
+	 * @returns true if the component has been opened and false otherwise.
      */
 	public isOpen(): boolean {
 		return this._opened;
 	}
     
     /**
-     * Opens this service by making sure that an HTTP endpoint is set. If one was not referenced earlier, 
-     * a local endpoint will be created using the configuration parameters and references that were passed 
-     * to this object's [[configure]] and [[setReferences]] methods.
-     * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param callback          (optional) the function to call once the connection has been opened.
-     *                          Will be called with an error, if one is raised.
-     * 
-     * @see [[HttpEndpoint]]
-     * @see [[configure]]
-     * @see [[setReferences]]
+	 * Opens the component.
+	 * 
+	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
      */
 	public open(correlationId: string, callback?: (err: any) => void): void {
     	if (this._opened) {
@@ -240,13 +231,11 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
         }
     }
 
-    //TODO (note for Sergey): callback is optional, but error is not thrown...
     /**
-     * Closes this service by closing its HTTP endpoint (if the endpoint is a local endpoint).
-     * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param callback          (optional) the function to call once disconnected from the MongoDB server. 
-     *                          Will be called with an error if one is raised.
+	 * Closes component and frees used resources.
+	 * 
+	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
      */
     public close(correlationId: string, callback?: (err: any) => void): void {
     	if (!this._opened) {
@@ -271,57 +260,76 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
     }
 
     /**
-     * Sends the result of the given request.
+     * Creates a callback function that sends result as JSON object.
+     * That callack function call be called directly or passed
+     * as a parameter to business logic components.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
+     * If object is not null it returns 200 status code.
+     * For null results it returns 204 status code.
+     * If error occur it sends ErrorDescription with approproate status code.
+     * 
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param callback function that receives execution result or error.
      */
     protected sendResult(req, res): (err: any, result: any) => void {
         return HttpResponseSender.sendResult(req, res);
     }
 
     /**
-     * Sends a response, indicating that the request has been fulfilled, resulting in 
-     * the creation of a new resource (HTTP result code 201 - Created).
+     * Creates a callback function that sends newly created object as JSON.
+     * That callack function call be called directly or passed
+     * as a parameter to business logic components.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
+     * If object is not null it returns 201 status code.
+     * For null results it returns 204 status code.
+     * If error occur it sends ErrorDescription with approproate status code.
+     * 
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param callback function that receives execution result or error.
      */
     protected sendCreatedResult(req, res): (err: any, result: any) => void {
         return HttpResponseSender.sendCreatedResult(req, res);
     }
 
-    //TODO (note for Sergey): didn't find any mention of a 2xx HTTP code for deletion...
     /**
-     * Sends a response, indicating that the request has been fulfilled, resulting in 
-     * the deletion of a resource
+     * Creates a callback function that sends deleted object as JSON.
+     * That callack function call be called directly or passed
+     * as a parameter to business logic components.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
+     * If object is not null it returns 200 status code.
+     * For null results it returns 204 status code.
+     * If error occur it sends ErrorDescription with approproate status code.
+     * 
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param callback function that receives execution result or error.
      */
     protected sendDeletedResult(req, res): (err: any, result: any) => void {
         return HttpResponseSender.sendDeletedResult(req, res);
     }
 
     /**
-     * Sends an HTTP error response.
+     * Sends error serialized as ErrorDescription object
+     * and appropriate HTTP status code.
+     * If status code is not defined, it uses 500 status code.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
-     * @param error     the error that was raised.
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param error     an error object to be sent.
      */
     protected sendError(req, res, error): void {
         HttpResponseSender.sendError(req, res, error);
     }
 
     /**
-     * Registers an action in this objects REST server (service) by the given method and route.
+     * Registers a route in HTTP endpoint.
      * 
-     * @param method        the HTTP method of the route.
-     * @param route         the route to register in this object's REST server (service). If a 
-     *                      base 
-     * @param schema        the schema to use for parameter validation.
-     * @param action        the action to perform at the given route.
+     * @param method        HTTP method: "get", "head", "post", "put", "delete"
+     * @param route         a command route. Base route will be added to this route
+     * @param schema        a validation schema to validate received parameters.
+     * @param action        an action function that is called when operation is invoked.
      */
     protected registerRoute(method: string, route: string, schema: Schema,
         action: (req: any, res: any) => void): void {
@@ -341,6 +349,12 @@ export abstract class RestService implements IOpenable, IConfigurable, IReferenc
         );
     }    
     
-    public register(): void {}
+    /**
+     * Registers all service routes in HTTP endpoint.
+     * 
+     * This method is called by the service and must be overriden
+     * in child classes.
+     */
+    public abstract register(): void;
 
 }

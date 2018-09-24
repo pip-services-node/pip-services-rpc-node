@@ -11,121 +11,97 @@ import { Timing } from 'pip-services-components-node';
 import { ConnectionException } from 'pip-services-commons-node';
 
 /**
- * Abstract class that can be used for creating Direct clients. Direct clients are clients that 
- * are written in the same language as the service that is being called, which allows the client 
- * to call the controller's methods directly.
+ * Abstract client that calls controller directly in the same memory space.
  * 
- * Performance counters and a logger can be referenced from a DirectClient for added functionality. 
- * A "counters" reference must be set to use the [[instrument]] method, which times method execution.
+ * It is used when multiple microservices are deployed in a single container (monolyth)
+ * and communication between them can be done by direct calls rather then through 
+ * the network.
  * 
  * ### Configuration parameters ###
  * 
- * - "dependencies" - section that is used to configure this service's dependency resolver. Should contain 
- * locators to dependencies.
- * 
+ * dependencies:
+ *   controller:            override controller descriptor
  * 
  * ### References ###
  * 
- * A logger, counters, and a controller can be referenced by passing the 
- * following references to the object's [[setReferences]] method:
+ * - *:logger:*:*:1.0         (optional) [[ILogger]] components to pass log messages
+ * - *:counters:*:*:1.0       (optional) [[ICounters]] components to pass collected measurements
+ * - *:controller:*:*:1.0     controller to call business methods
  * 
- * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
- * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
- * - controller: <code>"\*:controller:\*:\*:1.0"</code>;
- * - other references that should be set in this object's dependency resolver.
+ * ### Example ###
  * 
- * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/log.compositelogger.html CompositeLogger]] (in the PipServices "Components" package)
- * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.compositecounters.html CompositeCounters]] (in the PipServices "Components" package)
+ * class MyDirectClient extends DirectClient<IMyController> implements IMyClient {
  * 
- * ### Examples ###
+ *   public constructor() {
+ *       super();
+ *       this._dependencyResolver.put('controller', new Descriptor(
+ *           "mygroup", "controller", "*", "*", "*"));
+ *    }
+ *    ...
  * 
- *     export class MyDataDirectClient extends DirectClient<IMyDataController> implements IMyDataClient{
+ *    public getData(correlationId: string, id: string, 
+ *        callback: (err: any, result: MyData) => void): void {
+ *        
+ *        let timing = this.instrument(correlationId, 'myclient.get_data');
+ *        this._controller.getData(correlationId, id, (err, result) => {
+ *            timing.endTiming();
+ *            callback(err, result);
+ *        });        
+ *    }
+ *    ...
+ * }
  * 
- *         public constructor() {
- *             super();
- *             this._dependencyResolver.put('controller', new Descriptor(
- *                 "pip-services-mydata", "controller", "*", "*", "*"));
- *         }
- *         ...
+ * let client = new MyDirectClient();
+ * client.setReferences(References.fromTuples(
+ *     new Descriptor("mygroup","controller","default","default","1.0"), controller
+ * ));
  * 
- *         public getDummyById(correlationId: string, myDataId: string, 
- *                 callback: (err: any, result: MyData) => void): void {
- *             let timing = this.instrument(correlationId, 'mydata.get_one_by_id');
- *             this._controller.getOneById(
- *                 correlationId,
- *                 myDataId, 
- *                 (err, result) => {
- *                     timing.endTiming();
- *                     callback(err, result);
- *                 }
- *             );        
- *         }
- *         ...
- *     }
+ * client.getData("123", "1", (err, result) => {
+ *   ...
+ * });
  */
 export abstract class DirectClient<T> implements IConfigurable, IReferenceable, IOpenable {
     /** 
-     * The referenced controller that is to be called directly. 
+     * The controller reference.
      */
     protected _controller: T;
     /** 
-     * Stores information about whether or not the client was opened. 
+     * The open flag.
      */
     protected _opened: boolean = true;
     /** 
-     * The logger that is referenced by this object.
-     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/log.compositelogger.html CompositeLogger]] (in the PipServices "Components" package)
+     * The logger.
      */
     protected _logger: CompositeLogger = new CompositeLogger();
     /** 
-     * The performance counters that are referenced by this object.
-     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.compositecounters.html CompositeCounters]]
+     * The performance counters
      */
     protected _counters: CompositeCounters = new CompositeCounters();
     /** 
-     * The DependencyResolver that is referenced by this object. 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/refer.dependencyresolver.html DependencyResolver]]
+     * The dependency resolver to get controller reference.
      */
     protected _dependencyResolver: DependencyResolver = new DependencyResolver();
             
     /**
-     * Creates a new DirectClient. Use [[configure]] and [[setReferences]] to 
-     * set dependencies and references.
+     * Creates a new instance of the client.
      */
     public constructor() {
         this._dependencyResolver.put('controller', 'none');
     }
 
     /**
-     * Configures this DirectClient using the given configuration parameters.
+     * Configures component by passing configuration parameters.
      * 
-     * __Configuration parameters:__
-     * - "dependencies" - section that is used to configure this DirectClient's
-     * dependency resolver. Should contain locators to dependencies.
-     * 
-     * @param config    the configuration parameters to configure this DirectClient with.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
+     * @param config    configuration parameters to be set.
      */
     public configure(config: ConfigParams): void {
         this._dependencyResolver.configure(config);
     }
 
     /**
-     * Sets references to this Direct client's logger, counters, and controller and adds references 
-     * to this object's dependency resolver.
-     * 
-     * __References:__
-     * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
-     * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
-     * - controller: <code>"\*:controller:\*:\*:1.0"</code>;
-     * - other references that should be set in this object's dependency resolver.
-     * 
-     * @param references    an IReferences object, containing references to a logger, counters, 
-     *                      a controller, and the references that should be set in this object's 
-     *                      dependency resolver.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
+	 * Sets references to dependent components.
+	 * 
+	 * @param references 	references to locate the component dependencies. 
      */
 	public setReferences(references: IReferences): void {
 		this._logger.setReferences(references);
@@ -135,13 +111,12 @@ export abstract class DirectClient<T> implements IConfigurable, IReferenceable, 
 	}
         
     /**
-     * Starts a Timing for the method with the given name. Does not call the method itself and is 
-     * used only as an instrument to measure execution time.
+     * Adds instrumentation to log calls and measure call time.
+     * It returns a Timing object that is used to end the time measurement.
      * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param name              the name of the method call that is to be timed.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.timing.html Timing]]
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
+     * @param name              a method name.
+     * @returns Timing object to end the time measurement.
      */
 	protected instrument(correlationId: string, name: string): Timing {
 		this._logger.trace(correlationId, "Executing %s method", name);
@@ -149,21 +124,19 @@ export abstract class DirectClient<T> implements IConfigurable, IReferenceable, 
 	}
 
     /**
-     * @returns whether or not this client is currently open.
+	 * Checks if the component is opened.
+	 * 
+	 * @returns true if the component has been opened and false otherwise.
      */
 	public isOpen(): boolean {
         return this._opened;
     }
     
     /**
-     * Opens this Direct client. For a Direct client to be successfully opened, a reference to a 
-     * controller must be set.
-     * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param callback          (optional) the function to call once the opening process is
-     *                          complete. Will be called with an error if no contoller is referenced.
-     * 
-     * @see [[setReferences]]
+	 * Opens the component.
+	 * 
+	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
      */
 	public open(correlationId: string, callback?: (err: any) => void): void {
         if (this._opened) {
@@ -188,11 +161,10 @@ export abstract class DirectClient<T> implements IConfigurable, IReferenceable, 
     }
 
     /**
-     * Closes this Direct client.
-     * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param callback          (optional) the function to call once the closing process is
-     *                          complete.
+	 * Closes component and frees used resources.
+	 * 
+	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
      */
     public close(correlationId: string, callback?: (err: any) => void): void {
         if (this._opened)

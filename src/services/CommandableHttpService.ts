@@ -5,55 +5,70 @@ import { Parameters } from 'pip-services-commons-node';
 
 import { RestService } from './RestService';
 
-//TODO: example implementation and example command route.
 /**
- * Abstract class for creating commandable HTTP services. Commandable HTTP services register routes for 
- * each command of a controller's command set, which allows the controller's commands to be executed by
- * POSTing input data at the command's registered route.
+ * Abstract service that receives remove calls via HTTP/REST protocol
+ * to operations automatically generated for commands defined in ICommandable components.
+ * Each command is exposed as POST operation that receives all parameters in body object.
+ * 
+ * Commandable services require only 3 lines of code to implement a robust external
+ * HTTP-based remote interface.
  * 
  * ### Configuration parameters ###
  * 
- * Parameters to pass to the [[configure]] method for component configuration:
- * 
- * - __connection(s)__ - the configuration parameters to use when creating HTTP endpoints;
- *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
- *     - "connection.protocol" - the connection's protocol;
- *     - "connection.host" - the target host;
- *     - "connection.port" - the target port;
- *     - "connection.uri" - the target URI.
- * - "base_route" - this service's base route;
- * - "dependencies" - section that is used to configure this service's dependency resolver. Should contain 
- * locators to dependencies.
+ * base_route:              base route for remote URI
+ * dependencies:
+ *   endpoint:              override for HTTP Endpoint dependency
+ *   controller:            override for Controller dependency
+ * connection(s):           
+ *   discovery_key:         (optional) a key to retrieve the connection from IDiscovery
+ *   protocol:              connection protocol: http or https
+ *   host:                  host name or IP address
+ *   port:                  port number
+ *   uri:                   resource URI or connection string with all parameters in it
  * 
  * ### References ###
  * 
- * A logger, counters, and HTTP endpoint can be referenced by passing the 
- * following references to the object's [[setReferences]] method:
+ * - *:logger:*:*:1.0               (optional) ILogger components to pass log messages
+ * - *:counters:*:*:1.0             (optional) ICounters components to pass collected measurements
+ * - *:discovery:*:*:1.0            (optional) IDiscovery services to resolve connection
+ * - *:endpoint:http:*:1.0          (optional) [[HttpEndpoint]] reference
  * 
- * - logger: <code>"\*:logger:\*:\*:1.0"</code>;
- * - counters: <code>"\*:counters:\*:\*:1.0"</code>;
- * - endpoint: <code>"\*:endpoint:\*:\*:1.0"</code>;
- * - other references that should be set in this object's dependency resolver.
+ * @see [[CommandableHttpClient]]
+ * @see [[RestService]]
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- *     export class MyDataHttpServiceV1 extends CommandableHttpService {
- *         public constructor() {
- *             super('v1/mydata');
- *             this._dependencyResolver.put('controller', new Descriptor(
- *                 'mydata', 'controller', '*', '*', '1.0'));
- *         }
- *         ...
- *     }
+ * class MyCommandableHttpService extends CommandableHttpService {
+ *    public constructor() {
+ *       base();
+ *       this._dependencyResolver.put(
+ *           "controller",
+ *           new Descriptor("mygroup","controller","*","*","1.0")
+ *       );
+ *    }
+ * }
+ * 
+ * let service = new MyCommandableHttpService();
+ * service.configure(ConfigParams.fromTuples(
+ *     "connection.protocol", "http",
+ *     "connection.host", "localhost",
+ *     "connection.port", 8080
+ * ));
+ * service.setReferences(References.fromTuples(
+ *    new Descriptor("mygroup","controller","default","default","1.0"), controller
+ * ));
+ * 
+ * service.open("123", (err) => {
+ *    console.log("The REST service is running on port 8080");
+ * });
  */
 export abstract class CommandableHttpService extends RestService {
     private _commandSet: CommandSet;
 
     /**
-     * Creates a new CommandableHttpService object, which will use the given <code>baseRoute</code>
-     * for registering the "controller" that is set in this object's dependency resolver.
+     * Creates a new instance of the service.
      * 
-     * @param baseRoute the service's base route.
+     * @param baseRoute a service base route.
      */
     public constructor(baseRoute: string) {
         super();
@@ -62,10 +77,7 @@ export abstract class CommandableHttpService extends RestService {
     }
 
     /**
-     * Registers the "controller" that is set in this object's dependency resolver by creating
-     * and registering routes for all commands that are included in the controller's command set.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/commands.commandset.html CommandSet]] (in the PipServices "Commons" package)
+     * Registers all service routes in HTTP endpoint.
      */
     public register(): void {
         let controller: ICommandable = this._dependencyResolver.getOneRequired<ICommandable>('controller');

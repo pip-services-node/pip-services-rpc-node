@@ -18,61 +18,59 @@ import { UnknownException } from 'pip-services-commons-node';
 
 import { HttpConnectionResolver } from '../connect/HttpConnectionResolver';
 
-//TODO: did I use "REST API" appropriately (above protected methods)?
 /**
- * Abstract class that can be used for creating RESTful clients. REST clients are typically used when 
- * there exists a necessity to call services that are written in various diffent langauges. Since direct 
- * method calls to the service's controller are not possible, REST is used for "message transfer" calls, 
- * which can be received by a [[CommandableHttpService]] and converted to the service's native method calls.
- * 
- * Performance counters and a logger can be referenced from a REST client for added functionality. 
- * A "counters" reference must be set to use the [[instrument]] method, which times method execution.
- * 
+ * Abstract client that calls remove endpoints using HTTP/REST protocol.
  * 
  * ### Configuration parameters ###
  * 
- * Parameters to pass to the [[configure]] method for component configuration:
- * 
- * - "base_route" - the base route;
- * - __connection(s)__ - the connection resolver's connections;
- *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
- *     - "connection.protocol" - the connection's protocol;
- *     - "connection.host" - the target host;
- *     - "connection.port" - the target port;
- *     - "connection.uri" - the target URI.
- * - __options__
- *     - "options.retries" - the retry limit (default is 3);
- *     - "options.connect_timeout" - the connection attempt's timeout (default is 10000);
- *     - "options.timeout" - the connection's timeout (default is 10000).
+ * base_route:              base route for remote URI
+ * connection(s):           
+ *   discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
+ *   protocol:              connection protocol: http or https
+ *   host:                  host name or IP address
+ *   port:                  port number
+ *   uri:                   resource URI or connection string with all parameters in it
+ * options:
+ *   retries:               number of retries (default: 3)
+ *   connect_timeout:       connection timeout in milliseconds (default: 10 sec)
+ *   timeout:               invocation timeout in milliseconds (default: 10 sec)
  * 
  * ### References ###
  * 
- * A logger, counters, and a connection resolver can be referenced by passing the 
- * following references to the object's [[setReferences]] method:
+ * - *:logger:*:*:1.0         (optional) ILogger components to pass log messages
+ * - *:counters:*:*:1.0         (optional) ICounters components to pass collected measurements
+ * - *:discovery:*:*:1.0        (optional) IDiscovery services to resolve connection
  * 
- * - logger: <code>"\*:logger:\*:\*:1.0"</code>
- * - counters: <code>"\*:counters:\*:\*:1.0"</code>
- * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
- * 
+ * @see [[RestService]]
  * @see [[CommandableHttpService]]
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- *     export class MyHttpClient extends RestClient {
- *         ...
+ * class MyRestClient extends RestClient implements IMyClient {
+ *    ...
  * 
- *         public callCommand(name: string, correlationId: string, params: any, 
- *                 callback: (err: any, result: any) => void): void {
- *             let timing = this.instrument(correlationId, this._baseRoute + '.' + name);
- *             this.call('post', name, correlationId, 
- *                 {}, params || {},
- *                 (err, result) => {
- *                     timing.endTiming();
- *                     if (callback) callback(err, result);
- *                 });
- *         }
- *         ...
- *     }
+ *    public getData(correlationId: string, id: string, 
+ *        callback: (err: any, result: MyData) => void): void {
+ *        
+ *        let timing = this.instrument(correlationId, 'myclient.get_data');
+ *        this.call("get", "/get_data" correlationId, { id: id }, null, (err, result) => {
+ *            timing.endTiming();
+ *            callback(err, result);
+ *        });        
+ *    }
+ *    ...
+ * }
+ * 
+ * let client = new MyRestClient();
+ * client.configure(ConfigParams.fromTuples(
+ *     "connection.protocol", "http",
+ *     "connection.host", "localhost",
+ *     "connection.port", 8080
+ * ));
+ * 
+ * client.getData("123", "1", (err, result) => {
+ *   ...
+ * });
  */
 export abstract class RestClient implements IOpenable, IConfigurable, IReferenceable {
 
@@ -89,79 +87,54 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
     );
 
     /**
-     * The REST client to use for remote procedure calling.
+     * The HTTP client.
      */
     protected _client: any;
     /**
-     * The connection resolver that is referenced by this object. 
-     * Resolves the ConnectionParams that are to be used.
-     * @see [[HttpConnectionResolver]]
+     * The connection resolver.
      */
     protected _connectionResolver: HttpConnectionResolver = new HttpConnectionResolver();
     /** 
-     * The logger that is referenced by this object.
-     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/log.compositelogger.html CompositeLogger]] (in the PipServices "Components" package)
+     * The logger.
      */
     protected _logger: CompositeLogger = new CompositeLogger();
     /** 
-     * The performance counters that are referenced by this object.
-     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.compositecounters.html CompositeCounters]]
+     * The performance counters.
      */
     protected _counters: CompositeCounters = new CompositeCounters();
-    /** This REST client's options. Set during [[configure configuration]]. */
+    /**
+     * The configuration options.
+     */
     protected _options: ConfigParams = new ConfigParams();
-    /** The base route to use for calling methods. For example "/quotes". */
+    /**
+     * The base route.
+     */
     protected _baseRoute: string;
-    /** The number of retry attempts. */
+    /**
+     * The number of retries.
+     */
     protected _retries: number = 1;
-    /** The REST headers to use. */
+    /**
+     * The default headers to be added to every request.
+     */
     protected _headers: any = {};
-    /** The connection's timeout interval. */
+    /**
+     * The connection timeout in milliseconds.
+     */
     protected _connectTimeout: number = 10000;
-    /** The request's timeout interval. */
+    /**
+     * The invocation timeout in milliseconds.
+     */
     protected _timeout: number = 10000;
-    /** The remote commandable service's URI. */
+    /**
+     * The remote service uri which is calculated on open.
+     */
 	protected _uri: string;
 
     /**
-     * Sets references to this REST client's logger, counters, and connection resolver.
+     * Configures component by passing configuration parameters.
      * 
-     * __References:__
-     * - logger: <code>"\*:logger:\*:\*:1.0"</code>
-     * - counters: <code>"\*:counters:\*:\*:1.0"</code>
-     * - discovery: <code>"\*:discovery:\*:\*:1.0"</code> (for the connection resolver)
-     * 
-     * @param references    an IReferences object, containing references to a logger, counters, 
-     *                      and a connection resolver.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/refer.ireferences.html IReferences]] (in the PipServices "Commons" package)
-     */
-	public setReferences(references: IReferences): void {
-		this._logger.setReferences(references);
-		this._counters.setReferences(references);
-		this._connectionResolver.setReferences(references);
-	}
-
-    //TODO: check - did I miss any defaults?
-    /**
-     * Configures this REST client using the given configuration parameters.
-     * 
-     * __Configuration parameters:__
-     * - "base_route" - the base route;
-     * - __connection(s)__ - the connection resolver's connections;
-     *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
-     *     - "connection.protocol" - the connection's protocol;
-     *     - "connection.host" - the target host;
-     *     - "connection.port" - the target port;
-     *     - "connection.uri" - the target URI.
-     * - __options__
-     *     - "options.retries" - the retry limit (default is 3);
-     *     - "options.connect_timeout" - the connection attempt's timeout (default is 10000);
-     *     - "options.timeout" - the connection's timeout (default is 10000).
-     * 
-     * @param config    the configuration parameters to configure this REST client with.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/config.configparams.html ConfigParams]] (in the PipServices "Commons" package)
+     * @param config    configuration parameters to be set.
      */
 	public configure(config: ConfigParams): void {
 		config = config.setDefaults(RestClient._defaultConfig);
@@ -176,13 +149,23 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
 	}
         
     /**
-     * Starts a Timing for the method with the given name. Does not call the method itself and is 
-     * used only as an instrument to measure execution time.
+	 * Sets references to dependent components.
+	 * 
+	 * @param references 	references to locate the component dependencies. 
+     */
+	public setReferences(references: IReferences): void {
+		this._logger.setReferences(references);
+		this._counters.setReferences(references);
+		this._connectionResolver.setReferences(references);
+	}
+
+    /**
+     * Adds instrumentation to log calls and measure call time.
+     * It returns a Timing object that is used to end the time measurement.
      * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param name              the name of the method call that is to be timed.
-     * 
-     * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/count.timing.html Timing]]
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
+     * @param name              a method name.
+     * @returns Timing object to end the time measurement.
      */
 	protected instrument(correlationId: string, name: string): Timing {
 		this._logger.trace(correlationId, "Executing %s method", name);
@@ -190,20 +173,19 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
 	}
 
     /**
-     * @returns whether no not this object is currently open 
-     *          (has a set client).
+	 * Checks if the component is opened.
+	 * 
+	 * @returns true if the component has been opened and false otherwise.
      */
 	public isOpen(): boolean {
 		return this._client != null;
 	}
     
     /**
-     * Opens a connection to the REST service that is resolved by the referenced connection
-     * resolver and creates a REST client for this object using the set options and parameters.
-     * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param callback          the function to call once the opening process is complete.
-     *                          Will be called with an error if one is raised.
+	 * Opens the component.
+	 * 
+	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
      */
 	public open(correlationId: string, callback?: (err: any) => void): void {
         if (this.isOpen()) {
@@ -245,11 +227,10 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
     }
 
     /**
-     * Closes this object by unsetting the REST client and the URI.
-     * 
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param callback          the function to call once the closing process is complete.
-     *                          Will be called with an error if one is raised.
+	 * Closes component and frees used resources.
+	 * 
+	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
+     * @param callback 			callback function that receives error or null no errors occured.
      */
     public close(correlationId: string, callback?: (err: any) => void): void {
         if (this._client != null) {
@@ -268,12 +249,11 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
     }
 
     /**
-     * Adds a correlation id to a method call's parameters before sending them to 
-     * another service over the REST API.
+     * Adds a correlation id (correlation_id) to invocation parameter map.
      * 
-     * @param params            the method call parameters to add a correlation id to.
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @returns parameters with an added correlation id.
+     * @param params            invocation parameters.
+     * @param correlationId     (optional) a correlation id to be added.
+     * @returns invocation parameters with added correlation id.
      */
     protected addCorrelationId(params: any, correlationId: string): any {
         // Automatically generate short ids for now
@@ -287,13 +267,12 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
     }
 
     /**
-     * Adds filter parameters to a method call's parameters before sending them to 
-     * another service over the REST API.
+     * Adds filter parameters (with the same name as they defined)
+     * to invocation parameter map.
      * 
-     * @param params        the method call parameters to add a correlation id to.
-     * @param filter        the object, whose properties are to be added to the 
-     *                      method call parameters for filtering results.
-     * @returns parameters with added filter parameters.
+     * @param params        invocation parameters.
+     * @param filter        (optional) filter parameters
+     * @returns invocation parameters with added filter parameters.
      */
     protected addFilterParams(params: any, filter: any): void {
         params = params || {};
@@ -309,13 +288,11 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
     }
 
     /**
-     * Adds paging parameters to a method call's parameters before sending them to 
-     * another service over the REST API.
+     * Adds paging parameters (skip, take, total) to invocation parameter map.
      * 
-     * @param params        the method call parameters to add a correlation id to.
-     * @param paging        paging parameters, containing "total", "skip", and/or 
-     *                      "take" properties.
-     * @returns parameters with added paging parameters.
+     * @param params        invocation parameters.
+     * @param paging        (optional) paging parameters
+     * @returns invocation parameters with added paging parameters.
      */
     protected addPagingParams(params: any, paging: any): void {
         params = params || {};
@@ -332,14 +309,6 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
         return params;
     }
 
-    /**
-     * Creates a request route using the set base route and the given command's
-     * route.
-     * 
-     * @param route     the route to the target command (without a base route, 
-     *                  for example: "get_random_quote").
-     * @returns the created request route. Example request route: "/quotes/get_random_quote".
-     */
     private createRequestRoute(route: string): string {
         let builder = "";
 
@@ -356,25 +325,15 @@ export abstract class RestClient implements IOpenable, IConfigurable, IReference
         return builder;
     }
 
-    //TODO: I didn't quite understand what the "callback.call" with 3x parameters does.
     /**
-     * Calls a remote service's method using the given method, the resolved URI, 
-     * the set base path, the given route, and the parameters and/or data that was 
-     * passed.
+     * Calls a remote method via HTTP/REST protocol.
      * 
-     * @param method            the HTTP method to use ("get", "head", "post", "put", "delete").
-     * @param route             the route to the target command (without a base route, 
-     *                          for example: "get_random_quote").
-     * @param correlationId     (optional) unique business transaction id to trace calls across components.
-     * @param params            the parameters to pass to the called method.
-     * @param data              (optional) the data to pass to the called method. If a function is passed, 
-     *                          it will be called with the result, instead of the callback.
-     * @param callback          (optional) the function to call with the result of the execution 
-     *                          (or with an error, if one is raised). If omitted - errors will be 
-     *                          thrown instead.
-     * 
-     * @throws an [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/errors.unknownexception.html UnknownException]] 
-     *          if an unknown <code>method</code> is given.
+     * @param method            HTTP method: "get", "head", "post", "put", "delete"
+     * @param route             a command route. Base route will be added to this route
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
+     * @param params            (optional) query parameters.
+     * @param data              (optional) body object.
+     * @param callback          (optional) callback function that receives result object or error.
      */
     protected call(method: string, route: string, correlationId?: string, params: any = {}, data?: any, 
         callback?: (err: any, result: any) => void): void {

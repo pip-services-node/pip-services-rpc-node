@@ -126,7 +126,7 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
      * Opens a connection using the parameters resolved by the referenced connection
      * resolver and creates a REST server (service) using the set options and parameters.
      * 
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
      * @param callback          (optional) the function to call once the opening process is complete.
      *                          Will be called with an error if one is raised.
      */
@@ -200,7 +200,7 @@ export class HttpEndpoint implements IOpenable, IConfigurable, IReferenceable {
     /**
      * Closes this endpoint and the REST server (service) that was opened earlier.
      * 
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
      * @param callback          (optional) the function to call once the closing process is complete.
      *                          Will be called with an error if one is raised.
      */

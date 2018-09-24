@@ -7,22 +7,12 @@ import { HeartbeatRestService } from '../services/HeartbeatRestService';
 import { StatusRestService } from '../services/StatusRestService';
 
 /**
- * Contains static read-only descriptors for [[HttpEndpoint]], [[HeartbeatRestService]], and [[StatusRestService]] 
- * (as well as a default "net" factory descriptor).
+ * Creates RPC components by their descriptors.
  * 
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/build.factory.html Factory]]
- * 
- * ### Examples ###
- * 
- *     export class MyDataProcess extends ProcessContainer { 
- *         public constructor(){
- *             super('mydata', 'MyData microservice');
- *
- *             this._factories.add(new MyDataServiceFactory());
- *             this._factories.add(new DefaultRpcFactory());
- *         }
- *      }
- * @see [[ProcessContainer]]
+ * @see [[HttpEndpoint]]
+ * @see [[HeartbeatRestService]]
+ * @see [[StatusRestService]] 
  */
 export class DefaultRpcFactory extends Factory {
 	public static readonly Descriptor: Descriptor = new Descriptor("pip-services", "factory", "net", "default", "1.0");
@@ -31,12 +21,7 @@ export class DefaultRpcFactory extends Factory {
     public static readonly HeartbeatServiceDescriptor = new Descriptor("pip-services", "heartbeat-service", "http", "*", "1.0");
 
     /**
-	 * Create a new DefaultRpcFactory object, containing [[HttpEndpoint]], [[HeartbeatRestService]], and [[StatusRestService]] 
-     * object factories.
-	 * 
-	 * @see [[HttpEndpoint]]
-     * @see [[HeartbeatRestService]]
-     * @see [[StatusRestService]] 
+	 * Create a new instance of the factory.
 	 */
     public constructor() {
         super();

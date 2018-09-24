@@ -5,29 +5,17 @@ let _ = require('lodash');
 import { ApplicationException } from 'pip-services-commons-node';
 
 /**
- * Class that contains static methods for sending various HTTP responses.
- * 
- * ### Examples ###
- * 
- *     public MyMethod() {
- *         let req: any;
- *         let res: any;
- *         let error: any;
- *         ...
- * 
- *         HttpResponseSender.sendError(req, res, error);
- *         ...
- * 
- *         HttpResponseSender.sendResult(req, res);
- *     }
+ * Helper class that handles HTTP-based responses.
  */
 export class HttpResponseSender {
     /**
-     * Sends an HTTP error response.
+     * Sends error serialized as ErrorDescription object
+     * and appropriate HTTP status code.
+     * If status code is not defined, it uses 500 status code.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
-     * @param error     the error that was raised.
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param error     an error object to be sent.
      */
     public static sendError(req: any, res: any, error: any): void {
         error = error || {};
@@ -41,10 +29,17 @@ export class HttpResponseSender {
     }
 
     /**
-     * Sends the result of the given request.
+     * Creates a callback function that sends result as JSON object.
+     * That callack function call be called directly or passed
+     * as a parameter to business logic components.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
+     * If object is not null it returns 200 status code.
+     * For null results it returns 204 status code.
+     * If error occur it sends ErrorDescription with approproate status code.
+     * 
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param callback function that receives execution result or error.
      */
     public static sendResult(req: any, res: any): (err: any, result: any) => void {
         return function (err, result) {
@@ -58,11 +53,12 @@ export class HttpResponseSender {
     }
 
     /**
-     * Sends an empty result (204 no content status) in response to 
-     * the given request.
+     * Creates a callback function that sends an empty result with 204 status code.
+     * If error occur it sends ErrorDescription with approproate status code.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param callback function that receives error or null for success.
      */
     public static sendEmptyResult(req: any, res: any): (err: any) => void {
         return function (err) {
@@ -75,11 +71,17 @@ export class HttpResponseSender {
     }
 
     /**
-     * Sends a response, indicating that the request has been fulfilled, resulting in 
-     * the creation of a new resource (HTTP result code 201 - Created).
+     * Creates a callback function that sends newly created object as JSON.
+     * That callack function call be called directly or passed
+     * as a parameter to business logic components.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
+     * If object is not null it returns 201 status code.
+     * For null results it returns 204 status code.
+     * If error occur it sends ErrorDescription with approproate status code.
+     * 
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param callback function that receives execution result or error.
      */
     public static sendCreatedResult(req: any, res: any): (err: any, result: any) => void {
         return function (err, result) {
@@ -95,13 +97,18 @@ export class HttpResponseSender {
         }
     }
 
-    //TODO (note for Sergey): didn't find any mention of a 2xx HTTP code for deletion...
     /**
-     * Sends a response, indicating that the request has been fulfilled, resulting in 
-     * the deletion of a resource
+     * Creates a callback function that sends deleted object as JSON.
+     * That callack function call be called directly or passed
+     * as a parameter to business logic components.
      * 
-     * @param req       the request.
-     * @param res       the request's result.
+     * If object is not null it returns 200 status code.
+     * For null results it returns 204 status code.
+     * If error occur it sends ErrorDescription with approproate status code.
+     * 
+     * @param req       a HTTP request object.
+     * @param res       a HTTP response object.
+     * @param callback function that receives execution result or error.
      */
     public static sendDeletedResult(req: any, res: any): (err: any, result: any) => void {
         return function (err, result) {

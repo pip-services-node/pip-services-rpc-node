@@ -1,3 +1,4 @@
+/** @module index */
 export * from './connect';
 export * from './clients';
 export * from './services';
