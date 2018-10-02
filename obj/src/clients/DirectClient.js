@@ -14,45 +14,45 @@ const pip_services_commons_node_2 = require("pip-services-commons-node");
  * ### Configuration parameters ###
  *
  * dependencies:
- *   controller:            override controller descriptor
+ *   - controller:            override controller descriptor
  *
  * ### References ###
  *
- * - *:logger:*:*:1.0         (optional) [[ILogger]] components to pass log messages
- * - *:counters:*:*:1.0       (optional) [[ICounters]] components to pass collected measurements
- * - *:controller:*:*:1.0     controller to call business methods
+ * - <code>*:logger:*:*:1.0</code>         (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
+ * - <code>*:counters:*:*:1.0</code>       (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
+ * - <code>*:controller:*:*:1.0</code>     controller to call business methods
  *
  * ### Example ###
  *
- * class MyDirectClient extends DirectClient<IMyController> implements IMyClient {
+ *     class MyDirectClient extends DirectClient<IMyController> implements IMyClient {
  *
- *   public constructor() {
- *       super();
- *       this._dependencyResolver.put('controller', new Descriptor(
- *           "mygroup", "controller", "*", "*", "*"));
- *    }
- *    ...
+ *         public constructor() {
+ *           super();
+ *           this._dependencyResolver.put('controller', new Descriptor(
+ *               "mygroup", "controller", "*", "*", "*"));
+ *         }
+ *         ...
  *
- *    public getData(correlationId: string, id: string,
- *        callback: (err: any, result: MyData) => void): void {
+ *         public getData(correlationId: string, id: string,
+ *           callback: (err: any, result: MyData) => void): void {
  *
- *        let timing = this.instrument(correlationId, 'myclient.get_data');
- *        this._controller.getData(correlationId, id, (err, result) => {
- *            timing.endTiming();
- *            callback(err, result);
- *        });
- *    }
- *    ...
- * }
+ *           let timing = this.instrument(correlationId, 'myclient.get_data');
+ *           this._controller.getData(correlationId, id, (err, result) => {
+ *              timing.endTiming();
+ *              callback(err, result);
+ *           });
+ *         }
+ *         ...
+ *     }
  *
- * let client = new MyDirectClient();
- * client.setReferences(References.fromTuples(
- *     new Descriptor("mygroup","controller","default","default","1.0"), controller
- * ));
+ *     let client = new MyDirectClient();
+ *     client.setReferences(References.fromTuples(
+ *         new Descriptor("mygroup","controller","default","default","1.0"), controller
+ *     ));
  *
- * client.getData("123", "1", (err, result) => {
- *   ...
- * });
+ *     client.getData("123", "1", (err, result) => {
+ *       ...
+ *     });
  */
 class DirectClient {
     /**

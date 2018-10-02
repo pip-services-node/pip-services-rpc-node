@@ -4,60 +4,62 @@ import { RestClient } from './RestClient';
 /**
  * Abstract client that calls commandable HTTP service.
  * 
- * Commandable services are generated automatically for ICommandable objects.
+ * Commandable services are generated automatically for [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/commands.icommandable.html ICommandable objects]].
  * Each command is exposed as POST operation that receives all parameters
  * in body object.
  * 
  * ### Configuration parameters ###
  * 
  * base_route:              base route for remote URI
+ * 
  * connection(s):           
- *   discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
- *   protocol:              connection protocol: http or https
- *   host:                  host name or IP address
- *   port:                  port number
- *   uri:                   resource URI or connection string with all parameters in it
+ *   - discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
+ *   - protocol:              connection protocol: http or https
+ *   - host:                  host name or IP address
+ *   - port:                  port number
+ *   - uri:                   resource URI or connection string with all parameters in it
+ * 
  * options:
- *   retries:               number of retries (default: 3)
- *   connect_timeout:       connection timeout in milliseconds (default: 10 sec)
- *   timeout:               invocation timeout in milliseconds (default: 10 sec)
+ *   - retries:               number of retries (default: 3)
+ *   - connect_timeout:       connection timeout in milliseconds (default: 10 sec)
+ *   - timeout:               invocation timeout in milliseconds (default: 10 sec)
  * 
  * ### References ###
  * 
- * - *:logger:*:*:1.0         (optional) [[ILogger]] components to pass log messages
- * - *:counters:*:*:1.0         (optional) [[ICounters]] components to pass collected measurements
- * - *:discovery:*:*:1.0        (optional) IDiscovery services to resolve connection
+ * - <code>*:logger:*:*:1.0</code>         (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
+ * - <code>*:counters:*:*:1.0</code>         (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
+ * - <code>*:discovery:*:*:1.0</code>        (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services to resolve connection
  * 
  * ### Example ###
  * 
- * class MyCommandableHttpClient extends CommandableHttpClient implements IMyClient {
- *    ...
+ *     class MyCommandableHttpClient extends CommandableHttpClient implements IMyClient {
+ *        ...
  * 
- *    public getData(correlationId: string, id: string, 
- *        callback: (err: any, result: MyData) => void): void {
+ *         public getData(correlationId: string, id: string, 
+ *            callback: (err: any, result: MyData) => void): void {
  *        
- *        this.callCommand(
- *            "get_data",
- *            correlationId,
- *            { id: id },
- *            (err, result) => {
- *                callback(err, result);
- *            }
- *         );        
- *    }
- *    ...
- * }
+ *            this.callCommand(
+ *                "get_data",
+ *                correlationId,
+ *                { id: id },
+ *                (err, result) => {
+ *                    callback(err, result);
+ *                }
+ *             );        
+ *         }
+ *         ...
+ *     }
  * 
- * let client = new MyCommandableHttpClient();
- * client.configure(ConfigParams.fromTuples(
- *     "connection.protocol", "http",
- *     "connection.host", "localhost",
- *     "connection.port", 8080
- * ));
+ *     let client = new MyCommandableHttpClient();
+ *     client.configure(ConfigParams.fromTuples(
+ *         "connection.protocol", "http",
+ *         "connection.host", "localhost",
+ *         "connection.port", 8080
+ *     ));
  * 
- * client.getData("123", "1", (err, result) => {
- *   ...
- * });
+ *     client.getData("123", "1", (err, result) => {
+ *     ...
+ *     });
  */
 export class CommandableHttpClient extends RestClient {
     /**

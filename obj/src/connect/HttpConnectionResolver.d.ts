@@ -13,14 +13,14 @@ import { ConnectionParams } from 'pip-services-components-node';
  * ### Configuration parameters ###
  *
  * connection:
- *   discovery_key:               (optional) a key to retrieve the connection from [[IDiscovery]]
+ *   - discovery_key:               (optional) a key to retrieve the connection from [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]]
  *   ...                          other connection parameters
  *
  * connections:                   alternative to connection
- *   [connection params 1]:       first connection parameters
- *     ...
- *   [connection params N]:       Nth connection parameters
- *     ...
+ *   - [connection params 1]:       first connection parameters
+ *   -  ...
+ *   - [connection params N]:       Nth connection parameters
+ *   -  ...
  *
  * ### References ###
  *
@@ -31,18 +31,18 @@ import { ConnectionParams } from 'pip-services-components-node';
  *
  * ### Example ###
  *
- * let config = ConfigParams.fromTuples(
- *      "connection.host", "10.1.1.100",
- *      "connection.port", 8080
- * );
+ *     let config = ConfigParams.fromTuples(
+ *          "connection.host", "10.1.1.100",
+ *          "connection.port", 8080
+ *     );
  *
- * let connectionResolver = new HttpConnectionResolver();
- * connectionResolver.configure(config);
- * connectionResolver.setReferences(references);
+ *     let connectionResolver = new HttpConnectionResolver();
+ *     connectionResolver.configure(config);
+ *     connectionResolver.setReferences(references);
  *
- * connectionResolver.resolve("123", (err, connection) => {
- *      // Now use connection...
- * });
+ *     connectionResolver.resolve("123", (err, connection) => {
+ *          // Now use connection...
+ *     });
  */
 export declare class HttpConnectionResolver implements IReferenceable, IConfigurable {
     /**

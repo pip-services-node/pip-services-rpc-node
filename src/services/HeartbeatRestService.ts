@@ -14,39 +14,42 @@ import { ConfigParams } from 'pip-services-commons-node';
  * ### Configuration parameters ###
  * 
  * base_route:              base route for remote URI (default: "")
+ * 
  * route:                   route to heartbeat operation (default: "heartbeat")
+ * 
  * dependencies:
- *   endpoint:              override for HTTP Endpoint dependency
+ *   - endpoint:              override for HTTP Endpoint dependency
+ * 
  * connection(s):           
- *   discovery_key:         (optional) a key to retrieve the connection from IDiscovery
- *   protocol:              connection protocol: http or https
- *   host:                  host name or IP address
- *   port:                  port number
- *   uri:                   resource URI or connection string with all parameters in it
+ *   - discovery_key:         (optional) a key to retrieve the connection from [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]]
+ *   - protocol:              connection protocol: http or https
+ *   - host:                  host name or IP address
+ *   - port:                  port number
+ *   - uri:                   resource URI or connection string with all parameters in it
  * 
  * ### References ###
  * 
- * - *:logger:*:*:1.0               (optional) ILogger components to pass log messages
- * - *:counters:*:*:1.0             (optional) ICounters components to pass collected measurements
- * - *:discovery:*:*:1.0            (optional) IDiscovery services to resolve connection
- * - *:endpoint:http:*:1.0          (optional) [[HttpEndpoint]] reference
+ * - <code>*:logger:*:*:1.0</code>               (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
+ * - <code>*:counters:*:*:1.0</code>             (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
+ * - <code>*:discovery:*:*:1.0</code>            (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services to resolve connection
+ * - <code>*:endpoint:http:*:1.0</code>          (optional) [[HttpEndpoint]] reference
  * 
  * @see [[RestService]]
  * @see [[RestClient]]
  * 
  * ### Example ###
  * 
- * let service = new HeartbeatService();
- * service.configure(ConfigParams.fromTuples(
- *     "route", "ping",
- *     "connection.protocol", "http",
- *     "connection.host", "localhost",
- *     "connection.port", 8080
- * ));
+ *     let service = new HeartbeatService();
+ *     service.configure(ConfigParams.fromTuples(
+ *         "route", "ping",
+ *         "connection.protocol", "http",
+ *         "connection.host", "localhost",
+ *         "connection.port", 8080
+ *     ));
  * 
- * service.open("123", (err) => {
- *    console.log("The Heartbeat service is accessible at http://+:8080/ping");
- * });
+ *     service.open("123", (err) => {
+ *        console.log("The Heartbeat service is accessible at http://+:8080/ping");
+ *     });
  */
 export class HeartbeatRestService extends RestService {
     private _route: string = "heartbeat";

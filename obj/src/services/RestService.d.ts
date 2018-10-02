@@ -16,66 +16,68 @@ import { IRegisterable } from './IRegisterable';
  * ### Configuration parameters ###
  *
  * base_route:              base route for remote URI
+ *
  * dependencies:
- *   endpoint:              override for HTTP Endpoint dependency
- *   controller:            override for Controller dependency
+ *   - endpoint:              override for HTTP Endpoint dependency
+ *   - controller:            override for Controller dependency
+ *
  * connection(s):
- *   discovery_key:         (optional) a key to retrieve the connection from IDiscovery
- *   protocol:              connection protocol: http or https
- *   host:                  host name or IP address
- *   port:                  port number
- *   uri:                   resource URI or connection string with all parameters in it
+ *   - discovery_key:         (optional) a key to retrieve the connection from IDiscovery
+ *   - protocol:              connection protocol: http or https
+ *   - host:                  host name or IP address
+ *   - port:                  port number
+ *   - uri:                   resource URI or connection string with all parameters in it
  *
  * ### References ###
  *
- * - *:logger:*:*:1.0               (optional) ILogger components to pass log messages
- * - *:counters:*:*:1.0             (optional) ICounters components to pass collected measurements
- * - *:discovery:*:*:1.0            (optional) IDiscovery services to resolve connection
- * - *:endpoint:http:*:1.0          (optional) [[HttpEndpoint]] reference
+ * - <code>*:logger:*:*:1.0</code>               (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
+ * - <code>*:counters:*:*:1.0</code>             (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
+ * - <code>*:discovery:*:*:1.0</code>            (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services to resolve connection
+ * - <code>*:endpoint:http:*:1.0</code>          (optional) [[HttpEndpoint]] reference
  *
  * @see [[RestClient]]
  *
  * ### Example ###
  *
- * class MyRestService extends RestService {
- *    private _controller: IMyController;
- *    ...
- *    public constructor() {
- *       base();
- *       this._dependencyResolver.put(
- *           "controller",
- *           new Descriptor("mygroup","controller","*","*","1.0")
- *       );
- *    }
- *
- *    public setReferences(references: IReferences): void {
- *       base.setReferences(references);
- *       this._controller = this._dependencyResolver.getRequired<IMyController>("controller");
- *    }
- *
- *    public register(): void {
- *        registerRoute("get", "get_mydata", null, (req, res) => {
- *            let correlationId = req.param("correlation_id");
- *            let id = req.param("id");
- *            this._controller.getMyData(correlationId, id, this.sendResult(req, res));
- *        });
+ *     class MyRestService extends RestService {
+ *        private _controller: IMyController;
  *        ...
- *    }
- * }
+ *        public constructor() {
+ *           base();
+ *           this._dependencyResolver.put(
+ *               "controller",
+ *               new Descriptor("mygroup","controller","*","*","1.0")
+ *           );
+ *        }
  *
- * let service = new MyRestService();
- * service.configure(ConfigParams.fromTuples(
- *     "connection.protocol", "http",
- *     "connection.host", "localhost",
- *     "connection.port", 8080
- * ));
- * service.setReferences(References.fromTuples(
- *    new Descriptor("mygroup","controller","default","default","1.0"), controller
- * ));
+ *        public setReferences(references: IReferences): void {
+ *           base.setReferences(references);
+ *           this._controller = this._dependencyResolver.getRequired<IMyController>("controller");
+ *        }
  *
- * service.open("123", (err) => {
- *    console.log("The REST service is running on port 8080");
- * });
+ *        public register(): void {
+ *            registerRoute("get", "get_mydata", null, (req, res) => {
+ *                let correlationId = req.param("correlation_id");
+ *                let id = req.param("id");
+ *                this._controller.getMyData(correlationId, id, this.sendResult(req, res));
+ *            });
+ *            ...
+ *        }
+ *     }
+ *
+ *     let service = new MyRestService();
+ *     service.configure(ConfigParams.fromTuples(
+ *         "connection.protocol", "http",
+ *         "connection.host", "localhost",
+ *         "connection.port", 8080
+ *     ));
+ *     service.setReferences(References.fromTuples(
+ *        new Descriptor("mygroup","controller","default","default","1.0"), controller
+ *     ));
+ *
+ *     service.open("123", (err) => {
+ *        console.log("The REST service is running on port 8080");
+ *     });
  */
 export declare abstract class RestService implements IOpenable, IConfigurable, IReferenceable, IUnreferenceable, IRegisterable {
     private static readonly _defaultConfig;

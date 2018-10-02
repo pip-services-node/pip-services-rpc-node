@@ -70,21 +70,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that contains static methods for sending various HTTP responses.</p>
+						<p>Helper class that handles HTTP-based responses.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-keyword">public</span> MyMethod() {
-    <span class="hljs-keyword">let</span> req: <span class="hljs-built_in">any</span>;
-    <span class="hljs-keyword">let</span> res: <span class="hljs-built_in">any</span>;
-    <span class="hljs-keyword">let</span> error: <span class="hljs-built_in">any</span>;
-    ...
-
-    HttpResponseSender.sendError(req, res, error);
-    ...
-
-    HttpResponseSender.sendResult(req, res);
-}
-</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -124,27 +111,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpResponseSender.ts#L84">services/HttpResponseSender.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/HttpResponseSender.ts#L86">services/HttpResponseSender.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sends a response, indicating that the request has been fulfilled, resulting in
-									the creation of a new resource (HTTP result code 201 - Created).</p>
+									<p>Creates a callback function that sends newly created object as JSON.
+										That callack function call be called directly or passed
+									as a parameter to business logic components.</p>
 								</div>
+								<p>If object is not null it returns 201 status code.
+									For null results it returns 204 status code.
+								If error occur it sends ErrorDescription with approproate status code.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request.</p>
+										<p>a HTTP request object.</p>
 									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request&#39;s result.</p>
+										<p>a HTTP response object.</p>
 									</div>
 								</li>
 							</ul>
@@ -183,27 +174,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpResponseSender.ts#L106">services/HttpResponseSender.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/HttpResponseSender.ts#L113">services/HttpResponseSender.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sends a response, indicating that the request has been fulfilled, resulting in
-									the deletion of a resource</p>
+									<p>Creates a callback function that sends deleted object as JSON.
+										That callack function call be called directly or passed
+									as a parameter to business logic components.</p>
 								</div>
+								<p>If object is not null it returns 200 status code.
+									For null results it returns 204 status code.
+								If error occur it sends ErrorDescription with approproate status code.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request.</p>
+										<p>a HTTP request object.</p>
 									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request&#39;s result.</p>
+										<p>a HTTP response object.</p>
 									</div>
 								</li>
 							</ul>
@@ -242,13 +237,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpResponseSender.ts#L67">services/HttpResponseSender.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/HttpResponseSender.ts#L63">services/HttpResponseSender.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sends an empty result (204 no content status) in response to
-									the given request.</p>
+									<p>Creates a callback function that sends an empty result with 204 status code.
+									If error occur it sends ErrorDescription with approproate status code.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -256,13 +251,13 @@
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request.</p>
+										<p>a HTTP request object.</p>
 									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request&#39;s result.</p>
+										<p>a HTTP response object.</p>
 									</div>
 								</li>
 							</ul>
@@ -298,12 +293,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpResponseSender.ts#L32">services/HttpResponseSender.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/HttpResponseSender.ts#L20">services/HttpResponseSender.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sends an HTTP error response.</p>
+									<p>Sends error serialized as ErrorDescription object
+										and appropriate HTTP status code.
+									If status code is not defined, it uses 500 status code.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -311,19 +308,19 @@
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request.</p>
+										<p>a HTTP request object.</p>
 									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request&#39;s result.</p>
+										<p>a HTTP response object.</p>
 									</div>
 								</li>
 								<li>
 									<h5>error: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the error that was raised.</p>
+										<p>an error object to be sent.</p>
 									</div>
 								</li>
 							</ul>
@@ -341,26 +338,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d666353/src/services/HttpResponseSender.ts#L49">services/HttpResponseSender.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/HttpResponseSender.ts#L44">services/HttpResponseSender.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sends the result of the given request.</p>
+									<p>Creates a callback function that sends result as JSON object.
+										That callack function call be called directly or passed
+									as a parameter to business logic components.</p>
 								</div>
+								<p>If object is not null it returns 200 status code.
+									For null results it returns 204 status code.
+								If error occur it sends ErrorDescription with approproate status code.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>req: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request.</p>
+										<p>a HTTP request object.</p>
 									</div>
 								</li>
 								<li>
 									<h5>res: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the request&#39;s result.</p>
+										<p>a HTTP response object.</p>
 									</div>
 								</li>
 							</ul>
