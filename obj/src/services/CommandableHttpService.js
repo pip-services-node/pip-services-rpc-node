@@ -4,7 +4,7 @@ const pip_services_commons_node_1 = require("pip-services-commons-node");
 const RestService_1 = require("./RestService");
 /**
  * Abstract service that receives remove calls via HTTP/REST protocol
- * to operations automatically generated for commands defined in ICommandable components.
+ * to operations automatically generated for commands defined in [[https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/interfaces/commands.icommandable.html ICommandable components]].
  * Each command is exposed as POST operation that receives all parameters in body object.
  *
  * Commandable services require only 3 lines of code to implement a robust external
@@ -12,13 +12,11 @@ const RestService_1 = require("./RestService");
  *
  * ### Configuration parameters ###
  *
- * base_route:              base route for remote URI
- *
- * dependencies:
+ * - base_route:              base route for remote URI
+ * - dependencies:
  *   - endpoint:              override for HTTP Endpoint dependency
  *   - controller:            override for Controller dependency
- *
- * connection(s):
+ * - connection(s):
  *   - discovery_key:         (optional) a key to retrieve the connection from [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]]
  *   - protocol:              connection protocol: http or https
  *   - host:                  host name or IP address
@@ -27,10 +25,10 @@ const RestService_1 = require("./RestService");
  *
  * ### References ###
  *
- * - <code>*:logger:*:*:1.0</code>               (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
- * - <code>*:counters:*:*:1.0</code>             (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
- * - <code>*:discovery:*:*:1.0</code>            (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services to resolve connection
- * - <code>*:endpoint:http:*:1.0</code>          (optional) [[HttpEndpoint]] reference
+ * - <code>\*:logger:\*:\*:1.0</code>               (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
+ * - <code>\*:counters:\*:\*:1.0</code>             (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
+ * - <code>\*:discovery:\*:\*:1.0</code>            (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services to resolve connection
+ * - <code>\*:endpoint:http:\*:1.0</code>          (optional) [[HttpEndpoint]] reference
  *
  * @see [[CommandableHttpClient]]
  * @see [[RestService]]

@@ -16,7 +16,7 @@ const HttpConnectionResolver_1 = require("../connect/HttpConnectionResolver");
  *
  * Parameters to pass to the [[configure]] method for component configuration:
  *
- * - __connection(s)__ - the connection resolver's connections;
+ * - connection(s) - the connection resolver's connections;
  *     - "connection.discovery_key" - the key to use for connection resolving in a discovery service;
  *     - "connection.protocol" - the connection's protocol;
  *     - "connection.host" - the target host;

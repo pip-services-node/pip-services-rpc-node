@@ -13,11 +13,11 @@ const pip_services_commons_node_1 = require("pip-services-commons-node");
  *
  * ### Configuration parameters ###
  *
- * connection:
+ * - connection:
  *   - discovery_key:               (optional) a key to retrieve the connection from [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]]
- *   ...                          other connection parameters
+ *   - ...                          other connection parameters
  *
- * connections:                   alternative to connection
+ * - connections:                   alternative to connection
  *   - [connection params 1]:       first connection parameters
  *   -  ...
  *   - [connection params N]:       Nth connection parameters
@@ -25,7 +25,7 @@ const pip_services_commons_node_1 = require("pip-services-commons-node");
  *
  * ### References ###
  *
- * - *:discovery:*:*:1.0            (optional) IDiscovery services
+ * - <code>\*:discovery:\*:\*:1.0</code>            (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services
  *
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]]
  * @see [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionresolver.html ConnectionResolver]]

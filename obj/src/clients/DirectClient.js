@@ -13,14 +13,14 @@ const pip_services_commons_node_2 = require("pip-services-commons-node");
  *
  * ### Configuration parameters ###
  *
- * dependencies:
+ * - dependencies:
  *   - controller:            override controller descriptor
  *
  * ### References ###
  *
- * - <code>*:logger:*:*:1.0</code>         (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
- * - <code>*:counters:*:*:1.0</code>       (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
- * - <code>*:controller:*:*:1.0</code>     controller to call business methods
+ * - <code>\*:logger:\*:\*:1.0</code>         (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html ILogger]] components to pass log messages
+ * - <code>\*:counters:\*:\*:1.0</code>       (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html ICounters]] components to pass collected measurements
+ * - <code>\*:controller:\*:\*:1.0</code>     controller to call business methods
  *
  * ### Example ###
  *

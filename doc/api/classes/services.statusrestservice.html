@@ -84,27 +84,29 @@
 </span>-<span class="ruby"> <span class="hljs-string">"components"</span>:    descriptors of components registered <span class="hljs-keyword">in</span> the container</span>
 </code></pre><p>}</p>
 					<h3 id="configuration-parameters">Configuration parameters</h3>
-					<p>base_route:              base route for remote URI</p>
-					<p>route:                   status route (default: &quot;status&quot;)</p>
-					<p>dependencies:</p>
 					<ul>
-						<li>endpoint:              override for HTTP Endpoint dependency</li>
-						<li>controller:            override for Controller dependency</li>
-					</ul>
-					<p>connection(s):</p>
-					<ul>
-						<li>discovery_key:         (optional) a key to retrieve the connection from IDiscovery</li>
-						<li>protocol:              connection protocol: http or https</li>
-						<li>host:                  host name or IP address</li>
-						<li>port:                  port number</li>
-						<li>uri:                   resource URI or connection string with all parameters in it</li>
+						<li>base_route:              base route for remote URI</li>
+						<li>route:                   status route (default: &quot;status&quot;)</li>
+						<li>dependencies:<ul>
+								<li>endpoint:              override for HTTP Endpoint dependency</li>
+								<li>controller:            override for Controller dependency</li>
+							</ul>
+						</li>
+						<li>connection(s):<ul>
+								<li>discovery_key:         (optional) a key to retrieve the connection from <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html" class="external">IDiscovery</a></li>
+								<li>protocol:              connection protocol: http or https</li>
+								<li>host:                  host name or IP address</li>
+								<li>port:                  port number</li>
+								<li>uri:                   resource URI or connection string with all parameters in it</li>
+							</ul>
+						</li>
 					</ul>
 					<h3 id="references">References</h3>
 					<ul>
-						<li><code><em>:logger:</em>:*:1.0</code>               (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html" class="external">ILogger</a> components to pass log messages</li>
-						<li><code><em>:counters:</em>:*:1.0</code>             (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html" class="external">ICounters</a> components to pass collected measurements</li>
-						<li><code><em>:discovery:</em>:*:1.0</code>            (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html" class="external">IDiscovery</a> services to resolve connection</li>
-						<li><code><em>:endpoint:http:</em>:1.0</code>          (optional) <a href="services.httpendpoint.html">HttpEndpoint</a> reference</li>
+						<li><code>*:logger:*:*:1.0</code>               (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/log.ilogger.html" class="external">ILogger</a> components to pass log messages</li>
+						<li><code>*:counters:*:*:1.0</code>             (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/count.icounters.html" class="external">ICounters</a> components to pass collected measurements</li>
+						<li><code>*:discovery:*:*:1.0</code>            (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html" class="external">IDiscovery</a> services to resolve connection</li>
+						<li><code>*:endpoint:http:*:1.0</code>          (optional) <a href="services.httpendpoint.html">HttpEndpoint</a> reference</li>
 					</ul>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
@@ -203,7 +205,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/StatusRestService.ts#L69">services/StatusRestService.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/StatusRestService.ts#L66">services/StatusRestService.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -225,7 +227,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_baseroute">_baseRoute</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L105">services/RestService.ts:105</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L103">services/RestService.ts:103</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -241,7 +243,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_counters">_counters</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L121">services/RestService.ts:121</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L119">services/RestService.ts:119</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -257,7 +259,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_dependencyresolver">_dependencyResolver</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L113">services/RestService.ts:113</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L111">services/RestService.ts:111</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -273,7 +275,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_endpoint">_endpoint</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L109">services/RestService.ts:109</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L107">services/RestService.ts:107</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -289,7 +291,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#_logger">_logger</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L117">services/RestService.ts:117</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L115">services/RestService.ts:115</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -312,7 +314,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L242">services/RestService.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L240">services/RestService.ts:240</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,7 +370,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/StatusRestService.ts#L84">services/StatusRestService.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/StatusRestService.ts#L81">services/StatusRestService.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -400,7 +402,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#instrument">instrument</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L193">services/RestService.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L191">services/RestService.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -440,7 +442,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#isopen">isOpen</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L203">services/RestService.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L201">services/RestService.ts:201</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,7 +466,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#open">open</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L213">services/RestService.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L211">services/RestService.ts:211</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -521,7 +523,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 								<p>Implementation of <a href="../interfaces/services.iregisterable.html">IRegisterable</a>.<a href="../interfaces/services.iregisterable.html#register">register</a></p>
 								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#register">register</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/StatusRestService.ts#L105">services/StatusRestService.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/StatusRestService.ts#L102">services/StatusRestService.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -544,7 +546,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#registerroute">registerRoute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L336">services/RestService.ts:336</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L334">services/RestService.ts:334</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -615,7 +617,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendcreatedresult">sendCreatedResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L294">services/RestService.ts:294</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L292">services/RestService.ts:292</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -679,7 +681,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senddeletedresult">sendDeletedResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L311">services/RestService.ts:311</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L309">services/RestService.ts:309</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -743,7 +745,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#senderror">sendError</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L324">services/RestService.ts:324</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L322">services/RestService.ts:322</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -789,7 +791,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#sendresult">sendResult</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L277">services/RestService.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L275">services/RestService.ts:275</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -853,7 +855,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Overrides <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/StatusRestService.ts#L95">services/StatusRestService.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/StatusRestService.ts#L92">services/StatusRestService.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -885,7 +887,7 @@ service.open(<span class="hljs-string">"123"</span>, (err) =&gt; {
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="services.restservice.html">RestService</a>.<a href="services.restservice.html#unsetreferences">unsetReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/462ee74/src/services/RestService.ts#L165">services/RestService.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-rpc-node/blob/d0057a6/src/services/RestService.ts#L163">services/RestService.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
